@@ -1,0 +1,14 @@
+SilverStripe\GraphQL\Controller:
+  cors:
+    Enabled: true
+    Allow-Origin: '*'
+    Allow-Headers: 'Authorization, Content-Type, x-apollo-tracing, x-csrf-token'
+    Allow-Methods: 'GET, POST, OPTIONS'
+    Allow-Credentials: 'true'
+    Max-Age: 600
+
+SilverStripe\GraphQL\Schema\Schema:
+  schemas:
+    default:
+      src:
+        - app/_graphql

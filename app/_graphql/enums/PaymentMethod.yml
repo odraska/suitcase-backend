@@ -1,0 +1,5 @@
+PaymentMethod:
+  values:
+    - 'creditCard'
+    - 'bankTransfer'
+    - 'paypal'

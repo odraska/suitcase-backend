@@ -1,0 +1,9 @@
+---
+After:
+  - 'graphql-middlewares'
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\GraphQL\QueryHandler\QueryHandlerInterface.default:
+    properties:
+      Middlewares:
+        csrf: false

@@ -1,0 +1,9 @@
+/* Overrides styling for SiverstripeNavigator */
+
+div#SilverStripeNavigator {
+    border-top: 0;
+}
+
+#SilverStripeNavigatorMessage {
+    background: #000A;
+}

@@ -1,0 +1,13 @@
+resolvers:
+  - SilverStripe\AssetAdmin\GraphQL\Resolvers\AssetAdminResolver
+modelConfig:
+  DataObject:
+    plugins:
+      versioning: false
+      inheritance:
+        useUnionQueries: false
+    operations:
+      read:
+        plugins:
+          readVersion: false
+          paginateList: true

@@ -1,0 +1,18 @@
+---
+Name: app-mailer
+After:
+  - '#mailer'
+---
+SilverStripe\Core\Injector\Injector:
+  Symfony\Component\Mailer\Transport\TransportInterface:
+    constructor:
+      dsn: 'ses+api://AKIATMYGDYG52O4YNAP7:AuzaVRBx5oqVH%2fVJCfRI2Tmm9aDxxyopaVMK34Wh@default?region=eu-central-1'
+  Symfony\Component\EventDispatcher\EventDispatcherInterface.mailer:
+    class: Symfony\Component\EventDispatcher\EventDispatcher
+    calls:
+      - [ addSubscriber, [ '%$SLONline\AmazonAWS\EventListener\SesMailerSubscriber' ] ]
+
+SLONline\AmazonAWS\Controller\AmazonEmailRequest:
+  aws_credentials_key: '`AWS_ACCESS_KEY`'
+  aws_credentials_secret: '`AWS_SECRET_ACCESS_KEY`'
+  aws_region: 'eu-central-1'

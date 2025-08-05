@@ -1,0 +1,35 @@
+ImageInterface:
+  typeResolver:
+    - SLONline\App\GraphQL\Resolvers\AssetResolver
+    - resolveImageInterfaceType
+  description: Interface for images
+  fields:
+    id: ID!
+    title:
+      type: String!
+      plugins:
+        requiredField: true
+    name:
+      type: String!
+      plugins:
+        requiredField: true
+    filename:
+      type: String!
+      plugins:
+        requiredField: true
+    extension:
+      type: String!
+      plugins:
+        requiredField: true
+    url:
+      type: String!
+      plugins:
+        requiredField: true
+    width:
+      type: Float!
+      plugins:
+        requiredField: true
+    height:
+      type: Float!
+      plugins:
+        requiredField: true

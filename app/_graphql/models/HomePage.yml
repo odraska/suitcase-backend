@@ -1,0 +1,34 @@
+SLONline\App\Model\HomePage:
+  fields:
+    id: true
+    title:
+      type: String!
+      plugins:
+        requiredField: true
+    menuTitle:
+      type: String!
+      plugins:
+        requiredField: true
+    parentID:
+      type: Int!
+    showInMenus:
+      type: Boolean!
+    content:
+      type: String!
+      plugins:
+        requiredField: true
+    urlSegment:
+      type: String!
+      plugins:
+        requiredField: true
+    metaTitle:
+      type: String!
+      property: 'metaTitle'
+      plugins:
+        requiredField: true
+    metaDescription:
+      type: String!
+      plugins:
+        requiredField: true
+  operations:
+    readOne: true

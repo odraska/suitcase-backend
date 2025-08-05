@@ -1,0 +1,87 @@
+Page:
+  fields:
+    id: true
+    title:
+      type: String!
+      plugins:
+        requiredField: true
+    menuTitle:
+      type: String!
+      plugins:
+        requiredField: true
+    parentID:
+      type: Int!
+    showInMenus:
+      type: Boolean!
+    showInHeader:
+      type: Boolean!
+      plugins:
+        requiredField: true
+    content:
+      type: String!
+      plugins:
+        requiredField: true
+    urlSegment:
+      type: String!
+      plugins:
+        requiredField: true
+    metaTitle:
+      type: String!
+      property: 'metaTitle'
+      plugins:
+        requiredField: true
+    metaDescription:
+      type: String!
+      plugins:
+        requiredField: true
+    url:
+      type: String!
+      property: 'Link'
+      plugins:
+        requiredField: true
+    pageType:
+      type: String!
+      property: 'pageType'
+      resolver: SLONline\Elefont\GraphQL\Resolvers\PageTypeResolver::resolve
+      plugins:
+        requiredField: true
+    websiteBlocks: true
+    taglineText:
+      type: String!
+      plugins:
+        requiredField: true
+  operations:
+    read:
+      plugins:
+        filter:
+          fields:
+            id: true
+            title: true
+            menuTitle: true
+            parentID: true
+            showInMenus: true
+            urlSegment: true
+            url: true
+            pageType: true
+            version: false
+          resolve:
+            pageType:
+              resolver: SLONline\Elefont\GraphQL\Resolvers\PageTypeResolver::applyFilter
+              type: String
+    readOne:
+      plugins:
+        filter:
+          fields:
+            id: true
+            title: true
+            menuTitle: true
+            parentID: true
+            showInMenus: true
+            urlSegment: true
+            url: true
+            pageType: true
+            version: false
+          resolve:
+            pageType:
+              resolver: SLONline\Elefont\GraphQL\Resolvers\PageTypeResolver::applyFilter
+              type: String
