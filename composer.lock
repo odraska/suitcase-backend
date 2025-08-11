@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ccd0f5b7037df6356bc05ccdfd64912",
+    "content-hash": "96d58a2e0cdb440a3dbb2ebf268e76db",
     "packages": [
         {
             "name": "async-aws/core",
@@ -5166,9 +5166,9 @@
         {
             "name": "slonline/elefont",
             "version": "6.x-dev",
-            "dist": {
-                "type": "path",
-                "url": "../_modules/elefont",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:slonline/elefont.git",
                 "reference": "8064bae6a288cb34f9d446aacaa24ae9c00e4a11"
             },
             "require": {
@@ -5201,9 +5201,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "time": "2025-08-11T14:10:53+00:00"
         },
         {
             "name": "slonline/email-templates",
