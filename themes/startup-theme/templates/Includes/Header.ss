@@ -56,8 +56,8 @@
                         <a href="$Link" id="{$URLSegment}-mobile-submenu-link" class="mobile-menu__link"
                         >$MenuTitle</a>
                         <% if $Children %>
-                            <button class="mobile-submenu-chevron accordion__toggle" type="button" aria-label="Open $MenuTitle submenu" aria-expanded="false" aria-controls="{$URLSegment}-mobile-submenu" data-accordion-flip>
-                                <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <button class="mobile-submenu-chevron accordion__toggle" type="button" aria-label="Open $MenuTitle submenu" aria-expanded="false" aria-controls="{$URLSegment}-mobile-submenu">
+                                <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-accordion-flip>
                                     <path d="M0 1.88973L1.29663 0.5L5.50183 5.08612L9.70337 0.5L11 1.88973L5.50183 7.86607L0 1.88973Z" fill="currentcolor"/>
                                 </svg>
                             </button>

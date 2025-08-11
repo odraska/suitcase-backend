@@ -10,13 +10,7 @@
 }
 
 .page__content {
-    width: 100%;
-}
-
-.page__content--with-sidebar {
-    @media (min-width: 992px) {
-        width: 76rem;
-    }
+    max-width: 76rem;
 }
 
 .page-menu {
@@ -47,7 +41,6 @@
     border-bottom: 0.1rem solid var(--color-line-grey);
     padding-bottom: 2.5rem;
     display: grid;
-    font-size: 1.4rem;
     gap: 1.7rem;
     list-style: none;
 
@@ -67,13 +60,14 @@
 
 .page-menu__list-item {
     margin: 0;
+    padding-left: 1.5rem;
 }
 
 .page-menu__list-item--current {
     font-weight: var(--font-weight-bold);
+    border-left: 0.2rem solid var(--color-charcoal);
 }
 
 .page-menu__list-item--child {
     font-weight: var(--font-weight-base);
-    margin-left: 1.75em;
 }

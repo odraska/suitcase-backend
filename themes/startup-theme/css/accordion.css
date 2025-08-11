@@ -18,9 +18,9 @@
 }
 
 [data-accordion-flip] {
-    transition: var(--transition-default);
+  transition: var(--transition-default);
 }
 
 .accordion__item.is-active [data-accordion-flip] {
-    rotate: -180deg;
+  rotate: -180deg;
 }

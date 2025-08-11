@@ -1,0 +1,18 @@
+SLONline\App\Model\Slide:
+  fields:
+    id:
+      type: ID!
+    title:
+      type: String!
+      plugins:
+        requiredField: true
+    image:
+      type: File
+      property: 'imageNull'
+    video:
+      type: File
+      property: 'videoNull'
+    link:
+      type: String!
+      plugins:
+        requiredField: true

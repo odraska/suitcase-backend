@@ -1,3 +1,6 @@
+<%-- This sidebar template is used when a page is lower than top-level (> 1) in the sitetree and has
+     sibling pages (same parent & level). If the current page has children, links to those pages are
+     rendered as well. See layout/Page.ss for the display conditions. --%>
 <aside class="page-menu">
     <nav class="page-menu__nav" aria-labelledby="page-menu-heading">
         <h2 id="page-menu-heading" class="h5 page-menu__heading">

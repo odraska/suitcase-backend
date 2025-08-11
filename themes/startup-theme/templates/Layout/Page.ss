@@ -1,9 +1,11 @@
-<div class="page__content <% if $Menu($PageLevel).count > 1 && $PageLevel > 1 %>page__content--with-sidebar<% end_if %>">
+<div class="page__content">
     <h1 class="page__title">$Title</h1>
     $Content
     $ElementalArea
     $Form
 </div>
-<% if $Menu($PageLevel).count > 1 && $PageLevel > 1 %>
+<% if $PageLevel == 1 && $Children %>
+    <% include LevelOneSidebar %>
+<% else_if $PageLevel > 1 && $Menu($PageLevel).count > 1 %>
     <% include Sidebar %>
 <% end_if %>
