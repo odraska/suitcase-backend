@@ -4,12 +4,10 @@ namespace {
 
     use SilverStripe\CMS\Model\SiteTree;
     use SilverStripe\Core\Config\Config;
-    use SilverStripe\Forms\FieldList;
     use SilverStripe\Forms\GridField\GridField;
     use SilverStripe\Forms\GridField\GridFieldAddNewButton;
     use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
     use SilverStripe\Forms\GridField\GridFieldDataColumns;
-    use SilverStripe\Forms\TextField;
     use SilverStripe\ORM\HasManyList;
     use SilverStripe\SiteConfig\SiteConfig;
     use SLONline\Elefont\Model\FontFamilyPage;
@@ -23,7 +21,7 @@ namespace {
      * @author    Lubos Odraska <odraska@slonline.sk>
      * @copyright Copyright (c) 2025, SLONline, s.r.o.
      *
-     * @property string TaglineText
+     * @property boolean $ShowInHeader
      * @method HasManyList|WebsiteBlock WebsiteBlocks
      */
     class Page extends SiteTree
@@ -62,11 +60,6 @@ namespace {
 
             $fields->addFieldToTab('Root.WebsiteBlocks',
                 GridField::create('WebsiteBlocks', 'Website blocks', $this->WebsiteBlocks(), $config));
-
-            $fields->addFieldToTab('Root.Main', TextField::create(
-                'TaglineText',
-                'Footer Tagline'
-            ), 'Content');
 
             if (!($this instanceof FontFamilyPage)) {
                 $fields->removeByName('Content');

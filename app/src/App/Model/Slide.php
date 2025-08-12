@@ -4,6 +4,7 @@ namespace SLONline\App\Model;
 
 use SilverStripe\Assets\File;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Versioned\Versioned;
 
 /**
  * Slide Data Object
@@ -16,6 +17,9 @@ use SilverStripe\ORM\DataObject;
  * @property string $Title
  * @property int $SortOrder
  * @property string $Link
+ * @property int $HomePageID
+ * @property int $ImageID
+ * @property int $VideoID
  * @method  HomePage HomePage
  * @method  File Image
  * @method  File Video
@@ -38,12 +42,22 @@ class Slide extends DataObject
         'Video' => File::class,
     ];
 
+    private static array $extensions = [
+        Versioned::class,
+    ];
+
     private static array $owns = [
         'Image',
         'Video'
     ];
 
+    private static array $owned_by = [
+        'HomePage',
+    ];
+
     private static string $default_sort = "SortOrder ASC";
+
+    private static bool $versioned_gridfield_extensions = true;
 
     public function imageNull(): ?File
     {
@@ -72,6 +86,7 @@ class Slide extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('HomePageID');
+        $fields->removeByName('SortOrder');
         return $fields;
     }
 }

@@ -2,8 +2,8 @@ File:
   description: Type for files and images
   interfaces: [ FileInterface ]
   fieldResolver:
-    - SilverStripe\GraphQL\Modules\AssetAdmin\Resolvers\FieldResolver
-    - resolve
+    - SLONline\App\GraphQL\Resolvers\AssetResolver
+    - resolveField
   fields:
     id: ID!
     title:

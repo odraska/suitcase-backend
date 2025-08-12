@@ -32,10 +32,6 @@ class HomePage extends \Page
         'Slides' => Slide::class
     ];
 
-    private static array $owns = [
-        'Slides',
-    ];
-
     private static array $allowed_children = [];
 
     public function metaTitle(): string
