@@ -1,0 +1,6 @@
+---
+Name: app-extensions
+---
+SLONline\Elefont\Model\FontFamilyPage:
+  extensions:
+    - SLONline\App\Extensions\FontFamilyPage
