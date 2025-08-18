@@ -5,6 +5,7 @@ namespace SLONline\App\Model;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldDataColumns;
+use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\HasManyList;
 use SilverStripe\SiteConfig\SiteConfig;
 use SLONline\Elefont\Model\FontFamilyPage;
@@ -39,7 +40,7 @@ class HomePage extends \Page
         return SiteConfig::current_site_config()->Title . (SiteConfig::current_site_config()->Tagline ? ' - ' . SiteConfig::current_site_config()->Tagline : '');
     }
 
-    public function featuredFontFamilyPages()
+    public function featuredFontFamilyPages(): DataList
     {
         return FontFamilyPage::get()
             ->filter('IsFeatured', true)

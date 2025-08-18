@@ -10,5 +10,6 @@ SilverStripe\GraphQL\Controller:
 SilverStripe\GraphQL\Schema\Schema:
   schemas:
     default:
-      src:
-        - app/_graphql
+      config:
+        execute:
+          - 'SLONline\App\GraphQL\AppSchema'

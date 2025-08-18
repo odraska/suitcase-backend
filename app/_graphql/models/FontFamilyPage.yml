@@ -1,9 +1,0 @@
-SLONline\Elefont\Model\FontFamilyPage:
-  fields:
-    footerButton:
-      type: FooterButton!
-      property: 'footerButton'
-    footerButtonBorderColor: String
-    footerButtonTextColor: String
-    footerButtonBackgroundColor: String
-    footerButtonBorderRadius: Int

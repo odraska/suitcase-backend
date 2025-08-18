@@ -1,5 +1,0 @@
-FileResult:
-  types: [Image, File]
-  typeResolver:
-    - SLONline\App\GraphQL\Resolvers\AssetResolver
-    - resolveFileInterfaceType

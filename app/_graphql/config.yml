@@ -1,13 +1,2 @@
-resolvers:
-  - SilverStripe\AssetAdmin\GraphQL\Resolvers\AssetAdminResolver
-modelConfig:
-  DataObject:
-    plugins:
-      versioning: false
-      inheritance:
-        useUnionQueries: false
-    operations:
-      read:
-        plugins:
-          readVersion: false
-          paginateList: true
+#we are using configuration via code, so this file is not used
+# @see SLONline\App\GraphQL\AppSchema

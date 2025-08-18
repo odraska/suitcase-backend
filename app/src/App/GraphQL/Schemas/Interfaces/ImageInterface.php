@@ -1,0 +1,37 @@
+<?php
+
+namespace SLONline\App\GraphQL\Schemas\Interfaces;
+
+use SilverStripe\GraphQL\Schema\Exception\SchemaBuilderException;
+use SilverStripe\GraphQL\Schema\Schema;
+use SilverStripe\GraphQL\Schema\Type\InterfaceType;
+use SLONline\App\GraphQL\PartialSchemaUpdater;
+use SLONline\App\GraphQL\Resolvers\AssetResolver;
+
+/**
+ * Image Interface GraphQL Schema Updater
+ *
+ * @author    Lubos Odraska <odraska@slonline.sk>
+ * @copyright Copyright (c) 2025, SLONline, s.r.o.
+ */
+class ImageInterface implements PartialSchemaUpdater
+{
+    /**
+     * @throws SchemaBuilderException
+     */
+    public static function updateSchema(Schema $schema): void
+    {
+        $schema->addInterface(InterfaceType::create('ImageInterface')
+            ->setTypeResolver([AssetResolver::class, 'resolveImageInterfaceType'])
+            ->setDescription('Interface for images')
+            ->addField('id', 'ID!')
+            ->addField('title', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
+            ->addField('name', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
+            ->addField('filename', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
+            ->addField('extension', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
+            ->addField('url', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
+            ->addField('width', ['type' => 'Float!', 'plugins' => ['requiredField' => true]])
+            ->addField('height', ['type' => 'Float!', 'plugins' => ['requiredField' => true]])
+        );
+    }
+}
