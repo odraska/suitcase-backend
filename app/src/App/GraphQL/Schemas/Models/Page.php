@@ -42,7 +42,7 @@ class Page implements PartialSchemaUpdater
                     'type' => 'Int!',
                 ],
                 'parent' => [
-                    'type' => 'Page',
+                    'type' => 'SiteTreeInterface',
                 ],
                 'showInMenus' => [
                     'type' => 'Boolean!',
@@ -92,6 +92,22 @@ class Page implements PartialSchemaUpdater
                 'plugins' => [
                     'readVersion' => false,
                     'paginateList' => true,
+                    'filter' => [
+                        'fields' => [
+                            'id' => true,
+                            'title' => true,
+                            'parentID' => true,
+                            'showInMenus' => true,
+                            'urlSegment' => true,
+                            'pageType' => true,
+                        ],
+                        'resolve' => [
+                            'pageType' => [
+                                'resolver' => [PageTypeResolver::class, 'applyFilter'],
+                                'type' => 'String'
+                            ]
+                        ]
+                    ]
                 ],
             ])
         );
