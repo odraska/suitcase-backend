@@ -54,7 +54,7 @@ class HomePage extends \Page
     public function featuredFontFamilyPages(): DataList
     {
         return FontFamilyPage::get()
-            ->filter('IsFeatured', true)
+            ->filter('FamilyIsFeatured', true)
             ->sort('ReleaseDate', 'DESC');
     }
 
