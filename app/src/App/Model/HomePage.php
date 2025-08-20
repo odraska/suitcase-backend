@@ -2,6 +2,7 @@
 
 namespace SLONline\App\Model;
 
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldDataColumns;
@@ -27,10 +28,20 @@ class HomePage extends \Page
     private static string $singluar_name = 'Home Page';
     private static string $plural_name = 'Home Pages';
 
-    private static array $db = [];
+    private static array $db = [
+        'AboutText' => 'Text',
+    ];
+
+    private static array $has_one = [
+        'AboutImage' => Image::class
+    ];
 
     private static array $has_many = [
         'Slides' => Slide::class
+    ];
+
+    private static array $owns = [
+        'AboutImage',
     ];
 
     private static array $allowed_children = [];

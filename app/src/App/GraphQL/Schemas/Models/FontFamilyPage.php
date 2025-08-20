@@ -23,7 +23,15 @@ class FontFamilyPage implements PartialSchemaUpdater
     public static function updateSchema(Schema $schema): void
     {
         $schema->getModel('FontFamilyPage')
-            ->addField('footerButton', ['type' => 'FooterButton!', 'property' => 'footerButton']);
+            ->addField('footerButton', ['type' => 'FooterButton!', 'property' => 'footerButton'])
+            ->addField('fontCategories', [
+                'type' => '[FontCategory!]!',
+                'property' => 'FontCategories',
+                'plugins' => [
+                    'paginateList' => false,
+                    'sort' => false,
+                    'filter' => false
+                ]]);
         $schema->getModel('FontFamilyPage')->removeOperation('readOne');
         $schema->getModel('FontFamilyPage')->removeOperation('read');
         $schema->getModel('FontFamilyPage')->addOperation('read', [
@@ -34,6 +42,9 @@ class FontFamilyPage implements PartialSchemaUpdater
                         'urlSegment' => true,
                         'scriptID' => true,
                         'scriptCode' => true,
+                        'scriptUrlSegment' => true,
+                        'categoryID' => true,
+                        'categoryUrlSegment' => true,
                     ],
                     'resolve' => [
                         'scriptID' => [
@@ -45,7 +56,22 @@ class FontFamilyPage implements PartialSchemaUpdater
                             'type' => 'String',
                             'description' => 'Codes of the scripts to filter by',
                             'resolver' => [FontFamilyPageResolver::class, 'resolveScriptCodeFilter'],
-                        ]
+                        ],
+                        'scriptUrlSegment' => [
+                            'type' => 'String',
+                            'description' => 'URL segments of the scripts to filter by',
+                            'resolver' => [FontFamilyPageResolver::class, 'resolveScriptUrlSegmentFilter'],
+                        ],
+                        'categoryID' => [
+                            'type' => 'ID',
+                            'description' => 'IDs of the categories to filter by',
+                            'resolver' => [\SLONline\App\GraphQL\Resolvers\FontFamilyPageResolver::class, 'resolveCategoryIDFilter'],
+                        ],
+                        'categoryUrlSegment' => [
+                            'type' => 'String',
+                            'description' => 'URL segments of the categories to filter by',
+                            'resolver' => [\SLONline\App\GraphQL\Resolvers\FontFamilyPageResolver::class, 'resolveCategoryUrlSegmentFilter'],
+                        ],
                     ]
                 ],
                 'paginateList' => true,

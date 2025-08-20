@@ -3,6 +3,7 @@
 namespace SLONline\App\Model;
 
 use SilverStripe\Assets\File;
+use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
 
@@ -38,7 +39,7 @@ class Slide extends DataObject
 
     private static array $has_one = [
         'HomePage' => HomePage::class,
-        'Image' => File::class,
+        'Image' => Image::class,
         'Video' => File::class,
     ];
 

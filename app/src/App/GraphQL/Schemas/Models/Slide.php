@@ -33,7 +33,7 @@ class Slide implements PartialSchemaUpdater
                     ],
                 ],
                 'image' => [
-                    'type' => 'File',
+                    'type' => 'Image',
                     'property' => 'imageNull',
                 ],
                 'video' => [

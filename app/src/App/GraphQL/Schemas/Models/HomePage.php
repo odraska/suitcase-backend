@@ -39,6 +39,12 @@ class HomePage implements PartialSchemaUpdater
                         'sort' => false
                     ],
                 ],
+                'aboutText' => [
+                    'type' => 'String',
+                ],
+                'aboutImage' => [
+                    'type' => 'Image',
+                ],
             ]);
             $model->addOperation('readOne', [
                 'plugins' => [

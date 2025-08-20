@@ -60,6 +60,8 @@ namespace {
             $fields->addFieldToTab('Root.WebsiteBlocks',
                 GridField::create('WebsiteBlocks', 'Website blocks', $this->WebsiteBlocks(), $config));
 
+            $fields->removeByName('Content');
+
             return $fields;
         }
 

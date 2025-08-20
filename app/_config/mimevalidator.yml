@@ -13,3 +13,7 @@ SilverStripe\MimeValidator\MimeUploadValidator:
     svg:
       - 'image/svg+xml'
       - 'image/svg'
+    avif:
+      - 'image/avif'
+    webp:
+      - 'image/webp'
