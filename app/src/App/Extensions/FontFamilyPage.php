@@ -7,6 +7,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\ORM\ManyManyList;
 use SLONline\App\Model\FontCategory;
+use SLONline\App\Model\Slide;
 use SLONline\ColorField\Form\ColorField;
 use SLONline\ColorField\ORM\FieldType\DBColor;
 
@@ -29,6 +30,10 @@ class FontFamilyPage extends Extension
         'FooterButtonTextColor' => DBColor::class,
         'FooterButtonBackgroundColor' => DBColor::class,
         'FooterButtonBorderRadius' => 'Int'
+    ];
+
+    private static array $has_many = [
+        'Slides' => Slide::class,
     ];
 
     private static array $many_many = [

@@ -31,7 +31,16 @@ class FontFamilyPage implements PartialSchemaUpdater
                     'paginateList' => false,
                     'sort' => false,
                     'filter' => false
-                ]]);
+                ]])
+            ->addField('slides', [
+                'type' => '[Slide!]!',
+                'property' => 'Slides',
+                'plugins' => [
+                    'paginateList' => false,
+                    'sort' => false,
+                    'filter' => false
+                ]
+            ]);
         $schema->getModel('FontFamilyPage')->removeOperation('readOne');
         $schema->getModel('FontFamilyPage')->removeOperation('read');
         $schema->getModel('FontFamilyPage')->addOperation('read', [

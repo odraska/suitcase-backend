@@ -2,10 +2,12 @@
 
 namespace SLONline\App\Model;
 
+use Page;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
+use SLONline\Elefont\Model\FontFamilyPage;
 
 /**
  * Slide Data Object
@@ -21,7 +23,7 @@ use SilverStripe\Versioned\Versioned;
  * @property int $HomePageID
  * @property int $ImageID
  * @property int $VideoID
- * @method  HomePage HomePage
+ * @method  Page Page
  * @method  File Image
  * @method  File Video
  */
@@ -38,7 +40,7 @@ class Slide extends DataObject
     ];
 
     private static array $has_one = [
-        'HomePage' => HomePage::class,
+        'Page' => Page::class,
         'Image' => Image::class,
         'Video' => File::class,
     ];
@@ -53,7 +55,7 @@ class Slide extends DataObject
     ];
 
     private static array $owned_by = [
-        'HomePage',
+        'Page',
     ];
 
     private static string $default_sort = "SortOrder ASC";
@@ -86,8 +88,13 @@ class Slide extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName('HomePageID');
+        $fields->removeByName('PageID');
         $fields->removeByName('SortOrder');
+
+        if ($this->Page() instanceof FontFamilyPage) {
+            $fields->removeByName('Video');
+        }
+
         return $fields;
     }
 }

@@ -37,7 +37,7 @@ class HomePage extends \Page
     ];
 
     private static array $has_many = [
-        'Slides' => Slide::class
+        'Slides' => Slide::class,
     ];
 
     private static array $owns = [
