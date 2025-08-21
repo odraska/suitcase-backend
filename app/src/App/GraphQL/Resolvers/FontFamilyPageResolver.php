@@ -21,6 +21,10 @@ class FontFamilyPageResolver
             return null;
         }
 
+        if (empty($context['filterValue'])) {
+            return $list;
+        }
+
         $filterID = $context['filterComparator'];
 
         $registry = Injector::inst()->get(FilterRegistryInterface::class);
@@ -44,6 +48,10 @@ class FontFamilyPageResolver
     {
         if ($list === null) {
             return null;
+        }
+
+        if (empty($context['filterValue'])) {
+            return $list;
         }
 
         $filterID = $context['filterComparator'];
