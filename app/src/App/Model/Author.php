@@ -82,7 +82,7 @@ class Author extends DataObject
         $fields->fieldByName('Root.Main.Bio')
             ->getEditorConfig()
             ->disablePlugins(['anchor', 'lists', 'image', 'media', 'paste', 'table', 'emoticons', 'code', 'importcss', 'ssmedia', 'ssembed'])
-            ->removeButtons(['bullist', 'numlist', 'outdent', 'indent', '|']);
+            ->removeButtons(['bullist', 'numlist', 'outdent', 'indent', '|', 'blocks', 'pastetext', 'sslink', 'unlink', 'code', 'visualblocks']);
         $fields->fieldByName('Root.Main.Bio')
             ->getEditorConfig()
             ->addButtonsToLine(1, ['blocks', 'pastetext', 'sslink', 'unlink', 'code', 'visualblocks']);
