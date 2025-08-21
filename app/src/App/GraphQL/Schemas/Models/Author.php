@@ -36,7 +36,7 @@ class Author implements PartialSchemaUpdater
                         'requiredField' => true,
                     ],
                 ],
-                'biography' => [
+                'bio' => [
                     'type' => 'String!',
                     'plugins' => [
                         'requiredField' => true,

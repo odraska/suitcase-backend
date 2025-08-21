@@ -40,7 +40,7 @@ class Author extends DataObject
     private static array $db = [
         'Name' => 'Varchar(255)',
         'UrlSegment' => 'Varchar(255)',
-        'Bio' => 'Text',
+        'Bio' => 'HTMLText',
         'TeamMember' => 'Boolean',
     ];
 
@@ -78,6 +78,17 @@ class Author extends DataObject
         $fileUploadField = $fields->fieldByName('Root.Main.Photo');
         $fileUploadField?->setFolderName(self::folder());
         $fileUploadField?->getUpload()->setReplaceFile(true);
+
+        $fields->fieldByName('Root.Main.Bio')
+            ->getEditorConfig()
+            ->disablePlugins(['anchor', 'lists', 'image', 'media', 'paste', 'table', 'emoticons', 'code', 'importcss', 'ssmedia', 'ssembed'])
+            ->removeButtons(['bullist', 'numlist', 'outdent', 'indent', '|']);
+        $fields->fieldByName('Root.Main.Bio')
+            ->getEditorConfig()
+            ->addButtonsToLine(1, ['blocks', 'pastetext', 'sslink', 'unlink', 'code', 'visualblocks']);
+        $fields->fieldByName('Root.Main.Bio')
+            ->getEditorConfig()
+            ->setButtonsForLine(2, []);
 
         return $fields;
     }
