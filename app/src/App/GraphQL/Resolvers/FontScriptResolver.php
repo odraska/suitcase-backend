@@ -16,8 +16,14 @@ class FontScriptResolver
 {
     public static function resolveReadFontScripts($obj, array $args, array $context, ResolveInfo $info): DataList
     {
-        return DataList::create(FontScript::class)
+        $list = DataList::create(FontScript::class)
             ->filter('FontFamilies.Count():GreaterThan', 0)
             ->sort('Title', 'ASC');
+
+        if (!empty($args['categoryUrlSegment'])) {
+            $list = $list->filter('FontFamilies.Fonts.FontFamilyPages.FontCategories.UrlSegment', $args['categoryUrlSegment']);
+        }
+
+        return $list;
     }
 }

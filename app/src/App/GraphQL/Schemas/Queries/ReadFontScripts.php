@@ -23,7 +23,7 @@ class ReadFontScripts implements PartialSchemaUpdater
         $schema->addQuery(
             Query::create('readFontScripts')
                 ->setDescription('Read all font scripts')
-                ->setType('[FontScript]', true)
+                ->setType('[FontScript!]', true)
                 ->addArg('categoryUrlSegment', ['type' => 'String', 'description' => 'Filter by category URL segment'])
                 ->addPlugin('paginateList')
                 ->setResolver([FontScriptResolver::class, 'resolveReadFontScripts'])

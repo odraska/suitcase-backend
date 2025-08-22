@@ -20,6 +20,10 @@ class FontCategoryResolver
             ->filter('FontFamilyPages.Count():GreaterThan', 0)
             ->sort('Title', 'ASC');
 
+        if (!empty($args['scriptUrlSegment'])) {
+            $list = $list->filter('FontFamilyPages.ListDefaultFont.FontFamily.Scripts.UrlSegment', $args['scriptUrlSegment']);
+        }
+
         return $list;
     }
 }

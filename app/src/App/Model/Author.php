@@ -7,6 +7,8 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Assets\Upload;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\SearchableMultiDropdownField;
+use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ManyManyList;
 use SilverStripe\Versioned\Versioned;
@@ -89,6 +91,14 @@ class Author extends DataObject
         $fields->fieldByName('Root.Main.Bio')
             ->getEditorConfig()
             ->setButtonsForLine(2, []);
+
+
+        $fields->replaceField('FontFamilyPages', SearchableMultiDropdownField::create(
+            'FontFamilyPages',
+            $this->fieldLabel('FontFamilyPages'),
+            DataList::create(FontFamilyPage::class),
+            $this->FontFamilyPages()
+        ));
 
         return $fields;
     }
