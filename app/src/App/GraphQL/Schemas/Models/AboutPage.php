@@ -18,6 +18,33 @@ class AboutPage implements PartialSchemaUpdater
     {
         $schema->addModelbyClassName(\SLONline\App\Model\AboutPage::class, function (ModelType $model) {
             $model->addField(
+                'aboutText',
+                [
+                    'type' => 'String!',
+                    'plugins' => [
+                        'requiredField' => true
+                    ],
+                ]
+            );
+            $model->addField(
+                'contactAddress',
+                [
+                    'type' => 'String!',
+                    'plugins' => [
+                        'requiredField' => true
+                    ],
+                ]
+            );
+            $model->addField(
+                'contactSocial',
+                [
+                    'type' => 'String!',
+                    'plugins' => [
+                        'requiredField' => true
+                    ],
+                ]
+            );
+            $model->addField(
                 'teamMembers',
                 [
                     'type' => '[Author!]!',
@@ -28,6 +55,33 @@ class AboutPage implements PartialSchemaUpdater
                     ],
                 ]
             );
+            $model->addField('awards', [
+                'type' => '[Award!]!',
+                'plugins' => [
+                    'filter' => false,
+                    'paginateList' => false,
+                    'sort' => false
+                ],
+            ]);
+
+            $model->addField('press', [
+                'type' => '[Press!]!',
+                'plugins' => [
+                    'filter' => false,
+                    'paginateList' => false,
+                    'sort' => false
+                ],
+            ]);
+
+            $model->addField('presentations', [
+                'type' => '[Presentation!]!',
+                'plugins' => [
+                    'filter' => false,
+                    'paginateList' => false,
+                    'sort' => false
+                ],
+            ]);
+
             $model->addOperation('readOne', [
                 'plugins' => [
                     'readVersion' => false,

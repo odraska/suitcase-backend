@@ -15,6 +15,14 @@ SilverStripe\ORM\Connect\MySQLDatabase:
   charset: utf8mb4
   collation: utf8mb4_unicode_ci
 
+---
+Name: app-tinymce-config
+---
+SilverStripe\Forms\HTMLEditor\HTMLEditorConfig:
+  default_config_definitions:
+    small:
+      configClass: 'SLONline\App\TinyMCE\SmallTinyMCEConfig'
+
 SilverStripe\Forms\MoneyField:
   properties:
     allowedCurrencies:

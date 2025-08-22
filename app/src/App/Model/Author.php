@@ -13,6 +13,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ManyManyList;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use SLONline\App\TinyMCE\SmallTinyMCEConfig;
 use SLONline\Elefont\Model\FontFamilyPage;
 
 /**
@@ -73,6 +74,8 @@ class Author extends DataObject
 
     private static string $default_sort = 'Name ASC';
 
+    private static bool $versioned_gridfield_extensions = true;
+
     public function getCMSFields(): FieldList
     {
         $fields = parent::getCMSFields();
@@ -81,17 +84,7 @@ class Author extends DataObject
         $fileUploadField?->setFolderName(self::folder());
         $fileUploadField?->getUpload()->setReplaceFile(true);
 
-        $fields->fieldByName('Root.Main.Bio')
-            ->getEditorConfig()
-            ->disablePlugins(['anchor', 'lists', 'image', 'media', 'paste', 'table', 'emoticons', 'code', 'importcss', 'ssmedia', 'ssembed'])
-            ->removeButtons(['bullist', 'numlist', 'outdent', 'indent', '|', 'blocks', 'pastetext', 'sslink', 'unlink', 'code', 'visualblocks']);
-        $fields->fieldByName('Root.Main.Bio')
-            ->getEditorConfig()
-            ->addButtonsToLine(1, ['blocks', 'pastetext', 'sslink', 'unlink', 'code', 'visualblocks']);
-        $fields->fieldByName('Root.Main.Bio')
-            ->getEditorConfig()
-            ->setButtonsForLine(2, []);
-
+        $fields->fieldByName('Root.Main.Bio')->setEditorConfig('small');
 
         $fields->replaceField('FontFamilyPages', SearchableMultiDropdownField::create(
             'FontFamilyPages',
