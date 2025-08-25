@@ -7,6 +7,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\ORM\ManyManyList;
 use SLONline\App\Model\FontCategory;
+use SLONline\App\Model\FontsInUse;
 use SLONline\App\Model\Slide;
 use SLONline\ColorField\Form\ColorField;
 use SLONline\ColorField\ORM\FieldType\DBColor;
@@ -22,6 +23,7 @@ use SLONline\ColorField\ORM\FieldType\DBColor;
  * @property string $FooterButtonBackgroundColor
  * @property int $FooterButtonBorderRadius
  * @method  ManyManyList|FontCategory FontCategories
+ * @method  ManyManyList|FontsInUse FontsInUse
  */
 class FontFamilyPage extends Extension
 {
@@ -38,6 +40,10 @@ class FontFamilyPage extends Extension
 
     private static array $many_many = [
         'FontCategories' => FontCategory::class,
+    ];
+
+    private static array $belongs_many_many = [
+        'FontsInUse' => FontsInUse::class
     ];
 
     public function footerButton(): array
