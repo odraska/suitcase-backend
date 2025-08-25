@@ -17,6 +17,9 @@ class AboutPage implements PartialSchemaUpdater
     public static function updateSchema(Schema $schema): void
     {
         $schema->addModelbyClassName(\SLONline\App\Model\AboutPage::class, function (ModelType $model) {
+            $model->addField('coverImage', [
+                'type' => 'Image',
+            ]);
             $model->addField(
                 'aboutText',
                 [

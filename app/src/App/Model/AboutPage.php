@@ -3,12 +3,11 @@
 namespace SLONline\App\Model;
 
 use Page;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\ORM\DataList;
-use SilverStripe\TinyMCE\TinyMCEConfig;
-use SLONline\App\TinyMCE\SmallTinyMCEConfig;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
@@ -16,6 +15,12 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
  * @copyright Copyright (c) 2025, SLONline, s.r.o.
+ *
+ * @property string $AboutText
+ * @property string $ContactAddress
+ * @property string $ContactSocial
+ * @property int $CoverImageID
+ * @method Image CoverImage
  */
 class AboutPage extends Page
 {
@@ -29,7 +34,15 @@ class AboutPage extends Page
         'ContactSocial' => 'HTMLText',
     ];
 
+    private static array $has_one = [
+        'CoverImage' => Image::class,
+    ];
+
     private static array $has_many = [];
+
+    private static array $owns = [
+        'CoverImage',
+    ];
 
     private static array $allowed_children = ['none'];
 
