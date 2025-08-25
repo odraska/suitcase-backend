@@ -73,4 +73,9 @@ class FontsInUse extends DataObject
     {
         return true;
     }
+
+    public function getFontsInUseAuthor(): ?string
+    {
+        return $this->Author;
+    }
 }

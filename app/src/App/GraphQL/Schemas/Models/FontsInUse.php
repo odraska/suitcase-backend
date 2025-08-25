@@ -46,6 +46,7 @@ class FontsInUse implements PartialSchemaUpdater
                 'author',
                 [
                     'type' => 'String!',
+                    'property' => 'getFontsInUseAuthor',
                     'plugins' => [
                         'requiredField' => true
                     ],
