@@ -18,6 +18,8 @@ use SLONline\Elefont\Model\FontFamilyPage;
  *
  * @property string $Title
  * @property string $Author
+ * @property int $SortOrder
+ * @property bool $Spotlight
  * @property int $ImageID
  * @method Image Image
  * @method ManyManyList|FontFamilyPage FontFamilyPages()
@@ -32,6 +34,7 @@ class FontsInUse extends DataObject
         'Title' => 'Varchar(1000)',
         'Author' => 'Varchar(1000)',
         'SortOrder' => 'Int',
+        'Spotlight' => 'Boolean',
     ];
 
     private static array $has_one = [

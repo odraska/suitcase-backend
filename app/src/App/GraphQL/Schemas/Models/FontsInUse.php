@@ -52,6 +52,15 @@ class FontsInUse implements PartialSchemaUpdater
                     ],
                 ]
             );
+            $model->addField(
+                'spotlight',
+                [
+                    'type' => 'Boolean!',
+                    'plugins' => [
+                        'requiredField' => true
+                    ],
+                ]
+            );
             $model->addField('image', [
                 'type' => 'Image',
             ]);
