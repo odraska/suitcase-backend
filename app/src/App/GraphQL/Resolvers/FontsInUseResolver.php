@@ -3,11 +3,13 @@
 namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\GraphQL\Schema\DataObject\Plugin\QueryFilter\FilterRegistryInterface;
 use SilverStripe\GraphQL\Schema\Schema;
 use SilverStripe\Model\List\SS_List;
 use SilverStripe\ORM\DataList;
+use SLONline\App\Model\FontsInUse;
 use SLONline\Elefont\Model\FontFamilyPage;
 
 /**
@@ -79,6 +81,13 @@ class FontsInUseResolver
         );
 
         if ($filter) {
+            $table = FontsInUse::getSchema()->tableName(FontsInUse::class);
+            $pageTable = SiteTree::getSchema()->tableName(SiteTree::class);
+            $manyMany = FontsInUse::getSchema()->manyManyComponent(FontsInUse::class, 'FontFamilyPages');
+
+            $list = $list->innerJoin($manyMany['join'], '"' . $manyMany['join'] . '"."' . $manyMany['parentField'] . '" = "' . $table . '"."ID"')
+                ->innerJoin($pageTable, '"' . $pageTable . '"."ID" = "' . $manyMany['join'] . '"."' . $manyMany['childField'] . '"');
+
             $list = $filter->apply($list, 'UrlSegment', $context['filterValue']);
         }
 
