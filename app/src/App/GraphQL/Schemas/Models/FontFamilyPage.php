@@ -40,7 +40,14 @@ class FontFamilyPage implements PartialSchemaUpdater
                     'sort' => false,
                     'filter' => false
                 ]
-            ]);
+            ])
+            ->addField('showInBasicTrial', [
+                'type' => 'Boolean!',
+                'plugins' => ['requiredField' => true]])
+            ->addField('showInFullTrial', [
+                'type' => 'Boolean!',
+                'plugins' => ['requiredField' => true]]);
+
         $schema->getModel('FontFamilyPage')->removeOperation('readOne');
         $schema->getModel('FontFamilyPage')->removeOperation('read');
         $schema->getModel('FontFamilyPage')->addOperation('read', [
@@ -54,6 +61,8 @@ class FontFamilyPage implements PartialSchemaUpdater
                         'scriptUrlSegment' => true,
                         'categoryID' => true,
                         'categoryUrlSegment' => true,
+                        'showInBasicTrial' => true,
+                        'showInFullTrial' => true,
                     ],
                     'resolve' => [
                         'scriptID' => [

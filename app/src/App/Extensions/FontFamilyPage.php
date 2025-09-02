@@ -5,6 +5,7 @@ namespace SLONline\App\Extensions;
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\NumericField;
+use SilverStripe\ORM\HasManyList;
 use SilverStripe\ORM\ManyManyList;
 use SLONline\App\Model\FontCategory;
 use SLONline\App\Model\FontsInUse;
@@ -22,6 +23,9 @@ use SLONline\ColorField\ORM\FieldType\DBColor;
  * @property string $FooterButtonTextColor
  * @property string $FooterButtonBackgroundColor
  * @property int $FooterButtonBorderRadius
+ * @property bool $ShowInBasicTrial
+ * @property bool $ShowInFullTrial
+ * @method HasManyList|Slide Slides
  * @method  ManyManyList|FontCategory FontCategories
  * @method  ManyManyList|FontsInUse FontsInUse
  */
@@ -31,7 +35,9 @@ class FontFamilyPage extends Extension
         'FooterButtonBorderColor' => DBColor::class,
         'FooterButtonTextColor' => DBColor::class,
         'FooterButtonBackgroundColor' => DBColor::class,
-        'FooterButtonBorderRadius' => 'Int'
+        'FooterButtonBorderRadius' => 'Int',
+        'ShowInBasicTrial' => 'Boolean',
+        'ShowInFullTrial' => 'Boolean',
     ];
 
     private static array $has_many = [
