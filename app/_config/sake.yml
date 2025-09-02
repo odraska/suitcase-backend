@@ -1,0 +1,3 @@
+SilverStripe\Cli\Sake:
+  commands:
+    - 'SLONline\App\Cli\Command\ProcessDownloadInfo'

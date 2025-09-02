@@ -8,3 +8,7 @@ SLONline\Elefont\Model\FontFamilyPage:
 SLONline\Elefont\Controller\FontScriptAdmin:
   extensions:
     - SLONline\App\Extensions\FontScriptAdmin
+
+SLONline\Elefont\Model\Font:
+  extensions:
+    - SLONline\App\Extensions\Font
