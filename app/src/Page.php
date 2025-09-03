@@ -10,6 +10,7 @@ namespace {
     use SilverStripe\Forms\GridField\GridFieldDataColumns;
     use SilverStripe\ORM\HasManyList;
     use SilverStripe\SiteConfig\SiteConfig;
+    use SLONline\Elefont\Model\FontFamilyPage;
     use SLONline\Elefont\Model\WebsiteBlocks\WebsiteBlock;
     use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
     use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
@@ -60,7 +61,9 @@ namespace {
             $fields->addFieldToTab('Root.WebsiteBlocks',
                 GridField::create('WebsiteBlocks', 'Website blocks', $this->WebsiteBlocks(), $config));
 
-            $fields->removeByName('Content');
+            if (!($this instanceof FontFamilyPage)) {
+                $fields->removeByName('Content');
+            }
 
             return $fields;
         }

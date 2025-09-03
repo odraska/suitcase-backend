@@ -23,6 +23,7 @@ class FontFamilyPage implements PartialSchemaUpdater
     public static function updateSchema(Schema $schema): void
     {
         $schema->getModel('FontFamilyPage')
+            ->addField('content', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
             ->addField('footerButton', ['type' => 'FooterButton!', 'property' => 'footerButton'])
             ->addField('fontCategories', [
                 'type' => '[FontCategory!]!',
@@ -46,7 +47,40 @@ class FontFamilyPage implements PartialSchemaUpdater
                 'plugins' => ['requiredField' => true]])
             ->addField('showInFullTrial', [
                 'type' => 'Boolean!',
-                'plugins' => ['requiredField' => true]]);
+                'plugins' => ['requiredField' => true]])
+            ->addField('fontsInUse', [
+                'type' => '[FontsInUse!]!',
+                'plugins' => [
+                    'paginateList' => true,
+                    'sort' => false,
+                    'filter' => false
+                ]
+            ])
+            ->addField('visualStyles', [
+                'type' => '[[Font!]]!',
+                'plugins' => [
+                    'paginateList' => false,
+                    'sort' => false,
+                    'filter' => false
+                ]
+            ])
+            ->addField('authors', [
+                'type' => '[Author!]!',
+                'plugins' => [
+                    'paginateList' => false,
+                    'sort' => false,
+                    'filter' => false
+                ]
+            ])
+            ->addField('fonts', [
+                'type' => '[Font!]!',
+                'property' => 'Fonts',
+                'plugins' => [
+                    'paginateList' => true,
+                    'sort' => false,
+                    'filter' => false
+                ]
+            ]);
 
         $schema->getModel('FontFamilyPage')->removeOperation('readOne');
         $schema->getModel('FontFamilyPage')->removeOperation('read');
