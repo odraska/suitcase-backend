@@ -57,7 +57,7 @@ class FontFamilyPage implements PartialSchemaUpdater
                 ]
             ])
             ->addField('visualStyles', [
-                'type' => '[[Font!]]!',
+                'type' => '[[Font!]!]!',
                 'plugins' => [
                     'paginateList' => false,
                     'sort' => false,
@@ -79,6 +79,12 @@ class FontFamilyPage implements PartialSchemaUpdater
                     'paginateList' => true,
                     'sort' => false,
                     'filter' => false
+                ]
+            ])
+            ->addField('pdfSpecimen', [
+                'type' => 'File',
+                'plugins' => [
+                    'requiredField' => false,
                 ]
             ]);
 

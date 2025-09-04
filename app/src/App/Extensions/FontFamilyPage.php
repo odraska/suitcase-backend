@@ -2,6 +2,7 @@
 
 namespace SLONline\App\Extensions;
 
+use SilverStripe\Assets\File;
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
@@ -38,6 +39,8 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property int $FooterButtonBorderRadius
  * @property bool $ShowInBasicTrial
  * @property bool $ShowInFullTrial
+ * @property int $PDFSpecimenID
+ * @method  File PDFSpecimen
  * @method HasManyList|Slide Slides
  * @method  ManyManyList|FontCategory FontCategories
  * @method  ManyManyList|Font StylesRow1
@@ -57,6 +60,9 @@ class FontFamilyPage extends Extension
         'ShowInFullTrial' => 'Boolean',
     ];
 
+    private static array $has_one = [
+        'PDFSpecimen' => File::class,
+    ];
     private static array $has_many = [
         'Slides' => Slide::class,
     ];
