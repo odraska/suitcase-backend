@@ -4,7 +4,6 @@ namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use InvalidArgumentException;
-use SilverStripe\Control\Controller;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Security\Member;
@@ -12,8 +11,6 @@ use SilverStripe\Security\Security;
 use SLONline\AddressManagement\Extensions\MemberExtension;
 use SLONline\AddressManagement\Module\Country;
 use SLONline\AddressManagement\Module\State;
-use SLONline\Kamok\Newsletter\NewsletterConfirmationLog;
-use SLONline\Kamok\Newsletter\NewsletterGroup;
 
 
 /**
@@ -24,7 +21,7 @@ use SLONline\Kamok\Newsletter\NewsletterGroup;
  */
 class UpdateMemberResolver
 {
-    public static function resolve($obj, array $args, array $context, ResolveInfo $info)
+    public static function resolve($obj, array $args, array $context, ResolveInfo $info): ?Member
     {
         /** @var Member|MemberExtension $member */
         $member = Security::getCurrentUser();
@@ -48,6 +45,15 @@ class UpdateMemberResolver
             $member->Email = $args['email'];
         }
 
+        if (array_key_exists('password', $args) && !empty($args['password'])) {
+            $validationResult = $member->changePassword($args['password']);
+            if (!$validationResult->isValid()) {
+                foreach ($validationResult->getMessages() as $message) {
+                    throw new InvalidArgumentException($message['message'], 103);
+                }
+            }
+        }
+
         if (\array_key_exists('firstName', $args)) {
             $member->FirstName = $args['firstName'];
         }
@@ -64,10 +70,6 @@ class UpdateMemberResolver
             $member->Street = $args['street'];
         }
 
-        if (\array_key_exists('street2', $args)) {
-            $member->Street2 = $args['street2'];
-        }
-
         if (\array_key_exists('city', $args)) {
             $member->City = $args['city'];
         }
@@ -78,14 +80,6 @@ class UpdateMemberResolver
 
         if (\array_key_exists('phone', $args)) {
             $member->Phone = $args['phone'];
-        }
-
-        if (\array_key_exists('companyID', $args)) {
-            $member->CompanyID = $args['companyID'];
-        }
-
-        if (\array_key_exists('taxID', $args)) {
-            $member->TaxID = $args['taxID'];
         }
 
         if (\array_key_exists('vatID', $args)) {
@@ -112,7 +106,8 @@ class UpdateMemberResolver
             $member->write();
         }
 
-        if (isset($args['newsletter'])) {
+        /** @todo add newsletter */
+        /*if (isset($args['newsletter'])) {
             if ($args['newsletter'] === true) {
                 $confirmation_hash = md5(bin2hex(random_bytes(16)));
                 $groups = NewsletterGroup::getNewsletterGroupsLeafs();
@@ -146,7 +141,7 @@ class UpdateMemberResolver
                         $item->write();
                     });
             }
-        }
+        }*/
 
         return Member::get_by_id($member->ID);
     }

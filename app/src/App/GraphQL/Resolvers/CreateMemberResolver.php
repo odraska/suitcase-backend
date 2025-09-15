@@ -4,29 +4,28 @@ namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use InvalidArgumentException;
-use SilverStripe\Control\Controller;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Security\Member;
-use SLONline\Google\GoogleCaptchaValidator;
-use SLONline\Kamok\Newsletter\Form\NewsletterSubscribeForm;
+use SLONline\AddressManagement\Extensions\MemberExtension;
 
 /**
  * Create Member Resolver
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
- * @copyright Copyright (c) 2023, SLONline, s.r.o.
+ * @copyright Copyright (c) 2025, SLONline, s.r.o.
  */
 class CreateMemberResolver
 {
-    public static function resolve($obj, array $args, array $context, ResolveInfo $info)
+    public static function resolve($obj, array $args, array $context, ResolveInfo $info): Member
     {
-        if (\class_exists('SLONline\Google\GoogleCaptchaValidator')) {
+        /** @todo add reCaptcha / hCaptcha */
+        /*if (\class_exists('SLONline\Google\GoogleCaptchaValidator')) {
             if (!GoogleCaptchaValidator::singleton()->validateToken($args['reCaptchaToken'])) {
                 throw new InvalidArgumentException('Invalid reCaptcha token', 110);
             }
-        }
+        }*/
 
-        if ( ! \array_key_exists('password', $args) || empty($args['password'])) {
+        if (!\array_key_exists('password', $args) || empty($args['password'])) {
             throw new InvalidArgumentException('Missing password', 100);
         }
 
@@ -38,9 +37,10 @@ class CreateMemberResolver
             throw new InvalidArgumentException('Email has an account', 102);
         }
 
-        $member            = Member::create();
-        $member->Email     = $args['email'];
-        $member->Password  = $args['password'];
+        /* @var Member|MemberExtension $member */
+        $member = Member::create();
+        $member->Email = $args['email'];
+        $member->Password = $args['password'];
 
         if (isset($args['firstName'])) {
             $member->FirstName = $args['firstName'];
@@ -48,13 +48,35 @@ class CreateMemberResolver
         if (isset($args['surname'])) {
             $member->Surname = $args['surname'];
         }
+        if (isset($args['organisation'])) {
+            $member->Organisation = $args['organisation'];
+        }
+        if (isset($args['street'])) {
+            $member->Street = $args['street'];
+        }
+        if (isset($args['city'])) {
+            $member->City = $args['city'];
+        }
+        if (isset($args['zip'])) {
+            $member->ZIP = $args['zip'];
+        }
+        if (isset($args['countryID'])) {
+            $member->CountryID = (int)$args['countryID'];
+        }
+        if (isset($args['stateID'])) {
+            $member->StateID = (int)$args['stateID'];
+        }
+        if (isset($args['vatID'])) {
+            $member->VATID = $args['vatID'];
+        }
 
         $member->write();
 
         if (isset($args['newsletter'])) {
             if ($args['newsletter'] === true) {
-                NewsletterSubscribeForm::create(Controller::curr(), 'NewsletterSubscribeForm')
-                                       ->subscribe(['Email' => $member->Email]);
+                /** @todo add newsletter subscription */
+                /*NewsletterSubscribeForm::create(Controller::curr(), 'NewsletterSubscribeForm')
+                                       ->subscribe(['Email' => $member->Email]);*/
             }
         }
 
