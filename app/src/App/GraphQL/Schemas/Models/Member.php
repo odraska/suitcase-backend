@@ -59,6 +59,14 @@ class Member implements PartialSchemaUpdater
                     'type' => 'String!',
                     'plugins' => ['requiredField' => true],
                 ],
+                'country' => [
+                    'type' => 'Country!',
+                    'plugins' => ['requiredField' => true],
+                ],
+                'state' => [
+                    'type' => 'State!',
+                    'plugins' => ['requiredField' => true],
+                ],
                 'phone' => [
                     'type' => 'String!',
                     'plugins' => ['requiredField' => true],
