@@ -86,20 +86,13 @@ class UpdateMemberResolver
             $member->VATID = $args['vatID'];
         }
 
-        if (\array_key_exists('country', $args)) {
-            $member->CountryID = 0;
-            $country = DataList::create(Country::class)->filter(['Code' => $args['country']])->first();
-            if ($country && $country->exists()) {
-                $member->CountryID = $country->ID;
-            }
+        if (\array_key_exists('countryID', $args)) {
+            $member->CountryID = (int)$args['countryID'];
         }
 
-        if (\array_key_exists('state', $args)) {
-            $member->StateID = 0;
-            $state = DataList::create(State::class)->filter(['Code' => $args['state']])->first();
-            if ($state && $state->exists()) {
-                $member->StateID = $state->ID;
-            }
+        if (\array_key_exists('stateID', $args)) {
+            $member->StateID = (int)$args['stateID'];
+
         }
 
         if ($member->isChanged()) {
