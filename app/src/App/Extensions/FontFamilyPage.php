@@ -91,6 +91,10 @@ class FontFamilyPage extends Extension
         'FontsInUse' => FontsInUse::class
     ];
 
+    private static array $owns = [
+        'PDFSpecimen',
+    ];
+
     public function footerButton(): array
     {
         return [
