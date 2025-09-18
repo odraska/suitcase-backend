@@ -80,7 +80,13 @@ class Page implements PartialSchemaUpdater
                     'plugins' => ['requiredField' => true],
                 ],
                 'websiteBlocks' => [
-                    'type' => '[WebsiteBlock!]',
+                    'type' => '[WebsiteBlockInterface!]',
+                    'plugins' => [
+                        'requiredField' => false,
+                        'filter' => false,
+                        'paginateList' => false,
+                        'sort' => false
+                    ],
                 ],
                 'taglineText' => [
                     'type' => 'String!',

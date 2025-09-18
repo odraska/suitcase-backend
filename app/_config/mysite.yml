@@ -44,3 +44,16 @@ SilverStripe\Assets\File:
       - svg
       - avif
       - webp
+
+---
+Name: FontFamilyPageWebsiteBlocksReset
+---
+SLONline\Elefont\Model\FontFamilyPage:
+  allowedWebsiteBlocks: null
+
+---
+Name: FontFamilyPageWebsiteBlocks
+---
+SLONline\Elefont\Model\FontFamilyPage:
+  allowedWebsiteBlocks:
+    - SLONline\App\Model\WebsiteBlocks\Images
