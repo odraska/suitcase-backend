@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ecae0558323a8fcdaaff76d8173a312",
+    "content-hash": "d556327d5ebd2e167f8df119daf9690e",
     "packages": [
         {
             "name": "async-aws/core",
@@ -187,16 +187,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.356.19",
+            "version": "3.356.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "4dbc87e689c4e4a6655d6b7e3d02ce2f4e87aa5c"
+                "reference": "7514867a6463fb68a60f5e17b4ccc56b4dc7d4f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4dbc87e689c4e4a6655d6b7e3d02ce2f4e87aa5c",
-                "reference": "4dbc87e689c4e4a6655d6b7e3d02ce2f4e87aa5c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7514867a6463fb68a60f5e17b4ccc56b4dc7d4f1",
+                "reference": "7514867a6463fb68a60f5e17b4ccc56b4dc7d4f1",
                 "shasum": ""
             },
             "require": {
@@ -278,9 +278,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.356.19"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.356.20"
             },
-            "time": "2025-09-16T18:17:04+00:00"
+            "time": "2025-09-17T18:23:32+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -5163,7 +5163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "a3383baebb8dc3c77042280b9af034be94d4b217"
+                "reference": "9c858a2abd06b92dd3e97748480bdfea2e2106ac"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5195,7 +5195,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2025-09-04T08:56:09+00:00"
+            "time": "2025-09-18T15:37:03+00:00"
         },
         {
             "name": "slonline/email-templates",
@@ -9901,7 +9901,8 @@
         "silverstripe/recipe-cms": 0,
         "silverstripe/startup-theme": 0,
         "silverstripe/login-forms": 0,
-        "silverstripe/htmleditor-tinymce": 0
+        "silverstripe/htmleditor-tinymce": 0,
+        "slonline/elefont": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
