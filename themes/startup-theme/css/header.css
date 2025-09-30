@@ -73,6 +73,10 @@
     transition: var(--transition-color);
 }
 
+.menu__link:hover {
+    color: var(--color-white-70);
+}
+
 .menu__link--current,
 .menu__link--section {
     border-color: var(--color-white);
@@ -128,11 +132,15 @@
     margin-right: -1rem;
     padding: 2rem 1rem;
     position: relative;
-    z-index: 30;
+    z-index: 40;
 
     @media (min-width: 992px) {
         display: none;
     }
+}
+
+.mobile-menu-is-active {
+    overflow: hidden;
 }
 
 .mobile-menu-is-active .hamburger {
@@ -202,17 +210,19 @@
 .nav--mobile {
     background-color: var(--color-white);
     max-width: 50rem;
-    min-height: 100%;
+    height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
     padding-bottom: 2.7rem;
     padding-top: 2.7rem;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     transition: var(--transition-default);
     visibility: hidden;
     white-space: nowrap;
     width: 0;
+    z-index: 30;
 }
 
 .mobile-menu-is-active .nav--mobile {
@@ -242,7 +252,6 @@
 .mobile-menu {
     border-bottom: 0.1rem var(--color-line-grey) solid;
     color: var(--color-charcoal);
-    z-index: 30;
 }
 
 .mobile-menu__item {
