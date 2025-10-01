@@ -57,3 +57,4 @@ Name: FontFamilyPageWebsiteBlocks
 SLONline\Elefont\Model\FontFamilyPage:
   allowedWebsiteBlocks:
     - SLONline\App\Model\WebsiteBlocks\Images
+    - SLONline\App\Model\WebsiteBlocks\TypeTester
