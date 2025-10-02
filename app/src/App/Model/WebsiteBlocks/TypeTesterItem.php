@@ -20,6 +20,7 @@ use SLONline\Elefont\Model\FontFamily;
  * @property int FontSize
  * @property int FontsSizeMobile
  * @property float Tracking
+ * @property string CustomText
  * @property int TypeTesterID
  * @property int DefaultFontID
  * @method TypeTester TypeTester
@@ -42,6 +43,7 @@ class TypeTesterItem extends DataObject
         'FontSize' => 'Int',
         'FontsSizeMobile' => 'Int',
         'Tracking' => 'Decimal(6,4)',
+        'CustomText' => 'Text',
         'SortOrder' => 'Int',
     ];
 
@@ -97,6 +99,10 @@ class TypeTesterItem extends DataObject
 
     public function getText()
     {
+        if (!empty($this->CustomText)) {
+            return $this->CustomText;
+        }
+
         return $this->TypeTester()->getTextForType($this->Type);
     }
 
