@@ -99,4 +99,9 @@ class TypeTesterItem extends DataObject
     {
         return $this->TypeTester()->getTextForType($this->Type);
     }
+
+    public function canView($member = null): bool
+    {
+        return true;
+    }
 }
