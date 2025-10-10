@@ -23,10 +23,11 @@ SilverStripe\Forms\HTMLEditor\HTMLEditorConfig:
     small:
       configClass: 'SLONline\App\TinyMCE\SmallTinyMCEConfig'
 
-SilverStripe\Forms\MoneyField:
-  properties:
-    allowedCurrencies:
-      - EUR
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Forms\MoneyField:
+    properties:
+      allowedCurrencies:
+        - EUR
 
 SilverStripe\Assets\File:
   allowed_extensions:

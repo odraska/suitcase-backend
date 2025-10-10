@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d556327d5ebd2e167f8df119daf9690e",
+    "content-hash": "ab0505e0497f9039521fb1d129ec5ed6",
     "packages": [
         {
             "name": "async-aws/core",
@@ -187,16 +187,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.356.30",
+            "version": "3.356.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "8ee5c1f3849489452ee4eec01a9cdd338defc246"
+                "reference": "20facd00fe1a8f733c3275918bf533d2330af53d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8ee5c1f3849489452ee4eec01a9cdd338defc246",
-                "reference": "8ee5c1f3849489452ee4eec01a9cdd338defc246",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/20facd00fe1a8f733c3275918bf533d2330af53d",
+                "reference": "20facd00fe1a8f733c3275918bf533d2330af53d",
                 "shasum": ""
             },
             "require": {
@@ -278,9 +278,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.356.30"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.356.36"
             },
-            "time": "2025-10-01T18:19:37+00:00"
+            "time": "2025-10-09T18:07:17+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -3938,16 +3938,16 @@
         },
         {
             "name": "silverstripe/framework",
-            "version": "6.0.14",
+            "version": "6.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "3f24058e461024f8e42689dda7f38c454c09b0c6"
+                "reference": "e88d273c50d852ab55849332b2f3abfef31b41eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/3f24058e461024f8e42689dda7f38c454c09b0c6",
-                "reference": "3f24058e461024f8e42689dda7f38c454c09b0c6",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/e88d273c50d852ab55849332b2f3abfef31b41eb",
+                "reference": "e88d273c50d852ab55849332b2f3abfef31b41eb",
                 "shasum": ""
             },
             "require": {
@@ -4079,9 +4079,9 @@
             ],
             "support": {
                 "issues": "https://github.com/silverstripe/silverstripe-framework/issues",
-                "source": "https://github.com/silverstripe/silverstripe-framework/tree/6.0.14"
+                "source": "https://github.com/silverstripe/silverstripe-framework/tree/6.0.15"
             },
-            "time": "2025-08-29T05:45:41+00:00"
+            "time": "2025-10-10T00:51:45+00:00"
         },
         {
             "name": "silverstripe/graphql",
@@ -4668,16 +4668,16 @@
         },
         {
             "name": "silverstripe/startup-theme",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/startup-theme.git",
-                "reference": "2f61b8983c5e880194bacd13f1b1b2ed36914cfc"
+                "reference": "f433fe3ca83cd0aa637c432c493d77756e44e403"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/startup-theme/zipball/2f61b8983c5e880194bacd13f1b1b2ed36914cfc",
-                "reference": "2f61b8983c5e880194bacd13f1b1b2ed36914cfc",
+                "url": "https://api.github.com/repos/silverstripe/startup-theme/zipball/f433fe3ca83cd0aa637c432c493d77756e44e403",
+                "reference": "f433fe3ca83cd0aa637c432c493d77756e44e403",
                 "shasum": ""
             },
             "require": {
@@ -4710,9 +4710,9 @@
             ],
             "support": {
                 "issues": "https://github.com/silverstripe/startup-theme/issues",
-                "source": "https://github.com/silverstripe/startup-theme/tree/1.0.10"
+                "source": "https://github.com/silverstripe/startup-theme/tree/1.0.11"
             },
-            "time": "2025-09-02T04:04:22+00:00"
+            "time": "2025-09-30T00:03:10+00:00"
         },
         {
             "name": "silverstripe/supported-modules",
@@ -5121,7 +5121,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/commerce.git",
-                "reference": "03a1f43e1a03e278551b825c0aa33a8979d32b65"
+                "reference": "2a58aaf09642a31a6a8a9ed260f29b91657240ed"
             },
             "require": {
                 "mpdf/mpdf": "^8.1",
@@ -5155,7 +5155,7 @@
                 "Commerce",
                 "silverstripe"
             ],
-            "time": "2025-07-29T19:40:35+00:00"
+            "time": "2025-10-10T13:45:07+00:00"
         },
         {
             "name": "slonline/elefont",
@@ -5163,7 +5163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "f1498005a7272f5954a85d1332302612094adb6b"
+                "reference": "7de4ab849f906c59aedd835fbe9893881943d8e9"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5195,7 +5195,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2025-10-02T11:07:45+00:00"
+            "time": "2025-10-10T15:22:09+00:00"
         },
         {
             "name": "slonline/email-templates",
@@ -5240,17 +5240,11 @@
         },
         {
             "name": "slonline/graphql",
-            "version": "6.1",
+            "version": "6.x-dev",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/graphql.git",
-                "reference": "f640836058c8f90993179edfadd3938f4eeedb33"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://packages.slonline.sk/dist/slonline/graphql/slonline-graphql-6.1-443f59.tar",
-                "reference": "f640836058c8f90993179edfadd3938f4eeedb33",
-                "shasum": "73aa8621e1bc2073fd578687ccbd9430253c01a8"
+                "reference": "c3e03e55b440dafb4a37e9223e1c39ad048b4462"
             },
             "require": {
                 "silverstripe/framework": "~6",
@@ -5281,7 +5275,7 @@
                 "Plugins",
                 "silverstripe"
             ],
-            "time": "2025-09-17T09:58:59+00:00"
+            "time": "2025-10-10T14:16:52+00:00"
         },
         {
             "name": "slonline/payment",
@@ -8199,16 +8193,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v15.24.0",
+            "version": "v15.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "030a04d22d52d7fc07049d0e3b683d2b40f90457"
+                "reference": "60ef919138a171bdca5fc22c1e9aea8bbc59e5b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/030a04d22d52d7fc07049d0e3b683d2b40f90457",
-                "reference": "030a04d22d52d7fc07049d0e3b683d2b40f90457",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/60ef919138a171bdca5fc22c1e9aea8bbc59e5b7",
+                "reference": "60ef919138a171bdca5fc22c1e9aea8bbc59e5b7",
                 "shasum": ""
             },
             "require": {
@@ -8221,14 +8215,14 @@
                 "amphp/http-server": "^2.1",
                 "dms/phpunit-arraysubset-asserts": "dev-master",
                 "ergebnis/composer-normalize": "^2.28",
-                "friendsofphp/php-cs-fixer": "3.86.0",
+                "friendsofphp/php-cs-fixer": "3.88.2",
                 "mll-lab/php-cs-fixer-config": "5.11.0",
                 "nyholm/psr7": "^1.5",
                 "phpbench/phpbench": "^1.2",
                 "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "2.1.22",
+                "phpstan/phpstan": "2.1.30",
                 "phpstan/phpstan-phpunit": "2.0.7",
-                "phpstan/phpstan-strict-rules": "2.0.6",
+                "phpstan/phpstan-strict-rules": "2.0.7",
                 "phpunit/phpunit": "^9.5 || ^10.5.21 || ^11",
                 "psr/http-message": "^1 || ^2",
                 "react/http": "^1.6",
@@ -8236,7 +8230,8 @@
                 "rector/rector": "^2.0",
                 "symfony/polyfill-php81": "^1.23",
                 "symfony/var-exporter": "^5 || ^6 || ^7",
-                "thecodingmachine/safe": "^1.3 || ^2 || ^3"
+                "thecodingmachine/safe": "^1.3 || ^2 || ^3",
+                "ticketswap/phpstan-error-formatter": "1.2.3"
             },
             "suggest": {
                 "amphp/http-server": "To leverage async resolving with webserver on AMPHP platform",
@@ -8261,7 +8256,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v15.24.0"
+                "source": "https://github.com/webonyx/graphql-php/tree/v15.25.1"
             },
             "funding": [
                 {
@@ -8269,7 +8264,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2025-08-20T10:09:37+00:00"
+            "time": "2025-10-08T10:29:48+00:00"
         }
     ],
     "packages-dev": [
@@ -9913,6 +9908,8 @@
         "silverstripe/startup-theme": 0,
         "silverstripe/login-forms": 0,
         "silverstripe/htmleditor-tinymce": 0,
+        "slonline/graphql": 20,
+        "slonline/commerce": 20,
         "slonline/elefont": 20
     },
     "prefer-stable": true,
