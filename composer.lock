@@ -187,16 +187,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.356.36",
+            "version": "3.356.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "20facd00fe1a8f733c3275918bf533d2330af53d"
+                "reference": "855bcaaa4c486fc67447bf17cfbff9ff75341ad7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/20facd00fe1a8f733c3275918bf533d2330af53d",
-                "reference": "20facd00fe1a8f733c3275918bf533d2330af53d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/855bcaaa4c486fc67447bf17cfbff9ff75341ad7",
+                "reference": "855bcaaa4c486fc67447bf17cfbff9ff75341ad7",
                 "shasum": ""
             },
             "require": {
@@ -278,9 +278,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.356.36"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.356.37"
             },
-            "time": "2025-10-09T18:07:17+00:00"
+            "time": "2025-10-10T18:50:12+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -5163,7 +5163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "7de4ab849f906c59aedd835fbe9893881943d8e9"
+                "reference": "ad3ebcf16efdd804da4a95f8d791dc4c81c923d2"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5195,7 +5195,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2025-10-10T15:22:09+00:00"
+            "time": "2025-10-11T06:52:35+00:00"
         },
         {
             "name": "slonline/email-templates",
@@ -5244,7 +5244,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/graphql.git",
-                "reference": "c3e03e55b440dafb4a37e9223e1c39ad048b4462"
+                "reference": "e8ac522f3fdeadeb684769460362202a7ddf91aa"
             },
             "require": {
                 "silverstripe/framework": "~6",
@@ -5275,7 +5275,7 @@
                 "Plugins",
                 "silverstripe"
             ],
-            "time": "2025-10-10T14:16:52+00:00"
+            "time": "2025-10-13T14:02:59+00:00"
         },
         {
             "name": "slonline/payment",
@@ -5495,16 +5495,16 @@
         },
         {
             "name": "symbiote/silverstripe-gridfieldextensions",
-            "version": "5.0.3",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-gridfieldextensions.git",
-                "reference": "f1e0f11faf2180d81477171e2f1a67d24d569021"
+                "reference": "d5055fae21e3ec8842d4ad9e54b9fb415b224ad9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-gridfieldextensions/zipball/f1e0f11faf2180d81477171e2f1a67d24d569021",
-                "reference": "f1e0f11faf2180d81477171e2f1a67d24d569021",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-gridfieldextensions/zipball/d5055fae21e3ec8842d4ad9e54b9fb415b224ad9",
+                "reference": "d5055fae21e3ec8842d4ad9e54b9fb415b224ad9",
                 "shasum": ""
             },
             "require": {
@@ -5567,9 +5567,9 @@
             ],
             "support": {
                 "issues": "http://github.com/symbiote/silverstripe-gridfieldextensions/issues",
-                "source": "https://github.com/silverstripe/silverstripe-gridfieldextensions/tree/5.0.3"
+                "source": "https://github.com/silverstripe/silverstripe-gridfieldextensions/tree/5.1.0"
             },
-            "time": "2025-08-21T03:59:22+00:00"
+            "time": "2025-08-28T05:10:09+00:00"
         },
         {
             "name": "symfony/amazon-mailer",
