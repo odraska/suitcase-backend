@@ -187,16 +187,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.356.38",
+            "version": "3.356.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "b53c1e580b025da5e068106330125894a347cc75"
+                "reference": "3c1d71932ed962810316930b327b3b71a7517cff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b53c1e580b025da5e068106330125894a347cc75",
-                "reference": "b53c1e580b025da5e068106330125894a347cc75",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3c1d71932ed962810316930b327b3b71a7517cff",
+                "reference": "3c1d71932ed962810316930b327b3b71a7517cff",
                 "shasum": ""
             },
             "require": {
@@ -278,9 +278,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.356.38"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.356.40"
             },
-            "time": "2025-10-13T18:05:18+00:00"
+            "time": "2025-10-15T18:13:33+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -5244,7 +5244,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/graphql.git",
-                "reference": "1eab5ab332b3b71203eb06865283d7777551c351"
+                "reference": "09ac4fbbbb79e94771bcdfa137ed80b75ac8e117"
             },
             "require": {
                 "silverstripe/framework": "~6",
@@ -5275,7 +5275,7 @@
                 "Plugins",
                 "silverstripe"
             ],
-            "time": "2025-10-13T21:37:58+00:00"
+            "time": "2025-10-15T14:03:33+00:00"
         },
         {
             "name": "slonline/payment",
