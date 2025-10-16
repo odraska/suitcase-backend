@@ -5121,7 +5121,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/commerce.git",
-                "reference": "bbfed1b740d1dd1c40fa925e6be4b7bd240a0d28"
+                "reference": "92969594ce5506421b2820856727db1ca0c132ae"
             },
             "require": {
                 "mpdf/mpdf": "^8.1",
@@ -5155,7 +5155,7 @@
                 "Commerce",
                 "silverstripe"
             ],
-            "time": "2025-10-15T21:20:38+00:00"
+            "time": "2025-10-16T13:25:57+00:00"
         },
         {
             "name": "slonline/elefont",
@@ -5163,7 +5163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "446b3661a46f18d6e0f0ae8df0e2e7c44b79dc88"
+                "reference": "4712a154c8d70d495e8e281df6ca355f4d17e51d"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5195,7 +5195,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2025-10-16T10:02:10+00:00"
+            "time": "2025-10-16T13:25:57+00:00"
         },
         {
             "name": "slonline/email-templates",
