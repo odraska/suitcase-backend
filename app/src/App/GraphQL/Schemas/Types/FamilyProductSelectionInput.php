@@ -23,7 +23,7 @@ class FamilyProductSelectionInput implements PartialSchemaUpdater
         $schema->addType(Type::create('FamilyProductSelectionInput')
             ->setIsInput(true)
             ->addField('productID', 'ID!')
-            ->addField('productType', 'String!')
+            ->addField('productType', 'FamilyProductSelectionProductType!')
             ->addField('licenses', '[LicenseInput!]!')
         );
     }
