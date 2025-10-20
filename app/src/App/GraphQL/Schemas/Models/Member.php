@@ -92,6 +92,14 @@ class Member implements PartialSchemaUpdater
                     'property' => 'newsletterSubscribed',
                     'plugins' => ['requiredField' => true],
                 ],
+                'orders' => [
+                    'type' => '[Order!]!',
+                    'plugins' => [
+                        'filter' => false,
+                        'paginateList' => false,
+                        'sort' => false,
+                    ],
+                ],
             ]);
             $model->addOperation('readOne');
         });
