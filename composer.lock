@@ -5244,7 +5244,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/graphql.git",
-                "reference": "09ac4fbbbb79e94771bcdfa137ed80b75ac8e117"
+                "reference": "63e4b6f07eb7ad5b91033c9d4345e7c65ad9a2ce"
             },
             "require": {
                 "silverstripe/framework": "~6",
@@ -5275,7 +5275,7 @@
                 "Plugins",
                 "silverstripe"
             ],
-            "time": "2025-10-15T14:03:33+00:00"
+            "time": "2025-10-20T09:15:06+00:00"
         },
         {
             "name": "slonline/payment",
