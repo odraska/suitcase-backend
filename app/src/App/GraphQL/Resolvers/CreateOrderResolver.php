@@ -65,6 +65,10 @@ class CreateOrderResolver
             $order->OrderItems()->add($product->crateOrderItem($selection['licenses']));
         }
 
+        if ($args['discountCode']) {
+            $order->applyDiscountCode($args['discountCode']);
+        }
+
         return $order;
     }
 }
