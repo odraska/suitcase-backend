@@ -8,12 +8,12 @@ use SLONline\App\GraphQL\PartialSchemaUpdater;
 use SLONline\App\GraphQL\Resolvers\CartResolver;
 
 /**
- * Read Cart Query GraphQL Schema Updater
+ * Load Saved Cart Query GraphQL Schema Updater
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
  * @copyright Copyright (c) 2025, SLONline, s.r.o.
  */
-class ReadCart implements PartialSchemaUpdater
+class LoadCart implements PartialSchemaUpdater
 {
 
     /**
@@ -21,12 +21,11 @@ class ReadCart implements PartialSchemaUpdater
      */
     public static function updateSchema(Schema $schema): void
     {
-        $schema->addQuery(Query::create('readCart')
-            ->setDescription('Read cart content')
-            ->setType('Order', false)
-            ->addArg('familyProductSelections', ['type' => '[FamilyProductSelectionInput!]!'])
-            ->addArg('discountCode', ['type' => 'String'])
-            ->setResolver([CartResolver::class, 'resolveReadCart'])
+        $schema->addQuery(Query::create('loadCart')
+            ->setDescription('Load saved cart content')
+            ->setType('SavedCart', false)
+            ->addArg('hash', ['type' => 'String!'])
+            ->setResolver([CartResolver::class, 'resolveLoadCart'])
         );
     }
 }

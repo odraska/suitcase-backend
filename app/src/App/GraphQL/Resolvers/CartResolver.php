@@ -4,6 +4,7 @@ namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use SLONline\App\GraphQL\Schemas\Enums\FamilyProductSelectionProductTypeSchema;
+use SLONline\App\Model\SavedCart;
 use SLONline\Commerce\Model\Order;
 use SLONline\Elefont\Model\Font;
 use SLONline\Elefont\Model\FontFamily;
@@ -16,9 +17,9 @@ use SLONline\Elefont\Model\FontFamilyPackage;
  * @author    Lubos Odraska <odraska@slonline.sk>
  * @copyright Copyright (c) 2023, SLONline, s.r.o.
  */
-class ReadCartResolver
+class CartResolver
 {
-    public static function resolve($obj, array $args, array $context, ResolveInfo $info)
+    public static function resolveReadCart($obj, array $args, array $context, ResolveInfo $info): Order
     {
         $order = Order::create();
         foreach ($args['familyProductSelections'] as $selection) {
@@ -49,5 +50,30 @@ class ReadCartResolver
         }
 
         return $order;
+    }
+
+    public static function resolveSaveCart($obj, array $args, array $context, ResolveInfo $info): string
+    {
+        //only for validation
+        static::resolveReadCart($obj, $args, $context, $info);
+
+        $savedCart = SavedCart::create();
+        $savedCart->CartData = ($args);
+        $savedCart->write();
+
+        return $savedCart->Hash;
+    }
+
+    public static function resolveLoadCart($obj, array $args, array $context, ResolveInfo $info): array
+    {
+        $savedCart = SavedCart::get()->filter('Hash', $args['hash'])->first();
+        if (!$savedCart) {
+            throw new \InvalidArgumentException('Saved cart not found', 404);
+        }
+        
+        return array_merge([
+            'discountCode' => null,
+            'familyProductSelections' => []
+        ], $savedCart->dbObject('CartData')->getValue() ?? []);
     }
 }
