@@ -59,3 +59,9 @@ SLONline\Elefont\Model\FontFamilyPage:
   allowedWebsiteBlocks:
     - SLONline\App\Model\WebsiteBlocks\Images
     - SLONline\App\Model\WebsiteBlocks\TypeTester
+
+---
+Name: frontend-domain
+---
+SilverStripe\Control\Director:
+  frontend_base_url: "`SS_FRONTEND_BASE_URL`"
