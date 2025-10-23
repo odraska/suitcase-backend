@@ -4,7 +4,7 @@ namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use SilverStripe\ORM\DataList;
-use SLONline\Commerce\Model\discounts\DiscountCode;
+use SLONline\Commerce\Model\Discounts\DiscountCode;
 
 /**
  * Validate Discount Code Resolver
