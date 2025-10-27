@@ -9,8 +9,7 @@ use SilverStripe\ORM\DataList;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
 use SLONline\AddressManagement\Extensions\MemberExtension;
-use SLONline\AddressManagement\Module\Country;
-use SLONline\AddressManagement\Module\State;
+use SLONline\AddressManagement\Model\MemberAddress;
 
 
 /**
@@ -98,6 +97,39 @@ class UpdateMemberResolver
         if ($member->isChanged()) {
             $member->write();
         }
+
+        $licenseAddressesIDs = [];
+        foreach ($args['licenseAddresses'] ?? [] as $licenseAddressInput) {
+            $licenseAddress = $member->licenseAddresses()->find('ID', $licenseAddressInput['id'] ?? 0);
+            if (!$licenseAddress) {
+                $licenseAddress = MemberAddress::create();
+            }
+            $licenseAddress->FirstName = $licenseAddressInput['firstName'] ?? '';
+            $licenseAddress->Surname = $licenseAddressInput['surname'] ?? '';
+            $licenseAddress->Email = $licenseAddressInput['email'] ?? '';
+            $licenseAddress->Organisation = $licenseAddressInput['organisation'] ?? '';
+            $licenseAddress->Street = $licenseAddressInput['street'] ?? '';
+            $licenseAddress->Street2 = $licenseAddressInput['street2'] ?? '';
+            $licenseAddress->City = $licenseAddressInput['city'] ?? '';
+            $licenseAddress->ZIP = $licenseAddressInput['zip'] ?? '';
+            $licenseAddress->Phone = $licenseAddressInput['phone'] ?? '';
+            $licenseAddress->CompanyID = $licenseAddressInput['companyID'] ?? '';
+            $licenseAddress->TaxID = $licenseAddressInput['taxID'] ?? '';
+            $licenseAddress->VATID = $licenseAddressInput['vatID'] ?? '';
+            if (isset($licenseAddressInput['countryID'])) {
+                $licenseAddress->CountryID = (int)$licenseAddressInput['countryID'];
+            }
+            if (isset($licenseAddressInput['stateID'])) {
+                $licenseAddress->StateID = (int)$licenseAddressInput['stateID'];
+            }
+            $licenseAddress->write();
+            if (!$member->licenseAddresses()->byID($licenseAddress->ID)) {
+                $member->licenseAddresses()->add($licenseAddress);
+            }
+            $licenseAddressesIDs[] = $licenseAddress->ID;
+        }
+        // Remove license addresses not in the input
+        $member->licenseAddresses()->exclude('ID', $licenseAddressesIDs)->removeAll();
 
         /** @todo add newsletter */
         /*if (isset($args['newsletter'])) {

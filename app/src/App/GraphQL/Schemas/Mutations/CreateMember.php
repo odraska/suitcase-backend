@@ -35,6 +35,7 @@ class CreateMember implements PartialSchemaUpdater
             ->addArg('stateID', 'ID!')
             ->addArg('vatID', 'String!')
             ->addArg('newsletter', 'Boolean!')
+            ->addArg('licenseAddresses', '[AddressInput!]!')
             ->setResolver([CreateMemberResolver::class, 'resolve'])
         );
     }

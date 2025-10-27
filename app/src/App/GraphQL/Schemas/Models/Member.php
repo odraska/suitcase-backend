@@ -92,6 +92,14 @@ class Member implements PartialSchemaUpdater
                     'property' => 'newsletterSubscribed',
                     'plugins' => ['requiredField' => true],
                 ],
+                'licenseAddresses' => [
+                    'type' => '[MemberAddress!]!',
+                    'plugins' => [
+                        'filter' => false,
+                        'paginateList' => false,
+                        'sort' => false,
+                    ],
+                ],
                 'orders' => [
                     'type' => '[Order!]!',
                     'plugins' => [
