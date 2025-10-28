@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a927fd57ca7bbc140acd610260ba9d9a",
+    "content-hash": "b03fb9a41af9ad0313b18934167437b5",
     "packages": [
         {
             "name": "async-aws/core",
@@ -5121,7 +5121,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/commerce.git",
-                "reference": "dd1b10ca64642780388c9b37886c27c9a27e80f7"
+                "reference": "80deae9b89f6d5ec1d039fd799741d372ef0f857"
             },
             "require": {
                 "mpdf/mpdf": "^8.1",
@@ -5155,7 +5155,7 @@
                 "Commerce",
                 "silverstripe"
             ],
-            "time": "2025-10-28T11:07:50+00:00"
+            "time": "2025-10-28T15:46:49+00:00"
         },
         {
             "name": "slonline/elefont",
@@ -5163,7 +5163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "d474c8a36c858f5a764fa36b7409ad8b3ebe9346"
+                "reference": "87bf2f1a4cf7123d73b38607ecaa642c3c9eea85"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5195,7 +5195,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2025-10-27T22:34:06+00:00"
+            "time": "2025-10-28T15:28:55+00:00"
         },
         {
             "name": "slonline/email-templates",
@@ -5325,17 +5325,11 @@
         },
         {
             "name": "slonline/payment",
-            "version": "6.0",
+            "version": "6.x-dev",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/payment.git",
-                "reference": "d2b3fa9577831f507c7f03add54881d88d3cb346"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://packages.slonline.sk/dist/slonline/payment/slonline-payment-6.0-5a5b8f.tar",
-                "reference": "d2b3fa9577831f507c7f03add54881d88d3cb346",
-                "shasum": "426d5819caab7bb2d5d841dc4180c0fffc628147"
+                "reference": "767f7ae03dc3c6fb2133d9cbff91995bbe392cbe"
             },
             "require": {
                 "silverstripe/framework": "~6"
@@ -5360,7 +5354,7 @@
                     "homepage": "https://www.slonline.sk"
                 }
             ],
-            "time": "2025-07-29T19:40:11+00:00"
+            "time": "2025-10-28T15:47:37+00:00"
         },
         {
             "name": "slonline/payment-stripe",
@@ -5368,11 +5362,11 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/payment-stripe.git",
-                "reference": "c96edcd136d2b221ec8fb3c4fe1200454029e13c"
+                "reference": "d5f3736b80a79cd6f51a6894498ccaff99f1db29"
             },
             "require": {
                 "slonline/payment": "^6",
-                "stripe/stripe-php": "^10.14"
+                "stripe/stripe-php": "^18.0"
             },
             "type": "library",
             "autoload": {
@@ -5390,7 +5384,7 @@
                     "homepage": "https://www.slonline.sk"
                 }
             ],
-            "time": "2025-07-29T19:40:10+00:00"
+            "time": "2025-10-28T15:46:49+00:00"
         },
         {
             "name": "slonline/silverstripe-features",
@@ -5480,16 +5474,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v10.21.0",
+            "version": "v18.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "b4ab319731958077227fad1874a3671458c5d593"
+                "reference": "70d6c286f0eca002b60ccd62afa7140c43c14bbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/b4ab319731958077227fad1874a3671458c5d593",
-                "reference": "b4ab319731958077227fad1874a3671458c5d593",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/70d6c286f0eca002b60ccd62afa7140c43c14bbb",
+                "reference": "70d6c286f0eca002b60ccd62afa7140c43c14bbb",
                 "shasum": ""
             },
             "require": {
@@ -5499,11 +5493,9 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "3.5.0",
-                "php-coveralls/php-coveralls": "^2.5",
+                "friendsofphp/php-cs-fixer": "3.72.0",
                 "phpstan/phpstan": "^1.2",
-                "phpunit/phpunit": "^5.7 || ^9.0",
-                "squizlabs/php_codesniffer": "^3.3"
+                "phpunit/phpunit": "^5.7 || ^9.0"
             },
             "type": "library",
             "extra": {
@@ -5535,9 +5527,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v10.21.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v18.0.0"
             },
-            "time": "2023-08-11T00:23:24+00:00"
+            "time": "2025-09-30T22:56:22+00:00"
         },
         {
             "name": "symbiote/silverstripe-gridfieldextensions",
@@ -9955,7 +9947,10 @@
         "silverstripe/login-forms": 0,
         "silverstripe/htmleditor-tinymce": 0,
         "slonline/graphql": 20,
+        "slonline/email-templates": 20,
         "slonline/commerce": 20,
+        "slonline/payment": 20,
+        "slonline/payment-stripe": 20,
         "slonline/elefont": 20
     },
     "prefer-stable": true,

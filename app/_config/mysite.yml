@@ -71,4 +71,4 @@ SLONline\Payment\StripePayment:
   publicKey: "`STRIPE_PAYMENT_PUBLIC_KEY`"
   secretKey: "`STRIPE_PAYMENT_SECRET_KEY`"
 SLONline\Payment\StripePaymentWebhook:
-  endpointSecret: ""
+  endpointSecret: "`STRIPE_PAYMENT_WEBHOOK_SECRET`"

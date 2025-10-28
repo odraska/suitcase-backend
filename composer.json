@@ -17,10 +17,10 @@
         "symbiote/silverstripe-gridfieldextensions": "^5.0",
         "slonline/graphql": "^6.x-dev",
         "slonline/address-management": "^6",
-        "slonline/email-templates": "^6",
+        "slonline/email-templates": "^6.x-dev",
         "slonline/commerce": "^6.x-dev",
-        "slonline/payment": "^6",
-        "slonline/payment-stripe": "^6",
+        "slonline/payment": "^6.x-dev",
+        "slonline/payment-stripe": "^6.x-dev",
         "slonline/amazon_aws": "^6",
         "slonline/elefont": "^6.x-dev",
         "slonline/jsonfield": "^6.0"

@@ -3,10 +3,12 @@
 namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
+use SilverStripe\Core\Validation\ValidationException;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
 use SLONline\AddressManagement\Extensions\MemberExtension;
 use SLONline\App\GraphQL\Schemas\Enums\FamilyProductSelectionProductTypeSchema;
+use SLONline\Commerce\Extensions\Payment;
 use SLONline\Commerce\Model\Order;
 use SLONline\Elefont\Model\Font;
 use SLONline\Elefont\Model\FontFamily;
@@ -21,7 +23,10 @@ use SLONline\Elefont\Model\FontFamilyPackage;
  */
 class CreateOrderResolver
 {
-    public static function resolve($obj, array $args, array $context, ResolveInfo $info)
+    /**
+     * @throws ValidationException
+     */
+    public static function resolve($obj, array $args, array $context, ResolveInfo $info): Order
     {
         /** @var Member|MemberExtension $member */
         $member = Security::getCurrentUser();
@@ -68,6 +73,8 @@ class CreateOrderResolver
         if ($args['discountCode']) {
             $order->applyDiscountCode($args['discountCode']);
         }
+
+        Payment::createOrderPayment($args['paymentMethod'], $order);
 
         return $order;
     }
