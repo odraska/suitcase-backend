@@ -5121,7 +5121,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/commerce.git",
-                "reference": "0803ff99c7cc93965ee4a7d95dba4538d26beca5"
+                "reference": "dd1b10ca64642780388c9b37886c27c9a27e80f7"
             },
             "require": {
                 "mpdf/mpdf": "^8.1",
@@ -5155,7 +5155,7 @@
                 "Commerce",
                 "silverstripe"
             ],
-            "time": "2025-10-27T15:51:32+00:00"
+            "time": "2025-10-28T11:07:50+00:00"
         },
         {
             "name": "slonline/elefont",
