@@ -47,7 +47,7 @@ class ReadFamilyProductsResolver
                 $list->push(ArrayData::create([
                     '__typename' => 'FontProduct',
                     'id' => $font->ID,
-                    'title' => $font->Title,
+                    'title' => $family->Title . ' ' . $font->Title,
                     'fontFamily' => $family,
                     'font' => $font,
                     'price' => $family->FontPrice
