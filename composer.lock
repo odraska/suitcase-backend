@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b03fb9a41af9ad0313b18934167437b5",
+    "content-hash": "f08ca99916db453b1905dda8e756be4a",
     "packages": [
         {
             "name": "async-aws/core",
@@ -5239,12 +5239,60 @@
             "time": "2025-07-29T19:40:10+00:00"
         },
         {
+            "name": "slonline/exchangerates",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SLONline/exchangerates.git",
+                "reference": "f58d344983345f732cddb7edf71d0986ac60af6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SLONline/exchangerates/zipball/f58d344983345f732cddb7edf71d0986ac60af6d",
+                "reference": "f58d344983345f732cddb7edf71d0986ac60af6d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "silverstripe/framework": "~6"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SLONline\\ExchangeRates\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Lubos Odraska",
+                    "email": "odraska@slonline.sk",
+                    "homepage": "https://www.slonline.sk"
+                }
+            ],
+            "description": "Exchange rates - Module for SilverStripe 6",
+            "keywords": [
+                "cms",
+                "exchange rates",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/SLONline/exchangerates/issues",
+                "source": "https://github.com/SLONline/exchangerates/tree/main"
+            },
+            "time": "2025-10-30T12:21:59+00:00"
+        },
+        {
             "name": "slonline/graphql",
             "version": "6.x-dev",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/graphql.git",
-                "reference": "2f783f57def7139769f242abe3569d391aed13c5"
+                "reference": "5fd161e0eba5b6e67625342b9dd07b6f23011d8b"
             },
             "require": {
                 "silverstripe/framework": "~6",
@@ -5275,7 +5323,7 @@
                 "Plugins",
                 "silverstripe"
             ],
-            "time": "2025-10-23T10:08:10+00:00"
+            "time": "2025-10-30T12:26:53+00:00"
         },
         {
             "name": "slonline/jsonfield",
@@ -9951,7 +9999,8 @@
         "slonline/commerce": 20,
         "slonline/payment": 20,
         "slonline/payment-stripe": 20,
-        "slonline/elefont": 20
+        "slonline/elefont": 20,
+        "slonline/exchangerates": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

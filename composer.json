@@ -23,7 +23,8 @@
         "slonline/payment-stripe": "^6.x-dev",
         "slonline/amazon_aws": "^6",
         "slonline/elefont": "^6.x-dev",
-        "slonline/jsonfield": "^6.0"
+        "slonline/jsonfield": "^6.0",
+        "slonline/exchangerates": "main-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^11.3",
