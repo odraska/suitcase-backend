@@ -67,6 +67,16 @@ SilverStripe\Control\Director:
   frontend_base_url: "`SS_FRONTEND_BASE_URL`"
 
 ---
+Name: exchange-rates
+---
+SLONline\ExchangeRates\ExchangeRates:
+  registered_processor: SLONline\ExchangeRates\Processor\CNB
+  supported_currencies:
+    - EUR
+    - CZK
+    - USD
+
+---
 SLONline\Payment\StripePayment:
   publicKey: "`STRIPE_PAYMENT_PUBLIC_KEY`"
   secretKey: "`STRIPE_PAYMENT_SECRET_KEY`"
