@@ -4987,7 +4987,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/address-management.git",
-                "reference": "941a5a2a7448bdcb97bfbd297c85719cfa1287af"
+                "reference": "339e5f7d63ae8d22b0d5575e2e5bd2b885a131b7"
             },
             "require": {
                 "ext-soap": "*",
@@ -5021,7 +5021,7 @@
                 "States",
                 "silverstripe"
             ],
-            "time": "2025-10-30T09:23:54+00:00"
+            "time": "2025-10-30T11:14:20+00:00"
         },
         {
             "name": "slonline/amazon_aws",
