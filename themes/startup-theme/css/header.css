@@ -57,15 +57,21 @@
 
 .menu__item {
     position: relative;
+    border-bottom: 0.3rem solid transparent;
 }
 
 .menu__item-container {
     display: flex;
-    flex-direction: row;
+      flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menu__chevron {
+    transition: var(--transition-default);
 }
 
 .menu__link {
-    border-bottom: 0.3rem solid transparent;
     color: var(--color-white);
     display: inline-block;
     padding: 0.7rem 0 0.4rem;
@@ -77,33 +83,54 @@
     color: var(--color-white-70);
 }
 
-.menu__link--current,
-.menu__link--section {
+.menu__item--current,
+.menu__item--section {
     border-color: var(--color-white);
 }
 
 .menu__item:hover,
 .menu__item:focus-within,
 .menu__item:has(.submenu:hover) {
-    & > .menu__link {
-        color: var(--color-white-70);
-    }
-
-    & > .menu__link--current,
-    & > .menu__link--section {
-        border-color: var(--color-white-70);
-    }
+    color: var(--color-white-70);
 }
 
 /* submenu */
 .submenu {
+    visibility: hidden;
+    opacity: 0;
     background: var(--color-white);
     border: 0.2rem var(--color-charcoal) solid;
     border-radius: 0.4rem;
     min-width: 22rem;
     padding: 1rem;
     position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 10;
     transition: var(--transition-default);
+}
+
+/* .submenu-is-active is applied on mouseover on menu-items with submenus */
+.submenu-is-active .submenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.submenu-chevron {
+  color: var(--color-white);
+  padding: 0 0.5rem;
+
+  &:hover {
+    color: var(--color-line-grey);
+  }
+}
+
+.submenu-chevron svg {
+  transition: var(--transition-default);
+  transform: rotate(0deg);
+}
+.submenu-is-active .submenu-chevron svg {
+  transform: rotate(180deg);
 }
 
 .submenu__link {
@@ -309,14 +336,5 @@
 
     &:hover {
         color: var(--color-grey);
-    }
-}
-
-.submenu-chevron {
-    color: var(--color-white);
-    padding: 0 1rem;
-
-    &:hover {
-        color: var(--color-line-grey);
     }
 }
