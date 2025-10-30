@@ -129,7 +129,11 @@ class UpdateMemberResolver
             $licenseAddressesIDs[] = $licenseAddress->ID;
         }
         // Remove licence addresses not in the input
-        $member->licenseAddresses()->exclude('ID', $licenseAddressesIDs)->removeAll();
+        $member->licenseAddresses()
+            ->exclude('ID', $licenseAddressesIDs)
+            ->each(function (MemberAddress $item) {
+                $item->delete();
+            });
 
         /** @todo add newsletter */
         /*if (isset($args['newsletter'])) {
