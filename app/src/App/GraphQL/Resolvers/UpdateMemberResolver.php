@@ -98,7 +98,7 @@ class UpdateMemberResolver
             $member->write();
         }
 
-        $licenseAddressesIDs = [];
+        $licenseAddressesIDs = [0];
         foreach ($args['licenseAddresses'] ?? [] as $licenseAddressInput) {
             $licenseAddress = $member->licenseAddresses()->find('ID', $licenseAddressInput['id'] ?? 0);
             if (!$licenseAddress) {
@@ -128,7 +128,7 @@ class UpdateMemberResolver
             }
             $licenseAddressesIDs[] = $licenseAddress->ID;
         }
-        // Remove license addresses not in the input
+        // Remove licence addresses not in the input
         $member->licenseAddresses()->exclude('ID', $licenseAddressesIDs)->removeAll();
 
         /** @todo add newsletter */
