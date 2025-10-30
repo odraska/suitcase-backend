@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f08ca99916db453b1905dda8e756be4a",
+    "content-hash": "44ef0237ddf6d93e1c7157d4c42557d7",
     "packages": [
         {
             "name": "async-aws/core",
@@ -5240,7 +5240,7 @@
         },
         {
             "name": "slonline/exchangerates",
-            "version": "dev-main",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SLONline/exchangerates.git",
@@ -5256,7 +5256,6 @@
                 "ext-simplexml": "*",
                 "silverstripe/framework": "~6"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -5282,7 +5281,7 @@
             ],
             "support": {
                 "issues": "https://github.com/SLONline/exchangerates/issues",
-                "source": "https://github.com/SLONline/exchangerates/tree/main"
+                "source": "https://github.com/SLONline/exchangerates/tree/6.0.2"
             },
             "time": "2025-10-30T12:21:59+00:00"
         },
@@ -9999,8 +9998,7 @@
         "slonline/commerce": 20,
         "slonline/payment": 20,
         "slonline/payment-stripe": 20,
-        "slonline/elefont": 20,
-        "slonline/exchangerates": 20
+        "slonline/elefont": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
