@@ -75,13 +75,13 @@ class MemberInput implements PartialSchemaUpdater
                     'type' => 'String',
                     'description' => 'User`s VAT ID'
                 ],
-                'country' => [
-                    'type' => 'String',
-                    'description' => 'User`s country code'
+                'countryID' => [
+                    'type' => 'ID',
+                    'description' => 'User`s country ID'
                 ],
-                'state' => [
-                    'type' => 'String',
-                    'description' => 'User`s state code'
+                'stateID' => [
+                    'type' => 'ID',
+                    'description' => 'User`s state ID'
                 ],
             ]
         ]));

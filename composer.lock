@@ -187,16 +187,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.359.1",
+            "version": "3.359.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "40543e3993fc5094094ac9f9bdc4434bf81cca2d"
+                "reference": "bc3244323c96d667caf6ff1c7b1d238781e5b925"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/40543e3993fc5094094ac9f9bdc4434bf81cca2d",
-                "reference": "40543e3993fc5094094ac9f9bdc4434bf81cca2d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bc3244323c96d667caf6ff1c7b1d238781e5b925",
+                "reference": "bc3244323c96d667caf6ff1c7b1d238781e5b925",
                 "shasum": ""
             },
             "require": {
@@ -278,9 +278,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.359.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.359.2"
             },
-            "time": "2025-10-29T20:13:06+00:00"
+            "time": "2025-10-30T18:16:03+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -4987,7 +4987,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/address-management.git",
-                "reference": "339e5f7d63ae8d22b0d5575e2e5bd2b885a131b7"
+                "reference": "97af55ff7b991235e6a48ec092f102844f9340b5"
             },
             "require": {
                 "ext-soap": "*",
@@ -5021,7 +5021,7 @@
                 "States",
                 "silverstripe"
             ],
-            "time": "2025-10-30T11:14:20+00:00"
+            "time": "2025-10-31T14:15:09+00:00"
         },
         {
             "name": "slonline/amazon_aws",
@@ -5121,7 +5121,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/commerce.git",
-                "reference": "08672416f292bc5929cdc109525da5681c999b86"
+                "reference": "e295b2ee40eadc3463a29e62208a3ffe813b5491"
             },
             "require": {
                 "mpdf/mpdf": "^8.1",
@@ -5155,7 +5155,7 @@
                 "Commerce",
                 "silverstripe"
             ],
-            "time": "2025-10-29T15:00:59+00:00"
+            "time": "2025-10-31T14:53:34+00:00"
         },
         {
             "name": "slonline/elefont",
@@ -5163,7 +5163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "b06cd159fdd0e7df60d1cfa471efc1e85b1c7e87"
+                "reference": "3ea5714e81b444ca7f0a445401d372e7b571f6da"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5195,7 +5195,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2025-10-29T15:01:00+00:00"
+            "time": "2025-10-31T13:59:28+00:00"
         },
         {
             "name": "slonline/email-templates",
@@ -5240,16 +5240,16 @@
         },
         {
             "name": "slonline/exchangerates",
-            "version": "6.0.2",
+            "version": "6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SLONline/exchangerates.git",
-                "reference": "f58d344983345f732cddb7edf71d0986ac60af6d"
+                "reference": "d98b2212f8a4f69ea3777383f37912a752e1d221"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SLONline/exchangerates/zipball/f58d344983345f732cddb7edf71d0986ac60af6d",
-                "reference": "f58d344983345f732cddb7edf71d0986ac60af6d",
+                "url": "https://api.github.com/repos/SLONline/exchangerates/zipball/d98b2212f8a4f69ea3777383f37912a752e1d221",
+                "reference": "d98b2212f8a4f69ea3777383f37912a752e1d221",
                 "shasum": ""
             },
             "require": {
@@ -5281,9 +5281,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SLONline/exchangerates/issues",
-                "source": "https://github.com/SLONline/exchangerates/tree/6.0.2"
+                "source": "https://github.com/SLONline/exchangerates/tree/6.0.3"
             },
-            "time": "2025-10-30T12:21:59+00:00"
+            "time": "2025-10-31T11:00:47+00:00"
         },
         {
             "name": "slonline/graphql",

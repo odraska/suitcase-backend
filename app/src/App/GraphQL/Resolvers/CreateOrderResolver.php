@@ -34,17 +34,38 @@ class CreateOrderResolver
         $order = Order::create();
         if ($member && $member->exists()) {
             $order->MemberID = $member->ID;
-            $order->setField('Email', $member->Email);
-            $order->setField('InvoiceFirstName', $member->FirstName);
-            $order->setField('InvoiceSurname', $member->Surname);
-            $order->setField('InvoiceOrganisation', $member->Organisation);
-            $order->setField('InvoiceStreet', $member->Street);
-            $order->setField('InvoiceStreet2', $member->Street2);
-            $order->setField('InvoiceCity', $member->City);
-            $order->setField('InvoiceZIP', $member->ZIP);
-            $order->setField('InvoiceCountryID', $member->CountryID);
-            $order->setField('InvoiceStateID', $member->StateID);
         }
+
+        if ($args['member']) {
+            $order->setField('Email', $args['member']['email']);
+            $order->setField('InvoiceFirstName', $args['member']['firstName']);
+            $order->setField('InvoiceSurname', $args['member']['surname']);
+            $order->setField('InvoiceOrganisation', $args['member']['organisation']??'');
+            $order->setField('InvoiceStreet', $args['member']['street']);
+            $order->setField('InvoiceStreet2', $args['member']['street2']??'');
+            $order->setField('InvoiceCity', $args['member']['city']);
+            $order->setField('InvoiceZIP', $args['member']['zip']);
+            $order->setField('InvoiceCountryID', $args['member']['countryID']);
+            $order->setField('InvoiceStateID', $args['member']['stateID']);
+            $order->setField('InvoicePhone', $args['member']['phone']??'');
+            $order->setField('CompanyID', $args['member']['companyID']??'');
+            $order->setField('TaxID', $args['member']['taxID']??'');
+            $order->setField('VATID', $args['member']['vatID']??'');
+        }
+
+        if ($args['licenseAddress']) {
+            $order->setField('LicenseFirstName', $args['licenseAddress']['firstName']);
+            $order->setField('LicenseSurname', $args['licenseAddress']['surname']);
+            $order->setField('LicenseOrganisation', $args['licenseAddress']['organisation']??'');
+            $order->setField('LicenseStreet', $args['licenseAddress']['street']);
+            $order->setField('LicenseStreet2', $args['licenseAddress']['street2']??'');
+            $order->setField('LicenseCity', $args['licenseAddress']['city']);
+            $order->setField('LicenseZIP', $args['licenseAddress']['zip']);
+            $order->setField('LicenseCountryID', $args['licenseAddress']['countryID']);
+            $order->setField('LicenseStateID', $args['licenseAddress']['stateID']);
+            $order->setField('LicensePhone', $args['licenseAddress']['phone']??'');
+        }
+
         $order->write();
 
         foreach ($args['familyProductSelections'] as $selection) {
