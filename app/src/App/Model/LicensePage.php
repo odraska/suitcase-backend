@@ -10,6 +10,8 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
  * @copyright Copyright (c) 2025, SLONline, s.r.o.
+ *
+ * @property string ShortContent
  */
 class LicensePage extends Page
 {
@@ -21,9 +23,15 @@ class LicensePage extends Page
     private static array $allowed_children = ['none'];
     private static bool $can_be_root = false;
 
+    private static array $db = [
+        'ShortContent' => 'HTMLText',
+    ];
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
+        $fields->fieldByName('Root.Main.ShortContent')->setEditorConfig('small');
 
         $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content', 'Content'));
         $fields->fieldByName('Root.Main.Content')->setEditorConfig('small');

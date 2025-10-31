@@ -21,6 +21,20 @@ class LicensePage implements PartialSchemaUpdater
     public static function updateSchema(Schema $schema): void
     {
         $schema->addModelbyClassName(\SLONline\App\Model\LicensePage::class, function (ModelType $model) {
+            $model->addField('shortContent', [
+                'type' => 'String!',
+                'plugins' => ['requiredField' => true],
+            ]);
+
+            $model->addOperation('read', [
+                'plugins' => [
+                    'readVersion' => false,
+                    'paginateList' => true,
+                    'sort' => true,
+                    'filter' => true
+                ],
+            ]);
+
             $model->addOperation('readOne', [
                 'plugins' => [
                     'readVersion' => false,
