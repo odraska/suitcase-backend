@@ -32,6 +32,15 @@ class ArticleCategory implements PartialSchemaUpdater
                     'requiredField' => true,
                 ],
             ]);
+            $model->addField('articles', [
+                'type' => '[ArticlePage!]!',
+                'plugins' => [
+                    'readVersion' => false,
+                    'paginateList' => true,
+                    'sort' => false,
+                    'filter' => false
+                ],
+            ]);
             $model->addOperation('read', [
                 'plugins' => [
                     'readVersion' => false,

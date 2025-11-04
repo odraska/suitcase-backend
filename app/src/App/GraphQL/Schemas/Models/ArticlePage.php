@@ -4,6 +4,7 @@ namespace SLONline\App\GraphQL\Schemas\Models;
 
 use SilverStripe\GraphQL\Schema\Schema;
 use SLONline\App\GraphQL\PartialSchemaUpdater;
+use SLONline\App\GraphQL\Resolvers\ArticlePageResolver;
 
 /**
  * Article Page Data Object GraphQL Schema Updater
@@ -47,7 +48,20 @@ class ArticlePage implements PartialSchemaUpdater
                     'readVersion' => false,
                     'paginateList' => true,
                     'sort' => true,
-                    'filter' => true,
+                    'filter' => [
+                        'fields' => [
+                            'id' => true,
+                            'urlSegment' => true,
+                            'categoryUrlSegment' => true,
+                        ],
+                        'resolve' => [
+                            'categoryUrlSegment' => [
+                                'type' => 'String',
+                                'description' => 'URL segments of the categories to filter by',
+                                'resolver' => [ArticlePageResolver::class, 'resolveCategoryUrlSegmentFilter'],
+                            ],
+                        ],
+                    ],
                 ],
             ]);
             $model->addOperation('readOne', [
@@ -55,7 +69,20 @@ class ArticlePage implements PartialSchemaUpdater
                     'readVersion' => false,
                     'paginateList' => false,
                     'sort' => false,
-                    'filter' => true
+                    'filter' => [
+                        'fields' => [
+                            'id' => true,
+                            'urlSegment' => true,
+                            'categoryUrlSegment' => true,
+                        ],
+                        'resolve' => [
+                            'categoryUrlSegment' => [
+                                'type' => 'String',
+                                'description' => 'URL segments of the categories to filter by',
+                                'resolver' => [ArticlePageResolver::class, 'resolveCategoryUrlSegmentFilter'],
+                            ],
+                        ],
+                    ],
                 ],
             ]);
         });
