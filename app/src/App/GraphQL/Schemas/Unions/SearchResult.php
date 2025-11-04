@@ -23,9 +23,11 @@ class SearchResult implements PartialSchemaUpdater
     {
         $schema->addUnion(UnionType::create('SearchResult', [
             'types' => [
-                'FontFamilyPage',
-                'Author',
-                'Page',
+                SearchResolver::SEARCH_RESULT_TYPE_FONT_FAMILY_PAGE,
+                SearchResolver::SEARCH_RESULT_TYPE_AUTHOR,
+                SearchResolver::SEARCH_RESULT_TYPE_PAGE,
+                SearchResolver::SEARCH_RESULT_TYPE_ARTICLE,
+                SearchResolver::SEARCH_RESULT_TYPE_PROJECT,
             ],
             'typeResolver' => [SearchResolver::class, 'resolveSearchResultType'],
         ]));

@@ -39,7 +39,7 @@ class ArticlePage implements PartialSchemaUpdater
                 ],
             ]);
             $model->addField('category', [
-                'type' => 'ArticleCategory',
+                'type' => 'ArticleCategory!',
             ]);
 
             $model->addOperation('read', [

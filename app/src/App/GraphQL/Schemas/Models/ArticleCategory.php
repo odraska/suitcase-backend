@@ -26,6 +26,12 @@ class ArticleCategory implements PartialSchemaUpdater
                     'requiredField' => true,
                 ],
             ]);
+            $model->addField('urlSegment', [
+                'type' => 'String!',
+                'plugins' => [
+                    'requiredField' => true,
+                ],
+            ]);
             $model->addOperation('read', [
                 'plugins' => [
                     'readVersion' => false,

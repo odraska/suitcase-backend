@@ -53,6 +53,22 @@ class Author implements PartialSchemaUpdater
                         'sort' => false
                     ],
                 ],
+                'articles' => [
+                    'type' => '[ArticlePage!]!',
+                    'plugins' => [
+                        'filter' => false,
+                        'paginateList' => true,
+                        'sort' => false
+                    ],
+                ],
+                'projects' => [
+                    'type' => '[ProjectPage!]!',
+                    'plugins' => [
+                        'filter' => false,
+                        'paginateList' => true,
+                        'sort' => false
+                    ],
+                ],
             ]);
 
             $model->addOperation('read', [

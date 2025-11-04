@@ -5,6 +5,7 @@ namespace SLONline\App\Model;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\HasManyList;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
  * Article Category Data Object
@@ -13,6 +14,7 @@ use SilverStripe\ORM\HasManyList;
  * @copyright Copyright (c) 2025, SLONline, s.r.o.
  *
  * @property string Title
+ * @property string $UrlSegment
  * @property int EditorialPageID
  * @method EditorialPage EditorialPage()
  * @method HasManyList|ArticlePage Articles()
@@ -26,6 +28,7 @@ class ArticleCategory extends DataObject
 
     private static array $db = [
         'Title' => 'Varchar(255)',
+        'UrlSegment' => 'Varchar(255)',
     ];
 
     private static array $has_one = [
@@ -47,5 +50,14 @@ class ArticleCategory extends DataObject
     public function canView($member = null): bool
     {
         return true;
+    }
+
+    protected function onBeforeWrite(): void
+    {
+        parent::onBeforeWrite();
+
+        if (!$this->UrlSegment) {
+            $this->UrlSegment = URLSegmentFilter::create()->filter($this->Title);
+        }
     }
 }
