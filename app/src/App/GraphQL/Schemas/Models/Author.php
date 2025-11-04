@@ -55,6 +55,7 @@ class Author implements PartialSchemaUpdater
                 ],
                 'articles' => [
                     'type' => '[ArticlePage!]!',
+                    'property' => 'ArticlePages',
                     'plugins' => [
                         'filter' => false,
                         'paginateList' => true,
@@ -63,6 +64,7 @@ class Author implements PartialSchemaUpdater
                 ],
                 'projects' => [
                     'type' => '[ProjectPage!]!',
+                    'property' => 'ProjectPages',
                     'plugins' => [
                         'filter' => false,
                         'paginateList' => true,
