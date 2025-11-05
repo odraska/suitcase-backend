@@ -13,6 +13,7 @@ use SilverStripe\ORM\ManyManyList;
  * @copyright Copyright (c) 2025, SLONline, s.r.o.
  *
  * @property string Annotation
+ * @property bool Spotlight
  * @property int CoverImageID
  * @method Image CoverImage()
  * @method ManyManyList|Author Authors()
@@ -30,6 +31,7 @@ class ProjectPage extends Page
 
     private static array $db = [
         'Annotation' => 'HTMLText',
+        'Spotlight' => 'Boolean',
     ];
 
     private static array $has_one = [
