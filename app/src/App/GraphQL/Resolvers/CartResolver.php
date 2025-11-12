@@ -3,6 +3,8 @@
 namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
+use InvalidArgumentException;
+use SLONline\App\GraphQL\CaptchaBotID;
 use SLONline\App\GraphQL\Schemas\Enums\FamilyProductSelectionProductTypeSchema;
 use SLONline\App\Model\SavedCart;
 use SLONline\Commerce\Model\Order;
@@ -35,7 +37,7 @@ class CartResolver
                     $product = Font::get()->byID($selection['productID']);
                     break;
                 default:
-                    throw new \InvalidArgumentException('Unknown product type ' . $selection['productType']);
+                    throw new InvalidArgumentException('Unknown product type ' . $selection['productType']);
             }
 
             if (!$product) {
@@ -54,6 +56,10 @@ class CartResolver
 
     public static function resolveSaveCart($obj, array $args, array $context, ResolveInfo $info): string
     {
+        if (!CaptchaBotID::singleton()->validateToken($args['captchaToken'])) {
+            throw new InvalidArgumentException('Invalid Captcha token', 110);
+        }
+
         //only for validation
         static::resolveReadCart($obj, $args, $context, $info);
 
@@ -68,9 +74,9 @@ class CartResolver
     {
         $savedCart = SavedCart::get()->filter('Hash', $args['hash'])->first();
         if (!$savedCart) {
-            throw new \InvalidArgumentException('Saved cart not found', 404);
+            throw new InvalidArgumentException('Saved cart not found', 404);
         }
-        
+
         return array_merge([
             'discountCode' => null,
             'familyProductSelections' => []

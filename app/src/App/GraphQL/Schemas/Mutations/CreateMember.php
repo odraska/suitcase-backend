@@ -23,6 +23,7 @@ class CreateMember implements PartialSchemaUpdater
         $schema->addMutation(Mutation::create('createMember')
             ->setDescription('Create a new member')
             ->setType('Member', true)
+            ->addArg('captchaToken', 'String!')
             ->addArg('firstName', 'String!')
             ->addArg('surname', 'String!')
             ->addArg('email', 'String!')

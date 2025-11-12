@@ -8,6 +8,7 @@ use SilverStripe\ORM\DataList;
 use SilverStripe\Security\Member;
 use SLONline\AddressManagement\Extensions\MemberExtension;
 use SLONline\AddressManagement\Model\MemberAddress;
+use SLONline\App\GraphQL\CaptchaBotID;
 
 /**
  * Create Member Resolver
@@ -19,12 +20,9 @@ class CreateMemberResolver
 {
     public static function resolve($obj, array $args, array $context, ResolveInfo $info): Member
     {
-        /** @todo add reCaptcha / hCaptcha */
-        /*if (\class_exists('SLONline\Google\GoogleCaptchaValidator')) {
-            if (!GoogleCaptchaValidator::singleton()->validateToken($args['reCaptchaToken'])) {
-                throw new InvalidArgumentException('Invalid reCaptcha token', 110);
-            }
-        }*/
+        if (!CaptchaBotID::singleton()->validateToken($args['captchaToken'])) {
+            throw new InvalidArgumentException('Invalid Captcha token', 110);
+        }
 
         if (!\array_key_exists('password', $args) || empty($args['password'])) {
             throw new InvalidArgumentException('Missing password', 100);

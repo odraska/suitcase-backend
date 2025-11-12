@@ -24,6 +24,7 @@ class SaveCart implements PartialSchemaUpdater
         $schema->addMutation(Mutation::create('saveCart')
             ->setDescription('Save the current cart')
             ->setType('ID', true)
+            ->addArg('captchaToken', 'String!')
             ->addArg('familyProductSelections', '[FamilyProductSelectionInput!]!')
             ->addArg('discountCode', 'String')
             ->setResolver([CartResolver::class, 'resolveSaveCart'])

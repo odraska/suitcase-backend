@@ -23,6 +23,7 @@ class CreateOrder implements PartialSchemaUpdater
         $schema->addMutation(Mutation::create('createOrder')
             ->setDescription('Create a new order')
             ->setType('Order', true)
+            ->addArg('captchaToken', 'String!')
             ->addArg('member', 'MemberInput!')
             ->addArg('licenseAddress', 'AddressInput!')
             ->addArg('familyProductSelections', '[FamilyProductSelectionInput!]!')

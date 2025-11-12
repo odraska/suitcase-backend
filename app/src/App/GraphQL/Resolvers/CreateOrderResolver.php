@@ -3,10 +3,12 @@
 namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
+use InvalidArgumentException;
 use SilverStripe\Core\Validation\ValidationException;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
 use SLONline\AddressManagement\Extensions\MemberExtension;
+use SLONline\App\GraphQL\CaptchaBotID;
 use SLONline\App\GraphQL\Schemas\Enums\FamilyProductSelectionProductTypeSchema;
 use SLONline\Commerce\Extensions\Payment;
 use SLONline\Commerce\Model\Order;
@@ -28,6 +30,10 @@ class CreateOrderResolver
      */
     public static function resolve($obj, array $args, array $context, ResolveInfo $info): Order
     {
+        if (!CaptchaBotID::singleton()->validateToken($args['captchaToken'])) {
+            throw new InvalidArgumentException('Invalid Captcha token', 110);
+        }
+
         /** @var Member|MemberExtension $member */
         $member = Security::getCurrentUser();
 
@@ -81,7 +87,7 @@ class CreateOrderResolver
                     $product = Font::get()->byID($selection['productID']);
                     break;
                 default:
-                    throw new \InvalidArgumentException('Unknown product type ' . $selection['productType']);
+                    throw new InvalidArgumentException('Unknown product type ' . $selection['productType']);
             }
 
             if (!$product) {
