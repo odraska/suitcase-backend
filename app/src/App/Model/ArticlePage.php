@@ -13,6 +13,8 @@ use SilverStripe\ORM\ManyManyList;
  * @copyright Copyright (c) 2025, SLONline, s.r.o.
  *
  * @property string Annotation
+ * @property bool Spotlight
+ * @property bool Pinned
  * @property int CoverImageID
  * @property int CategoryID
  * @method Image CoverImage()
@@ -31,6 +33,8 @@ class ArticlePage extends Page
 
     private static array $db = [
         'Annotation' => 'HTMLText',
+        'Spotlight' => 'Boolean',
+        'Pinned' => 'Boolean',
     ];
 
     private static array $has_one = [
@@ -45,4 +49,6 @@ class ArticlePage extends Page
     private static array $owns = [
         'CoverImage',
     ];
+
+    private static string $default_sort = 'Pinned DESC, Sort ASC';
 }

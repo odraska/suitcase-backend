@@ -27,6 +27,18 @@ class ArticlePage implements PartialSchemaUpdater
                     'requiredField' => true,
                 ],
             ]);
+            $model->addField('pinned', [
+                'type' => 'Boolean!',
+                'plugins' => [
+                    'requiredField' => true,
+                ],
+            ]);
+            $model->addField('spotlight', [
+                'type' => 'Boolean!',
+                'plugins' => [
+                    'requiredField' => true,
+                ],
+            ]);
             $model->addField('coverImage', [
                 'type' => 'Image!',
             ]);
