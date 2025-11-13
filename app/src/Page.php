@@ -70,7 +70,7 @@ namespace {
 
         public function metaTitle(): string
         {
-            return $this->Title . ' | ' . SiteConfig::current_site_config()->Title;
+            return $this->Title;
         }
     }
 }
