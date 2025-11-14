@@ -10,6 +10,7 @@ use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
 use SLONline\AddressManagement\Extensions\MemberExtension;
 use SLONline\AddressManagement\Model\MemberAddress;
+use SLONline\App\Mailchimp;
 
 
 /**
@@ -136,41 +137,23 @@ class UpdateMemberResolver
             });
 
         /** @todo add newsletter */
-        /*if (isset($args['newsletter'])) {
+        if (isset($args['newsletter'])) {
             if ($args['newsletter'] === true) {
-                $confirmation_hash = md5(bin2hex(random_bytes(16)));
-                $groups = NewsletterGroup::getNewsletterGroupsLeafs();
-                $member->Groups()->addMany($groups);
-                foreach ($groups as $group) {
-                    $confirmation = NewsletterConfirmationLog::create();
-                    $confirmation->ConfirmHash = $confirmation_hash;
-                    $confirmation->MemberID = $member->ID;
-                    $confirmation->NewsletterGroupID = $group;
-                    $confirmation->ActionType = 'SignUp';
-                    $confirmation->Status = 'Confirmed';
-                    $confirmation->SubscribeIP = Controller::curr()->getRequest()->getIP();
-                    $confirmation->write();
+                if (isset($args['newsletter'])) {
+                    if ($args['newsletter'] === true) {
+                        try {
+                            Mailchimp::singleton()->subscribe($email);
+                        } catch (\Exception $e) {
+                        }
+                    }
                 }
             } else {
-                $groups = NewsletterGroup::getNewsletterGroupsLeafs();
-                foreach ($groups as $group) {
-                    $member->Groups()->removeByID($group);
+                try {
+                    Mailchimp::singleton()->unsubscribe($email);
+                } catch (\Exception $e) {
                 }
-
-                $confirmation = NewsletterConfirmationLog::create();
-                $confirmation->MemberID = $member->ID;
-                $confirmation->NewsletterGroupID = 0;
-                $confirmation->ActionType = 'SignOut';
-                $confirmation->write();
-
-                DataList::create(NewsletterConfirmationLog::class)
-                    ->filter(['MemberID' => $member->ID, 'ActionType' => 'SignUp'])
-                    ->each(function (NewsletterConfirmationLog $item) {
-                        $item->ExpirationDate = date('Y-m-d H:i:s');
-                        $item->write();
-                    });
             }
-        }*/
+        }
 
         return Member::get_by_id($member->ID);
     }

@@ -16,3 +16,7 @@ SLONline\AmazonAWS\Controller\AmazonEmailRequest:
   aws_credentials_key: '`AWS_ACCESS_KEY`'
   aws_credentials_secret: '`AWS_SECRET_ACCESS_KEY`'
   aws_region: 'eu-central-1'
+
+SLONline\App\Mailchimp:
+  api_key: '`MAILCHIMP_API_KEY`'
+  list_id: '3a31617f09'

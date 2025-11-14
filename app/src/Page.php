@@ -70,7 +70,7 @@ namespace {
 
         public function metaTitle(): string
         {
-            return $this->Title;
+            return (string)$this->Title;
         }
     }
 }

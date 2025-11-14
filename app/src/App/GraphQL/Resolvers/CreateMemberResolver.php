@@ -9,6 +9,7 @@ use SilverStripe\Security\Member;
 use SLONline\AddressManagement\Extensions\MemberExtension;
 use SLONline\AddressManagement\Model\MemberAddress;
 use SLONline\App\GraphQL\CaptchaBotID;
+use SLONline\App\Mailchimp;
 
 /**
  * Create Member Resolver
@@ -73,9 +74,10 @@ class CreateMemberResolver
 
         if (isset($args['newsletter'])) {
             if ($args['newsletter'] === true) {
-                /** @todo add newsletter subscription */
-                /*NewsletterSubscribeForm::create(Controller::curr(), 'NewsletterSubscribeForm')
-                                       ->subscribe(['Email' => $member->Email]);*/
+                try {
+                    Mailchimp::singleton()->subscribe($email);
+                } catch (\Exception $e) {
+                }
             }
         }
 

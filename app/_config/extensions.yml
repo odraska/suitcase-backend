@@ -12,3 +12,7 @@ SLONline\Elefont\Controller\FontScriptAdmin:
 SLONline\Elefont\Model\Font:
   extensions:
     - SLONline\App\Extensions\Font
+
+SilverStripe\Security\Member:
+  extensions:
+    - SLONline\App\Extensions\Member
