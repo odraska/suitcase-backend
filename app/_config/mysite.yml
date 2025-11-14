@@ -31,18 +31,15 @@ SilverStripe\Core\Injector\Injector:
 
 SilverStripe\Assets\File:
   allowed_extensions:
-    - svg
     - webp
     - avif
     - woff
     - woff2
   app_categories:
     image:
-      - svg
       - avif
       - webp
     image/supported:
-      - svg
       - avif
       - webp
 

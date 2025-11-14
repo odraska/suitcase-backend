@@ -10,9 +10,6 @@ SilverStripe\Core\Injector\Injector:
 
 SilverStripe\MimeValidator\MimeUploadValidator:
   MimeTypes:
-    svg:
-      - 'image/svg+xml'
-      - 'image/svg'
     avif:
       - 'image/avif'
     webp:
