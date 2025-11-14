@@ -144,9 +144,9 @@ class Mailchimp
     {
         $subscriberHash = \DrewM\MailChimp\MailChimp::subscriberHash($email);
 
-        if (!$forceRead && isset($this->tmpMemberInfo[$subscriberHash])) {
+        /*if (!$forceRead && isset($this->tmpMemberInfo[$subscriberHash])) {
             return $this->tmpMemberInfo[$subscriberHash];
-        }
+        }*/
 
         $client = new \DrewM\MailChimp\MailChimp($this->config()->get('api_key'));
 
