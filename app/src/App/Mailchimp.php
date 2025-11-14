@@ -76,7 +76,7 @@ class Mailchimp
                     $submissionData
                 );
 
-                $submissionData['status'] = 'pending';
+                $submissionData['status'] = 'subscribed';
                 // update existing record
                 $client->patch(
                     sprintf(
@@ -110,7 +110,23 @@ class Mailchimp
         $subscriberHash = \DrewM\MailChimp\MailChimp::subscriberHash($email);
 
         $memberInfo = $this->getMemberInfo($email, true);
-        if ($memberInfo && isset($memberInfo['status']) && $memberInfo['status'] == 'subscribed') {
+        if ($memberInfo && isset($memberInfo['status'])) {
+            // build submission data
+            $submissionData = [
+                'email_address' => $email,
+                'status' => 'unsubscribed',
+            ];
+
+            // update existing record
+            $client->patch(
+                sprintf(
+                    'lists/%s/members/%s',
+                    $this->config()->get('list_id'),
+                    $subscriberHash
+                ),
+                $submissionData
+            );
+
             $client->delete(
                 sprintf(
                     'lists/%s/members/%s',

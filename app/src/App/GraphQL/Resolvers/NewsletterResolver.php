@@ -2,6 +2,8 @@
 
 namespace SLONline\App\GraphQL\Resolvers;
 
+use InvalidArgumentException;
+use SLONline\App\GraphQL\CaptchaBotID;
 use SLONline\App\Mailchimp;
 
 /**
@@ -14,11 +16,12 @@ class NewsletterResolver
 {
     public static function resolveNewsletterSubscribe($obj, $args, $context, $info)
     {
-        // Implement the logic to subscribe the email to the newsletter
-        $email = $args['email'];
-        $captchaToken = $args['captchaToken'];
+        if (!CaptchaBotID::singleton()->validateToken($args['captchaToken'])) {
+            throw new InvalidArgumentException('Invalid Captcha token', 110);
+        }
+
         try {
-            $status = Mailchimp::singleton()->subscribe($email);
+            $status = Mailchimp::singleton()->subscribe($args['email']);
         } catch (\Exception $e) {
             $status = [
                 'success' => false,
@@ -31,12 +34,12 @@ class NewsletterResolver
 
     public static function resolveNewsletterUnsubscribe($obj, $args, $context, $info)
     {
-        // Implement the logic to unsubscribe the email from the newsletter
-        $email = $args['email'];
-        $hash = $args['captchaToken'];
+        if (!CaptchaBotID::singleton()->validateToken($args['captchaToken'])) {
+            throw new InvalidArgumentException('Invalid Captcha token', 110);
+        }
 
         try {
-            return Mailchimp::singleton()->unsubscribe($email);
+            return Mailchimp::singleton()->unsubscribe($args['email']);
         } catch (\Exception $e) {
             return false;
         }
