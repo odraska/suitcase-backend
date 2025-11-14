@@ -19,6 +19,8 @@ class Mailchimp
     private static string $api_key = '';
     private static string $list_id = '';
 
+    private array $tmpMemberInfo = [];
+
     /**
      * @throws \Exception
      */
@@ -107,19 +109,13 @@ class Mailchimp
         $client = new \DrewM\MailChimp\MailChimp($this->config()->get('api_key'));
         $subscriberHash = \DrewM\MailChimp\MailChimp::subscriberHash($email);
 
-        $memberInfo = $client->get(sprintf(
-            'lists/%s/members/%s',
-            $this->config()->get('list_id'),
-            $subscriberHash
-        ));
-        $memberFound = $client->success();
-
-        if ($memberFound && $memberInfo && isset($memberInfo['status']) && $memberInfo['status'] == 'subscribed') {
+        $memberInfo = $this->getMemberInfo($email, true);
+        if ($memberInfo && isset($memberInfo['status']) && $memberInfo['status'] == 'subscribed') {
             $client->delete(
                 sprintf(
                     'lists/%s/members/%s',
                     $this->config()->get('list_id'),
-                    md5(strtolower($email))
+                    $subscriberHash
                 ));
 
             return $client->success();
@@ -128,17 +124,44 @@ class Mailchimp
         return true;
     }
 
-    public function isSubscribed(string $email): bool
+    public function getMemberInfo(string $email, bool $forceRead = false): ?array
     {
-        $client = new \DrewM\MailChimp\MailChimp($this->config()->get('api_key'));
         $subscriberHash = \DrewM\MailChimp\MailChimp::subscriberHash($email);
+
+        if (!$forceRead && isset($this->tmpMemberInfo[$subscriberHash])) {
+            return $this->tmpMemberInfo[$subscriberHash];
+        }
+
+        $client = new \DrewM\MailChimp\MailChimp($this->config()->get('api_key'));
+
         $memberInfo = $client->get(sprintf(
             'lists/%s/members/%s',
             $this->config()->get('list_id'),
             $subscriberHash
         ));
         $memberFound = $client->success();
-        if ($memberFound && $memberInfo && isset($memberInfo['status']) && $memberInfo['status'] == 'subscribed') {
+        if ($memberFound && $memberInfo) {
+            $this->tmpMemberInfo[$subscriberHash] = $memberInfo;
+            return $memberInfo;
+        }
+
+        return null;
+    }
+
+    public function isSubscribed(string $email): bool
+    {
+        $memberInfo = $this->getMemberInfo($email);
+        if ($memberInfo && isset($memberInfo['status']) && $memberInfo['status'] == 'subscribed') {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isPending(string $email): bool
+    {
+        $memberInfo = $this->getMemberInfo($email);
+        if ($memberInfo && isset($memberInfo['status']) && $memberInfo['status'] == 'pending') {
             return true;
         }
 

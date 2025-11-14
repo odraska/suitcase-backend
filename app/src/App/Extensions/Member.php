@@ -18,7 +18,8 @@ class Member extends Extension
     public function newsletterSubscribed(): bool
     {
         if ($this->owner->Email) {
-            return Mailchimp::singleton()->isSubscribed($this->owner->Email);
+            return Mailchimp::singleton()->isSubscribed($this->owner->Email) ||
+                Mailchimp::singleton()->isPending($this->owner->Email);
         }
 
         return false;
