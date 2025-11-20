@@ -24,7 +24,7 @@
         "slonline/amazon_aws": "^6",
         "slonline/elefont": "^6.x-dev",
         "slonline/jsonfield": "^6.0",
-        "slonline/exchangerates": "^6.0",
+        "slonline/exchangerates": "^6",
         "drewm/mailchimp-api": "^2.5",
         "slonline/silverstripe-svg-images":"^6.x-dev"
     },
@@ -33,6 +33,10 @@
         "silverstripe/graphql-devtools": "^2"
     },
     "extra": {
+        "expose": [
+            "app/client/images",
+            "app/client/fonts"
+        ],
         "project-files-installed": [
             ".htaccess",
             "app/.htaccess",
