@@ -43,3 +43,24 @@ SLONline\Commerce\Processor\PDFProformaInvoice:
     width: '100px'
     height: '50px'
 
+SLONline\App\Model\SavedCart:
+  format: 'A4'
+  orientation: 'P'
+  font_dirs:
+    - 'public/_resources/app/client/fonts/'
+  font_data:
+    'urbangrotesk':
+      B: 'UrbanGroteskBold.ttf'
+      R: 'UrbanGroteskRegular.ttf'
+      M: 'UrbanGroteskMedium.ttf'
+      L: 'UrbanGroteskLight.ttf'
+  default_font: 'urbangrotesk'
+  creator: 'Briefcase Type Foundry'
+  author: 'Briefcase Type Foundry'
+  title: 'Invoice %s'
+  logo:
+    url: '_resources/app/client/images/PDFLogo.png'
+    posX: '380px'
+    posY: '87px'
+    width: '100px'
+    height: '100px'

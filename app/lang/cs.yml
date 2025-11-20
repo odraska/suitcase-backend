@@ -1,4 +1,6 @@
 cs:
+  Quote:
+    Title: 'Nabídka'
   Invoice:
     InvoiceNo: 'Faktura č.'
     ProformaInvoiceNo: 'Predfaktura č.'

@@ -1,4 +1,6 @@
 en:
+  Quote:
+    Title: 'Quote'
   Invoice:
     InvoiceNo: 'Invoice No.'
     Supplier: 'Supplier'

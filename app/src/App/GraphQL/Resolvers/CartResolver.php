@@ -78,6 +78,7 @@ class CartResolver
         }
 
         return array_merge([
+            'downloadUrl' => $savedCart->downloadUrl(),
             'discountCode' => null,
             'familyProductSelections' => []
         ], $savedCart->dbObject('CartData')->getValue() ?? []);
