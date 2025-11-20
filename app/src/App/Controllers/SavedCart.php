@@ -35,9 +35,13 @@ class SavedCart extends Controller
 
     public function download(): HTTPResponse
     {
+        if (!$this->getRequest()->param('hash')){
+            return $this->httpError(403, "Action isn't allowed.");
+        }
+
         /** @var \SLONline\App\Model\SavedCart $savedCart */
         $savedCart = DataList::create(\SLONline\App\Model\SavedCart::class)
-            ->filter(['Hash' => (int)$this->getRequest()->param('hash')])
+            ->filter(['Hash' => $this->getRequest()->param('hash')])
             ->first();
 
         if ($savedCart && $savedCart->exists()) {
