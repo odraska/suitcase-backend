@@ -98,7 +98,8 @@ class SavedCart extends DataObject
             'orientation' => self::config()->get('orientation'),
             'fontDir' => $fontDirs,
             'fontdata' => $fontData + (self::config()->get('font_data') ?? []),
-            'default_font' => self::config()->get('default_font')
+            'default_font' => self::config()->get('default_font'),
+            'tempDir' => sys_get_temp_dir()
         ]);
 
         $pdf->setCreator(self::config()->get('creator'));
@@ -170,7 +171,6 @@ class SavedCart extends DataObject
             $pdf->SetHTMLFooter($template->process($data));
         }
 
-        $pdf->Output();exit;
         return $pdf->Output('', Destination::STRING_RETURN);
     }
 
