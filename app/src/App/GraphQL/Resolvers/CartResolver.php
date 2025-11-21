@@ -54,7 +54,7 @@ class CartResolver
         return $order;
     }
 
-    public static function resolveSaveCart($obj, array $args, array $context, ResolveInfo $info): string
+    public static function resolveSaveCart($obj, array $args, array $context, ResolveInfo $info): array
     {
         if (!CaptchaBotID::singleton()->validateToken($args['captchaToken'])) {
             throw new InvalidArgumentException('Invalid Captcha token', 110);
@@ -67,7 +67,12 @@ class CartResolver
         $savedCart->CartData = ($args);
         $savedCart->write();
 
-        return $savedCart->Hash;
+        return array_merge([
+            'hash' => $savedCart->Hash,
+            'downloadUrl' => $savedCart->downloadUrl(),
+            'discountCode' => null,
+            'familyProductSelections' => []
+        ], $savedCart->dbObject('CartData')->getValue() ?? []);
     }
 
     public static function resolveLoadCart($obj, array $args, array $context, ResolveInfo $info): array
@@ -78,6 +83,7 @@ class CartResolver
         }
 
         return array_merge([
+            'hash' => $savedCart->Hash,
             'downloadUrl' => $savedCart->downloadUrl(),
             'discountCode' => null,
             'familyProductSelections' => []

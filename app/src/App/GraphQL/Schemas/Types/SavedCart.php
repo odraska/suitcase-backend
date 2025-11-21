@@ -33,6 +33,7 @@ class SavedCart implements PartialSchemaUpdater
         );
 
         $schema->addType(Type::create('SavedCart')
+            ->addField('hash', 'String!')
             ->addField('familyProductSelections', '[SavedCartFamilyProductSelection!]!')
             ->addField('discountCode', 'String')
             ->addField('downloadUrl', 'String')
