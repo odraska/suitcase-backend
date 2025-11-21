@@ -95,6 +95,10 @@ class UpdateMemberResolver
 
         }
 
+        if (\array_key_exists('locale', $args)) {
+            $member->Locale = (string)$args['locale'];
+        }
+
         if ($member->isChanged()) {
             $member->write();
         }

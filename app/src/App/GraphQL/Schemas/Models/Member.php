@@ -92,6 +92,11 @@ class Member implements PartialSchemaUpdater
                     'property' => 'newsletterSubscribed',
                     'plugins' => ['requiredField' => true],
                 ],
+                'locale' => [
+                    'type' => 'Locale!',
+                    'property' => 'getCustomisedLocale',
+                    'plugins' => ['requiredField' => true],
+                ],
                 'licenseAddresses' => [
                     'type' => '[MemberAddress!]!',
                     'plugins' => [

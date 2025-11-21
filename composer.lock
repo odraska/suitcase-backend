@@ -5169,7 +5169,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/commerce.git",
-                "reference": "5ccfd3c35c997a9ff2f7126830c0d7ad8346d7d4"
+                "reference": "594bce5765fa93016d8ea251dab856b3c6a26330"
             },
             "require": {
                 "mpdf/mpdf": "^8.1",
@@ -5203,7 +5203,7 @@
                 "Commerce",
                 "silverstripe"
             ],
-            "time": "2025-11-20T21:16:52+00:00"
+            "time": "2025-11-21T11:41:12+00:00"
         },
         {
             "name": "slonline/elefont",
@@ -5339,7 +5339,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/graphql.git",
-                "reference": "5fd161e0eba5b6e67625342b9dd07b6f23011d8b"
+                "reference": "8f07a426e1ccaa3938b5746894ec3e2fecc36b10"
             },
             "require": {
                 "silverstripe/framework": "~6",
@@ -5370,7 +5370,7 @@
                 "Plugins",
                 "silverstripe"
             ],
-            "time": "2025-10-30T12:26:53+00:00"
+            "time": "2025-11-21T11:40:38+00:00"
         },
         {
             "name": "slonline/jsonfield",

@@ -83,6 +83,10 @@ class MemberInput implements PartialSchemaUpdater
                     'type' => 'ID',
                     'description' => 'User`s state ID'
                 ],
+                'locale' => [
+                    'type' => 'Locale',
+                    'description' => 'User`s locale'
+                ],
             ]
         ]));
     }

@@ -81,6 +81,10 @@ class CreateMemberResolver
             }
         }
 
+        if (isset($args['locale'])) {
+            $member->Locale = (string)$args['locale'];
+        }
+
         foreach ($args['licenseAddresses'] ?? [] as $licenseAddressInput) {
             $licenseAddress = $member->licenseAddresses()->find('ID', $licenseAddressInput['id'] ?? 0);
             if (!$licenseAddress) {

@@ -3,6 +3,7 @@
 namespace SLONline\App\Extensions;
 
 use SilverStripe\Core\Extension;
+use SLONline\App\GraphQL\Schemas\Enums\LocaleSchema;
 use SLONline\App\Mailchimp;
 
 /**
@@ -23,5 +24,11 @@ class Member extends Extension
         }
 
         return false;
+    }
+
+    public function getCustomisedLocale(): string
+    {
+        $locale = $this->owner->Locale ?? 'en_US';
+        return in_array($locale, LocaleSchema::ALLOWED_LOCALES) ? $locale : 'en_US';
     }
 }

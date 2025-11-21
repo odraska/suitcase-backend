@@ -36,6 +36,7 @@ class UpdateMember implements PartialSchemaUpdater
             ->addArg('stateID', 'ID!')
             ->addArg('vatID', 'String!')
             ->addArg('newsletter', 'Boolean!')
+            ->addArg('locale', 'Locale!')
             ->addArg('licenseAddresses', '[AddressInput!]!')
             ->setResolver([UpdateMemberResolver::class, 'resolve'])
         );

@@ -57,6 +57,7 @@ class CreateOrderResolver
             $order->setField('CompanyID', $args['member']['companyID']??'');
             $order->setField('TaxID', $args['member']['taxID']??'');
             $order->setField('VATID', $args['member']['vatID']??'');
+            $order->setField('Locale', $args['member']['locale']??'en_US');
         }
 
         if ($args['licenseAddress']) {
