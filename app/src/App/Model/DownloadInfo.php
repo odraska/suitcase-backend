@@ -157,15 +157,22 @@ class DownloadInfo extends DataObject
             $fontFamily = $fontFamilyPage->FontFamilyNull();
             foreach ($fontFamily?->Fonts() ?? [] as $font) {
                 $file = null;
+                $woff2File = null;
                 if ($this->Type == self::TYPE_BASIC_TRIAL) {
                     $file = $font->BasicTrialFile();
+                    $woff2File = $font->BasicTrialWoff2File();
                 } elseif ($this->Type == self::TYPE_FULL_TRIAL) {
                     $file = $font->FullTrialFile();
+                    $woff2File = $font->FullTrialWoff2File();
                 }
 
                 if ($file && $file->exists()) {
                     $file_info = pathinfo($file->getFilename());
                     $zipArchive->addFromString($file_info['basename'], $file->getString());
+                }
+                if ($woff2File && $woff2File->exists()) {
+                    $file_info = pathinfo($woff2File->getFilename());
+                    $zipArchive->addFromString($file_info['basename'], $woff2File->getString());
                 }
             }
         }
