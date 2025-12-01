@@ -5,6 +5,7 @@ namespace SLONline\App\Extensions;
 use SilverStripe\Assets\Storage\AssetStore;
 use SilverStripe\Core\Extension;
 use SilverStripe\Core\Path;
+use SilverStripe\Forms\FieldList;
 use SLONline\Elefont\Model\FontFile;
 use SLONline\Elefont\Tools\FontTools;
 use SLONline\Elefont\Tools\WebFontsWOFF2Converter;
@@ -51,14 +52,49 @@ class Font extends Extension
 
     public function onBeforeWrite()
     {
-        if ($this->owner->File()->exists() && $this->owner->isChanged('FileID') ||
+        if ($this->owner->File()->exists() && ($this->owner->isChanged('FileID') ||
             !$this->owner->FullTrialFile()->exists() ||
-            !$this->owner->BasicTrialFile()->exists()) {
+            !$this->owner->BasicTrialFile()->exists())) {
             $this->owner->generateFullTrialFile();
             $this->owner->generateFullTrialWoff2File();
             $this->owner->generateBasicTrialFile();
             $this->owner->generateBasicTrialWoff2File();
         }
+    }
+
+    public function onAfterWrite()
+    {
+        if ($this->owner->FullTrialFile()->exists()) {
+            $this->owner->FullTrialFile()->publishSingle();
+        }
+        if ($this->owner->BasicTrialFile()->exists()) {
+            $this->owner->BasicTrialFile()->publishSingle();
+        }
+        if ($this->owner->FullTrialWoff2File()->exists()) {
+            $this->owner->FullTrialWoff2File()->publishSingle();
+        }
+        if ($this->owner->BasicTrialWoff2File()->exists()) {
+            $this->owner->BasicTrialWoff2File()->publishSingle();
+        }
+    }
+
+    public function updateCMSFields(FieldList $fields)
+    {
+        $fileUploadField = $fields->fieldByName('Root.Main.FullTrialFile');
+        $fileUploadField?->setFolderName(\SLONline\Elefont\Model\Font::folder());
+        $fileUploadField?->getUpload()->setReplaceFile(true);
+
+        $fileUploadField = $fields->fieldByName('Root.Main.FullTrialWoff2File');
+        $fileUploadField?->setFolderName(\SLONline\Elefont\Model\Font::folder());
+        $fileUploadField?->getUpload()->setReplaceFile(true);
+
+        $fileUploadField = $fields->fieldByName('Root.Main.BasicTrialFile');
+        $fileUploadField?->setFolderName(\SLONline\Elefont\Model\Font::folder());
+        $fileUploadField?->getUpload()->setReplaceFile(true);
+
+        $fileUploadField = $fields->fieldByName('Root.Main.BasicTrialWoff2File');
+        $fileUploadField?->setFolderName(\SLONline\Elefont\Model\Font::folder());
+        $fileUploadField?->getUpload()->setReplaceFile(true);
     }
 
     public function generateFullTrialWoff2File(): void

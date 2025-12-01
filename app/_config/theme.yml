@@ -6,3 +6,9 @@ SilverStripe\View\SSViewer:
     - '$public'
     - 'simple'
     - '$default'
+
+SilverStripe\Admin\LeftAndMain:
+  admin_themes:
+    - 'cms-forms'
+    - 'silverstripe/admin:cms-forms'
+    - '$default'

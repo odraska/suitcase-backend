@@ -187,16 +187,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.363.3",
+            "version": "3.364.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "0ec2218d32e291b988b1602583032ca5d11f8e8d"
+                "reference": "768e0055da7e9e505aae8a87454d310a7c321ac1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0ec2218d32e291b988b1602583032ca5d11f8e8d",
-                "reference": "0ec2218d32e291b988b1602583032ca5d11f8e8d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/768e0055da7e9e505aae8a87454d310a7c321ac1",
+                "reference": "768e0055da7e9e505aae8a87454d310a7c321ac1",
                 "shasum": ""
             },
             "require": {
@@ -278,9 +278,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.363.3"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.364.0"
             },
-            "time": "2025-11-26T19:05:22+00:00"
+            "time": "2025-12-01T01:08:11+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -2321,16 +2321,16 @@
         },
         {
             "name": "mpdf/mpdf",
-            "version": "v8.2.6",
+            "version": "v8.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpdf/mpdf.git",
-                "reference": "dd30e3b01061cf8dfe65e7041ab4cc46d8ebdd44"
+                "reference": "b59670a09498689c33ce639bac8f5ba26721dab3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/dd30e3b01061cf8dfe65e7041ab4cc46d8ebdd44",
-                "reference": "dd30e3b01061cf8dfe65e7041ab4cc46d8ebdd44",
+                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/b59670a09498689c33ce639bac8f5ba26721dab3",
+                "reference": "b59670a09498689c33ce639bac8f5ba26721dab3",
                 "shasum": ""
             },
             "require": {
@@ -2398,7 +2398,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2025-08-18T08:51:51+00:00"
+            "time": "2025-12-01T10:18:02+00:00"
         },
         {
             "name": "mpdf/psr-http-message-shim",
@@ -3987,16 +3987,16 @@
         },
         {
             "name": "silverstripe/framework",
-            "version": "6.0.15",
+            "version": "6.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "e88d273c50d852ab55849332b2f3abfef31b41eb"
+                "reference": "a1758c90701e37101c49efa7c2f561f815e9f0bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/e88d273c50d852ab55849332b2f3abfef31b41eb",
-                "reference": "e88d273c50d852ab55849332b2f3abfef31b41eb",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/a1758c90701e37101c49efa7c2f561f815e9f0bc",
+                "reference": "a1758c90701e37101c49efa7c2f561f815e9f0bc",
                 "shasum": ""
             },
             "require": {
@@ -4035,6 +4035,7 @@
                 "symfony/config": "^7.0",
                 "symfony/console": "^7.0",
                 "symfony/dom-crawler": "^7.0",
+                "symfony/event-dispatcher": "^6|^7",
                 "symfony/filesystem": "^7.0",
                 "symfony/http-foundation": "^7.0",
                 "symfony/intl": "^7.0",
@@ -4128,9 +4129,9 @@
             ],
             "support": {
                 "issues": "https://github.com/silverstripe/silverstripe-framework/issues",
-                "source": "https://github.com/silverstripe/silverstripe-framework/tree/6.0.15"
+                "source": "https://github.com/silverstripe/silverstripe-framework/tree/6.0.16"
             },
-            "time": "2025-10-10T00:51:45+00:00"
+            "time": "2025-11-30T22:05:40+00:00"
         },
         {
             "name": "silverstripe/graphql",
@@ -5212,7 +5213,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "efa99ff888f789cd0fc3c83e97c9a0a36408793a"
+                "reference": "3238b79bcfcfd841f58e11ebb370319b4fbdfeba"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5222,6 +5223,11 @@
                 "slonline/email-templates": "^6"
             },
             "type": "library",
+            "extra": {
+                "expose": [
+                    "client/dist"
+                ]
+            },
             "autoload": {
                 "psr-4": {
                     "SLONline\\Elefont\\": "src/"
@@ -5244,7 +5250,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2025-11-29T13:45:19+00:00"
+            "time": "2025-12-01T14:33:51+00:00"
         },
         {
             "name": "slonline/email-templates",
@@ -8918,16 +8924,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.5.44",
+            "version": "11.5.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c346885c95423eda3f65d85a194aaa24873cda82"
+                "reference": "faf5fff4fb9beb290affa53f812b05380819c51a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c346885c95423eda3f65d85a194aaa24873cda82",
-                "reference": "c346885c95423eda3f65d85a194aaa24873cda82",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/faf5fff4fb9beb290affa53f812b05380819c51a",
+                "reference": "faf5fff4fb9beb290affa53f812b05380819c51a",
                 "shasum": ""
             },
             "require": {
@@ -8999,7 +9005,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.44"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.45"
             },
             "funding": [
                 {
@@ -9023,7 +9029,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-11-13T07:17:35+00:00"
+            "time": "2025-12-01T07:38:43+00:00"
         },
         {
             "name": "sebastian/cli-parser",
