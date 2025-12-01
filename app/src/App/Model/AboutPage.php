@@ -57,6 +57,8 @@ class AboutPage extends Page
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName('Content');
+
         $fields->fieldByName('Root.Main.ContactAddress')->setEditorConfig('small');
         $fields->fieldByName('Root.Main.ContactSocial')->setEditorConfig('small');
 

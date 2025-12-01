@@ -18,4 +18,13 @@ class ProjectsPage extends Page
     private static string $plural_name = 'Projects';
 
     private static array $allowed_children = [ProjectPage::class];
+
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+
+        $fields->removeByName('Content');
+
+        return $fields;
+    }
 }

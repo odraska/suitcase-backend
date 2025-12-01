@@ -61,6 +61,7 @@ class HomePage extends \Page
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName('Content');
 
         $config = GridFieldConfig_RecordEditor::create();;
         $config->addComponent(new GridFieldSortableRows('SortOrder'));

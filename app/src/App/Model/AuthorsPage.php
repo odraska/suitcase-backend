@@ -18,4 +18,13 @@ class AuthorsPage extends Page
     private static string $plural_name = 'Authors Pages';
 
     private static array $allowed_children = ['none'];
+
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+
+        $fields->removeByName('Content');
+
+        return $fields;
+    }
 }

@@ -25,4 +25,13 @@ class EditorialPage extends Page
     private static array $has_many = [
         'Categories' => ArticleCategory::class,
     ];
+
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+
+        $fields->removeByName('Content');
+
+        return $fields;
+    }
 }

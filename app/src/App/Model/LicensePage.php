@@ -31,6 +31,8 @@ class LicensePage extends Page
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName('Content');
+
         $fields->fieldByName('Root.Main.ShortContent')->setEditorConfig('small');
 
         $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content', 'Content'));

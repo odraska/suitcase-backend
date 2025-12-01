@@ -27,6 +27,7 @@ class FontsInUsePage extends Page
     public function getCMSFields(): FieldList
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName('Content');
 
         $fields->addFieldToTab('Root.Items', GridField::create(
             'Items',
