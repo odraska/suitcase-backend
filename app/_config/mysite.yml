@@ -44,6 +44,13 @@ SilverStripe\Assets\File:
       - webp
 
 ---
+Name: SiteTree
+---
+SilverStripe\CMS\Model\SiteTree:
+  hide_pagetypes:
+    - SilverStripe\CMS\Model\VirtualPage
+    - SilverStripe\CMS\Model\RedirectorPage
+---
 Name: FontFamilyPageWebsiteBlocksReset
 ---
 SLONline\Elefont\Model\FontFamilyPage:
