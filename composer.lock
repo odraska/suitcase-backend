@@ -187,16 +187,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.364.0",
+            "version": "3.365.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "768e0055da7e9e505aae8a87454d310a7c321ac1"
+                "reference": "ce4b9a5fe8bad81caf40a3cca8069eba750103b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/768e0055da7e9e505aae8a87454d310a7c321ac1",
-                "reference": "768e0055da7e9e505aae8a87454d310a7c321ac1",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ce4b9a5fe8bad81caf40a3cca8069eba750103b1",
+                "reference": "ce4b9a5fe8bad81caf40a3cca8069eba750103b1",
                 "shasum": ""
             },
             "require": {
@@ -278,9 +278,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.364.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.365.0"
             },
-            "time": "2025-12-01T01:08:11+00:00"
+            "time": "2025-12-02T16:06:36+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -5213,7 +5213,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "3238b79bcfcfd841f58e11ebb370319b4fbdfeba"
+                "reference": "3ddf501683951352eedee072ca8f6a2bd67aedcd"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5250,7 +5250,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2025-12-01T14:33:51+00:00"
+            "time": "2025-12-02T18:51:30+00:00"
         },
         {
             "name": "slonline/email-templates",

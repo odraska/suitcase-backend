@@ -50,7 +50,7 @@ class ReadFamilyProductsResolver
                     'title' => $family->Title . ' ' . $font->Title,
                     'fontFamily' => $family,
                     'font' => $font,
-                    'price' => $family->FontPrice
+                    'price' => $font->getPrice()
                 ]));
             }
         }
