@@ -21,6 +21,10 @@ class Order implements PartialSchemaUpdater
     {
         $orderModel = $schema->getModelByClassName(\SLONline\Commerce\Model\Order::class);
         $orderModel->addFields([
+            'currency' => [
+                'type' => 'Currency!',
+                'plugins' => ['requiredField' => true],
+            ],
             'licenseFirstName' => [
                 'type' => 'String!',
                 'plugins' => ['requiredField' => true],
