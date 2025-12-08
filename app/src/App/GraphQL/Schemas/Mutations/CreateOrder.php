@@ -29,6 +29,7 @@ class CreateOrder implements PartialSchemaUpdater
             ->addArg('familyProductSelections', '[FamilyProductSelectionInput!]!')
             ->addArg('discountCode', 'String')
             ->addArg('paymentMethod', 'PaymentMethod!')
+            ->addArg('currency', 'Currency!')
             ->setResolver([CreateOrderResolver::class, 'resolve'])
         );
     }

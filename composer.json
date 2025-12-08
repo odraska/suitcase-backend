@@ -6,6 +6,7 @@
     "require": {
         "php": "^8.3",
         "ext-zip": "*",
+        "ext-pdo": "*",
         "silverstripe/recipe-plugin": "~2.1.0@stable",
         "silverstripe/vendor-plugin": "~3.0.0@stable",
         "silverstripe/recipe-cms": "~6.0.0@stable",

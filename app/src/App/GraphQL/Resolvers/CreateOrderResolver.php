@@ -7,6 +7,7 @@ use InvalidArgumentException;
 use SilverStripe\Core\Validation\ValidationException;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
+use SilverStripe\SiteConfig\SiteConfig;
 use SLONline\AddressManagement\Extensions\MemberExtension;
 use SLONline\App\GraphQL\CaptchaBotID;
 use SLONline\App\GraphQL\Schemas\Enums\FamilyProductSelectionProductTypeSchema;
@@ -38,6 +39,7 @@ class CreateOrderResolver
         $member = Security::getCurrentUser();
 
         $order = Order::create();
+        $order->setField('Currency', $args['currency'] ?? SiteConfig::get_one(SiteConfig::class)->DefaultCurrency);
         if ($member && $member->exists()) {
             $order->MemberID = $member->ID;
         }
