@@ -19,7 +19,7 @@ cs:
     Items: 'Zboží'
     Discount: 'Zlava'
     Total: 'Celkem'
-    InfoCZKPrice: 'Informativní přepočet v CZK'
+    InfoPrice: 'Informativní přepočet v '
     ConversionRate: 'Konverzní kurz'
     PaidInFull: 'Částka zaplacena. Děkujeme za objednávku.'
     VATDueToTHeRecipient: 'Nejsem plátce DPH'

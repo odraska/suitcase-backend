@@ -18,7 +18,7 @@ en:
     Items: 'Items'
     Discount: 'Discount'
     Total: 'Total'
-    InfoCZKPrice: 'Price in CZK'
+    InfoPrice: 'Price in '
     ConversionRate: 'Conversion rate'
     PaidInFull: 'Paid in full. Thanks for your order.'
     VATDueToTHeRecipient: 'VAT due to the recipient'

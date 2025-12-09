@@ -12,7 +12,7 @@
         text-align: left;
         vertical-align: top;
         font-size: 11px;
-        width: 88%;
+        width: 92%;
     }
 
     .items-row-price {
@@ -181,14 +181,12 @@
                 <td class="items-row-product border"><b><%t Invoice.Total 'Total' %></b></td>
                 <td class="items-row-price border">{$Order.totalPriceWithVAT.Nice}</td>
             </tr>
-
-            <% if $Order.InvoiceCountry.VATCode == 'CZ' %>
+            <% if $Order.Currency != 'EUR' %>
                 <tr>
-                    <td class="items-row-product"><%t Invoice.InfoCZKPrice 'Price in CZK' %>
-                        (<%t Invoice.ConversionRate 'Conversion rate' %>
-                        : {$Order.totalPriceWithVAT.getCurrencyRate('CZK', $Order.Invoice.DueDate)})
+                    <td class="items-row-product"><%t Invoice.InfoPrice 'Price in ' %>$Order.Currency
+                        (<%t Invoice.ConversionRate 'Conversion rate' %>: {$Order.totalPriceWithVAT.getCurrencyRate($Order.Currency, $Order.Invoice.DueDate)})
                     </td>
-                    <td class="items-row-price">{$Order.totalPriceWithVAT.getInCurrency('CZK', $Order.Invoice.DueDate).Nice}</td>
+                    <td class="items-row-price">{$Order.totalPriceWithVAT.getInCurrency($Order.Currency, $Order.Invoice.DueDate).Nice}</td>
                 </tr>
             <% end_if %>
             <% if $Order.isPaid %>
