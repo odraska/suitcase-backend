@@ -4,6 +4,7 @@ namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use InvalidArgumentException;
+use SilverStripe\SiteConfig\SiteConfig;
 use SLONline\App\GraphQL\CaptchaBotID;
 use SLONline\App\GraphQL\Schemas\Enums\FamilyProductSelectionProductTypeSchema;
 use SLONline\App\Model\SavedCart;
@@ -71,7 +72,8 @@ class CartResolver
             'hash' => $savedCart->Hash,
             'downloadUrl' => $savedCart->downloadUrl(),
             'discountCode' => null,
-            'familyProductSelections' => []
+            'familyProductSelections' => [],
+            'currency' => SiteConfig::get_one(SiteConfig::class)->DefaultCurrency,
         ], $savedCart->dbObject('CartData')->getValue() ?? []);
     }
 
@@ -86,7 +88,8 @@ class CartResolver
             'hash' => $savedCart->Hash,
             'downloadUrl' => $savedCart->downloadUrl(),
             'discountCode' => null,
-            'familyProductSelections' => []
+            'familyProductSelections' => [],
+            'currency' => SiteConfig::get_one(SiteConfig::class)->DefaultCurrency,
         ], $savedCart->dbObject('CartData')->getValue() ?? []);
     }
 }

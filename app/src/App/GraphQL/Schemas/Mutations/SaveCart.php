@@ -27,6 +27,7 @@ class SaveCart implements PartialSchemaUpdater
             ->addArg('captchaToken', 'String!')
             ->addArg('familyProductSelections', '[FamilyProductSelectionInput!]!')
             ->addArg('discountCode', 'String')
+            ->addArg('currency', 'Currency!')
             ->setResolver([CartResolver::class, 'resolveSaveCart'])
         );
     }

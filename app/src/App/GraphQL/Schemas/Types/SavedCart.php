@@ -37,6 +37,7 @@ class SavedCart implements PartialSchemaUpdater
             ->addField('familyProductSelections', '[SavedCartFamilyProductSelection!]!')
             ->addField('discountCode', 'String')
             ->addField('downloadUrl', 'String')
+            ->addField('currency', 'Currency!')
         );
 
 
