@@ -5346,7 +5346,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/graphql.git",
-                "reference": "8f07a426e1ccaa3938b5746894ec3e2fecc36b10"
+                "reference": "e8e3157261f29c87d2e16f1bfe31e8bbe1732251"
             },
             "require": {
                 "silverstripe/framework": "~6",
@@ -5377,7 +5377,7 @@
                 "Plugins",
                 "silverstripe"
             ],
-            "time": "2025-11-21T11:40:38+00:00"
+            "time": "2025-12-10T11:16:08+00:00"
         },
         {
             "name": "slonline/jsonfield",
