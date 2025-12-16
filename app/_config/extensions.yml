@@ -16,3 +16,7 @@ SLONline\Elefont\Model\Font:
 SilverStripe\Security\Member:
   extensions:
     - SLONline\App\Extensions\Member
+
+SLONline\Elefont\Model\FontFeature:
+  extensions:
+    - SLONline\App\Extensions\FontFeature

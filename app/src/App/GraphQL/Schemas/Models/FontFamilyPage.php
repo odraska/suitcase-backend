@@ -86,6 +86,15 @@ class FontFamilyPage implements PartialSchemaUpdater
                 'plugins' => [
                     'requiredField' => false,
                 ]
+            ])
+            ->addField('features', [
+                'type' => '[FontFeature!]!',
+                'property' => 'FontFeatures',
+                'plugins' => [
+                    'paginateList' => false,
+                    'sort' => false,
+                    'filter' => false
+                ]
             ]);
 
         $schema->getModel('FontFamilyPage')->removeOperation('readOne');

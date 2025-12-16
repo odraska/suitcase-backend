@@ -7,10 +7,15 @@ use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldButtonRow;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldDataColumns;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldEditButton;
+use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\SearchableMultiDropdownField;
 use SilverStripe\Model\List\ArrayList;
 use SilverStripe\Model\List\SS_List;
@@ -23,6 +28,8 @@ use SLONline\App\Model\FontsInUse;
 use SLONline\App\Model\Slide;
 use SLONline\ColorField\Form\ColorField;
 use SLONline\ColorField\ORM\FieldType\DBColor;
+use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
@@ -40,14 +47,15 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property bool $ShowInBasicTrial
  * @property bool $ShowInFullTrial
  * @property int $PDFSpecimenID
- * @method  File PDFSpecimen
+ * @method File PDFSpecimen
  * @method HasManyList|Slide Slides
- * @method  ManyManyList|FontCategory FontCategories
- * @method  ManyManyList|Font StylesRow1
- * @method  ManyManyList|Font StylesRow2
- * @method  ManyManyList|Font StylesRow3
- * @method  ManyManyList|FontsInUse FontsInUse
- * @method  ManyManyList|Author Authors
+ * @method ManyManyList|FontCategory FontCategories
+ * @method ManyManyList|Font StylesRow1
+ * @method ManyManyList|Font StylesRow2
+ * @method ManyManyList|Font StylesRow3
+ * @method ManyManyList|FontsInUse FontsInUse
+ * @method ManyManyList|Author Authors
+ * @method ManyManyList|\SLONline\Elefont\Model\FontFeature FontFeatures
  */
 class FontFamilyPage extends Extension
 {
@@ -72,6 +80,7 @@ class FontFamilyPage extends Extension
         'StylesRow1' => \SLONline\Elefont\Model\Font::class,
         'StylesRow2' => \SLONline\Elefont\Model\Font::class,
         'StylesRow3' => \SLONline\Elefont\Model\Font::class,
+        'FontFeatures' => \SLONline\Elefont\Model\FontFeature::class,
     ];
 
     private static array $many_many_extraFields = [
@@ -83,6 +92,10 @@ class FontFamilyPage extends Extension
         ],
         'StylesRow3' => [
             'StylesRowSortOrder' => 'Int',
+        ],
+        'FontFeatures' => [
+            'CustomExample' => 'HTMLText',
+            'CustomAllGlyphs' => 'HTMLText',
         ],
     ];
 
@@ -196,6 +209,75 @@ class FontFamilyPage extends Extension
             DataList::create(Author::class),
             $this->owner->Authors()
         ), 'Metadata');
+
+        /** @var GridFieldConfig $featuresConfig */
+        $fields->fieldByName('Root.FontFeatures.FontFeatures')?->setConfig(GridFieldConfig::create());
+        $featuresConfig = $fields->fieldByName('Root.FontFeatures.FontFeatures')?->getConfig();
+        if ($featuresConfig) {
+            $featuresGridFieldEditableColumns = GridFieldEditableColumns::create();
+            $featuresGridFieldEditableColumns->setDisplayFields([
+                'ID' => [
+                    'title' => 'ID',
+                    'field' => ReadonlyField::class,
+                ],
+                'Name' => [
+                    'title' => 'Name',
+                    'field' => ReadonlyField::class,
+                ],
+                'CustomExample' => [
+                    'title' => 'Custom example',
+                    'callback' => function ($record, $column, $grid) {
+                        $field = HTMLEditorField::create($column);
+                        $field = $field->setRows(2)
+                            ->setRightTitle('')
+                            ->setLeftTitle('')
+                            ->setTitle('')
+                            ->setFieldHolderTemplate('SilverStripe\\Forms\\FormField_holder_small');
+                        $field->getEditorConfig()
+                            ->setOptions([
+                                'friendly_name' => 'Default CMS',
+                                'priority' => '50',
+                                'skin' => 'silverstripe',
+                                'contextmenu' => "",
+                                'use_native_selects' => false,
+                            ])
+                            ->setButtonsForLine(1, [
+                                'bold'
+                            ])
+                            ->setButtonsForLine(2, [])
+                            ->setButtonsForLine(3, []);
+                        return $field;
+                    },
+                ],
+                'CustomAllGlyphs' => [
+                    'title' => 'Custom all glyphs',
+                    'callback' => function ($record, $column, $grid) {
+                        $field = HTMLEditorField::create($column);
+                        $field = $field->setRows(2)
+                            ->setRightTitle('')
+                            ->setLeftTitle('')
+                            ->setTitle('')
+                            ->setFieldHolderTemplate('SilverStripe\\Forms\\FormField_holder_small');
+                        $field->getEditorConfig()
+                            ->setButtonsForLine(1, [
+                                'bold'
+                            ])
+                            ->setButtonsForLine(2, [])
+                            ->setButtonsForLine(3, []);
+
+                        return $field;
+                    },
+                ],
+            ]);
+
+            $featuresConfig
+                ->addComponent(GridFieldButtonRow::create('before'))
+                ->addComponent(GridFieldAddExistingAutocompleter::create('buttons-before-right'))
+                ->addComponent(GridFieldToolbarHeader::create())
+                ->addComponent(GridFieldTitleHeader::create())
+                ->addComponent($featuresGridFieldEditableColumns)
+                ->addComponent(GridFieldDeleteAction::create(true));
+        }
     }
 
     public function visualStyles()
