@@ -33,6 +33,24 @@ class FontFeature extends Extension
         $fields->findTab('Root.Main')
             ->FieldList()
             ->changeFieldOrder(['Name', 'Code', 'Example', 'AllGlyphs']);
+
+        $fields->fieldByName('Root.Main.Example')
+            ->setRows(2)
+            ->getEditorConfig()
+            ->setButtonsForLine(1, [
+                'bold'
+            ])
+            ->setButtonsForLine(2, [])
+            ->setButtonsForLine(3, []);
+
+        $fields->fieldByName('Root.Main.AllGlyphs')
+            ->setRows(2)
+            ->getEditorConfig()
+            ->setButtonsForLine(1, [
+                'bold'
+            ])
+            ->setButtonsForLine(2, [])
+            ->setButtonsForLine(3, []);
     }
 
     public function Example()
