@@ -5,6 +5,7 @@ namespace SLONline\App\GraphQL\Resolvers;
 use GraphQL\Type\Definition\ResolveInfo;
 use SilverStripe\ORM\DataList;
 use SLONline\Commerce\Model\Discounts\DiscountCode;
+use SLONline\Commerce\Model\Order;
 
 /**
  * Validate Discount Code Resolver
@@ -21,7 +22,16 @@ class ValidateDiscountCodeResolver
             ->filter(['Code' => $args['discountCode']])
             ->first();
         if ($discountCode && $discountCode->exists()) {
-            return $discountCode->canUse()->valid;
+            $orderArgs = $args;
+            $orderArgs['discountCode'] = null;
+
+            /** @var Order $order */
+            $order = CartResolver::resolveReadCart($obj, $orderArgs, $context, $info);
+
+            return $discountCode
+                ->setOrder($order)
+                ->canUse()
+                ->valid;
         }
 
         return false;
