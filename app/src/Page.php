@@ -11,6 +11,7 @@ namespace {
     use SilverStripe\ORM\HasManyList;
     use SLONline\Elefont\Model\FontsPage;
     use SLONline\Elefont\Model\WebsiteBlocks\WebsiteBlock;
+    use SLONline\GraphQL\FrontendDirector;
     use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
     use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
@@ -25,6 +26,8 @@ namespace {
      */
     class Page extends SiteTree
     {
+        const string DRAFT_MODE_SECRET_TOKEN = 'BhQ8VtaMumlcQma';
+
         private static array $db = [
             'ShowInHeader' => 'Boolean',
         ];
@@ -64,7 +67,21 @@ namespace {
                 $fields->removeByName('Content');
             }
 
+            $baseLink = FrontendDirector::absoluteURL('/api/draft?secret=' . Page::DRAFT_MODE_SECRET_TOKEN . '&slug=') .
+                '/' . (static::config()->get('nested_urls') && $this->ParentID ? $this->Parent()->RelativeLink(true) : '');
+
+            /** @var  $urlSegment */
+            $urlSegment = $fields->fieldByName('Root.Main.URLSegment');
+            $urlSegment
+                ->setURLPrefix($baseLink)
+                ->setURLSuffix('&draft=1');
             return $fields;
+        }
+
+        public function PreviewLink($action = null)
+        {
+            return FrontendDirector::absoluteURL(
+                '/api/draft?secret=' . Page::DRAFT_MODE_SECRET_TOKEN . '&slug=' . $this->Link($action));
         }
 
         public function metaTitle(): string
