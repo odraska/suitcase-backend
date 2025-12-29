@@ -1,3 +1,4 @@
 SilverStripe\Cli\Sake:
   commands:
     - 'SLONline\App\Cli\Command\ProcessDownloadInfo'
+    - 'SLONline\App\Cli\Command\ImportFromOldSite'

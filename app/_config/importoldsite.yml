@@ -1,0 +1,55 @@
+SilverStripe\Security\Member:
+  extensions:
+    - SLONline\App\Extensions\ImportFromOldSite
+
+SLONline\Commerce\Model\Order:
+  extensions:
+    - SLONline\App\Extensions\ImportFromOldSite
+
+SLONline\Commerce\Model\OrderItem:
+  extensions:
+    - SLONline\App\Extensions\ImportFromOldSite
+
+SLONline\Commerce\Model\Discounts\DiscountCode:
+  extensions:
+    - SLONline\App\Extensions\ImportFromOldSite
+
+SLONline\Elefont\Model\FontFamily:
+  extensions:
+    - SLONline\App\Extensions\ImportFromOldSite
+
+SLONline\Elefont\Model\Font:
+  extensions:
+    - SLONline\App\Extensions\ImportFromOldSite
+
+SLONline\Elefont\Model\Licenses\License:
+  extensions:
+    - SLONline\App\Extensions\ImportFromOldSite
+
+SLONline\Elefont\Model\Licenses\Coefficient:
+  extensions:
+    - SLONline\App\Extensions\ImportFromOldSite
+
+---
+Only:
+  Environment: dev
+---
+SLONline\App\Cli\Command\ImportFromOldSite:
+  old_database: 'SS_briefcasetype'
+  old_base_path: '/Users/odraska/www/briefcase'
+
+---
+Only:
+  Environment: test
+---
+SLONline\App\Cli\Command\ImportFromOldSite:
+  old_database: 'SS_briefcasetype'
+  old_base_path: '/home/briefcasetype/web'
+
+---
+Only:
+  Environment: live
+---
+SLONline\App\Cli\Command\ImportFromOldSite:
+  old_database: 'SS_briefcasetype'
+  old_base_path: '/home/briefcasetype/web'

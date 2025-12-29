@@ -8,3 +8,4 @@ SilverStripe\Control\Director:
   rules:
     'graphql': '%$SilverStripe\GraphQL\Controller.default'
     'savedcart': 'SLONline\App\Controllers\SavedCart'
+    'importoldsite': 'SLONline\App\Cli\Command\ImportFromOldSite'
