@@ -15,4 +15,4 @@ SilverStripe\GraphQL\Schema\Schema:
           - 'SLONline\App\GraphQL\AppSchema'
 
 SLONline\App\GraphQL\CaptchaBotID:
-  secret_key: 'z9F$3k!q7@Lp%2V^x8*Gm#4R&h(0)-_+s=Tb?6Y|Q~cKJmN5%u'
+  secret_key: 'z9F3k!q7@Lp%2V^x8*Gm#4R&h(0)-_+s=Tb?6Y|Q~cKJmN5%u'
