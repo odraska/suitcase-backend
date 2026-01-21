@@ -19,7 +19,7 @@
             font-size: 14px;
             line-height: 1.5;
         }
-        a {color:#000;text-decoration:none}
+        a {color:#000;text-decoration:underline}
     </style>
     <style>
         @media only screen and (max-width: 600px) {

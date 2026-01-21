@@ -104,7 +104,11 @@ class CreateOrderResolver
             $order->applyDiscountCode($args['discountCode']);
         }
 
+        $order = $order->writeOrderStatus();
+
         Payment::createOrderPayment($args['paymentMethod'], $order);
+
+        $order->Status()->wasSetNow($order);
 
         return $order;
     }
