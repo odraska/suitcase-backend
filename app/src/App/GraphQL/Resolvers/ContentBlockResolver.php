@@ -4,6 +4,7 @@ namespace SLONline\App\GraphQL\Resolvers;
 
 
 use GraphQL\Type\Definition\ResolveInfo;
+use SilverStripe\Dev\Debug;
 
 /**
  * Content Block Resolver
@@ -20,6 +21,7 @@ class ContentBlockResolver
             'code' => 'CodeContentBlock',
             'list' => 'ListContentBlock',
             'quote' => 'QuoteContentBlock',
+            'image' => 'ImageContentBlock',
             default => 'ParagraphContentBlock',
         };
     }

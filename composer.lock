@@ -197,16 +197,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.369.16",
+            "version": "3.369.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "f7ae10a0b691d40075c801e3ae8735a722debfac"
+                "reference": "8bdccd2f8e54c5cd170b22f52414171e19226fd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f7ae10a0b691d40075c801e3ae8735a722debfac",
-                "reference": "f7ae10a0b691d40075c801e3ae8735a722debfac",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8bdccd2f8e54c5cd170b22f52414171e19226fd1",
+                "reference": "8bdccd2f8e54c5cd170b22f52414171e19226fd1",
                 "shasum": ""
             },
             "require": {
@@ -288,9 +288,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.16"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.17"
             },
-            "time": "2026-01-20T19:44:30+00:00"
+            "time": "2026-01-21T19:09:32+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -5566,12 +5566,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:SLONline/silverstripe-editorjs-field.git",
-                "reference": "be7c165e797f396726859585dc18e06ddcd4f6f7"
+                "reference": "bd255acf50d96d88b7c5dc40229d0b7ba93b02da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SLONline/silverstripe-editorjs-field/zipball/be7c165e797f396726859585dc18e06ddcd4f6f7",
-                "reference": "be7c165e797f396726859585dc18e06ddcd4f6f7",
+                "url": "https://api.github.com/repos/SLONline/silverstripe-editorjs-field/zipball/bd255acf50d96d88b7c5dc40229d0b7ba93b02da",
+                "reference": "bd255acf50d96d88b7c5dc40229d0b7ba93b02da",
                 "shasum": ""
             },
             "require": {
@@ -5609,7 +5609,7 @@
                 "source": "https://github.com/SLONline/silverstripe-editorjs-field/tree/6",
                 "issues": "https://github.com/SLONline/silverstripe-editorjs-field/issues"
             },
-            "time": "2026-01-20T16:47:19+00:00"
+            "time": "2026-01-21T22:53:12+00:00"
         },
         {
             "name": "slonline/silverstripe-features",

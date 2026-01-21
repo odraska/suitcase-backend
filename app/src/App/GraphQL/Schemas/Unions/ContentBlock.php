@@ -30,6 +30,7 @@ class ContentBlock implements PartialSchemaUpdater
                 'ListContentBlock',
                 'ParagraphContentBlock',
                 'QuoteContentBlock',
+                'ImageContentBlock',
             ],
             'typeResolver' => [ContentBlockResolver::class, 'resolveType'],
         ]));
