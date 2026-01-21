@@ -55,6 +55,10 @@ class ArticlePage implements PartialSchemaUpdater
                 'type' => 'ArticleCategory!',
             ]);
 
+            $model->addField('contentBlocks', [
+                'type' => '[ContentBlock!]!',
+            ]);
+
             $model->addOperation('read', [
                 'plugins' => [
                     'readVersion' => false,

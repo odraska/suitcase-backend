@@ -27,7 +27,8 @@
         "slonline/jsonfield": "^6.0",
         "slonline/exchangerates": "^6",
         "drewm/mailchimp-api": "^2.5",
-        "slonline/silverstripe-svg-images":"^6.x-dev"
+        "slonline/silverstripe-svg-images":"^6.x-dev",
+        "slonline/silverstripe-editorjs-field": "^6.x-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^11.3",
