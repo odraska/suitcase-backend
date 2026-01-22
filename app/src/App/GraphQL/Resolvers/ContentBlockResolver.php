@@ -4,7 +4,7 @@ namespace SLONline\App\GraphQL\Resolvers;
 
 
 use GraphQL\Type\Definition\ResolveInfo;
-use SilverStripe\Dev\Debug;
+use SilverStripe\Assets\Image;
 
 /**
  * Content Block Resolver
@@ -44,5 +44,19 @@ class ContentBlockResolver
     public static function resolveFootnotesField($object, array $args, array $context, ResolveInfo $info): array
     {
         return $object?->tunes?->footnotes ?? [];
+    }
+
+    public static function resolveImageFields($object, array $args, array $context, ResolveInfo $info, $x): string|int|null
+    {
+        $value = static::resolveField($object, $args, $context, $info, $x);
+        if (in_array($info->fieldName, ['width', 'height'])) {
+            if ($object->data?->fileID) {
+                $image = Image::get_by_id($object->data->fileID);
+                if ($image) {
+                    $value = $info->fieldName === 'width' ? $image->getWidth() : $image->getHeight();
+                }
+            }
+        }
+        return $value;
     }
 }

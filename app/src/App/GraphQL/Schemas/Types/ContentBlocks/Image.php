@@ -17,10 +17,12 @@ class Image implements PartialSchemaUpdater
     {
         $schema->addType(Type::create('ImageContentBlock')
             ->addField('url', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
+            ->addField('width', ['type' => 'Int'])
+            ->addField('height', ['type' => 'Int'])
             ->addField('caption', ['type' => 'String!', 'plugins' => ['requiredField' => false]])
             ->addField('withBackground', ['type' => 'Boolean'])
             ->addField('stretched', ['type' => 'Boolean'])
-            ->setFieldResolver([ContentBlockResolver::class, 'resolveField'])
+            ->setFieldResolver([ContentBlockResolver::class, 'resolveImageFields'])
         );
     }
 }
