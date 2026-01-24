@@ -5,6 +5,7 @@ namespace SLONline\App\GraphQL\Resolvers;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use SilverStripe\Assets\Image;
+use SilverStripe\Model\ArrayData;
 
 /**
  * Content Block Resolver
@@ -22,6 +23,9 @@ class ContentBlockResolver
             'list' => 'ListContentBlock',
             'quote' => 'QuoteContentBlock',
             'image' => 'ImageContentBlock',
+            'button' => 'ButtonContentBlock',
+            'lede' => 'LedeContentBlock',
+            'twoColumns', 'threeColumns' => 'LayoutContentBlock',
             default => 'ParagraphContentBlock',
         };
     }
@@ -58,5 +62,19 @@ class ContentBlockResolver
             }
         }
         return $value;
+    }
+
+    public static function resolveLayoutContentBlockColumnsField($object, array $args, array $context, ResolveInfo $info): array
+    {
+        $list = [];
+        foreach ($object->data->itemContent->toMap() as $item) {
+            $listItem = [];
+            foreach ($item['blocks'] as $block) {
+                $listItem[] = ArrayData::create($block);
+            }
+            $list[] = $listItem;
+        }
+
+        return $list;
     }
 }

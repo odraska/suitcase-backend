@@ -9,12 +9,12 @@ use SLONline\App\GraphQL\PartialSchemaUpdater;
 use SLONline\App\GraphQL\Resolvers\ContentBlockResolver;
 
 /**
- * Content Block Type GraphQL Schema Updater
+ * Layout Content Block Item Type GraphQL Schema Updater
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
  * @copyright Copyright (c) 2026, SLONline, s.r.o.
  */
-class ContentBlock implements PartialSchemaUpdater
+class LayoutContentBlockItem implements PartialSchemaUpdater
 {
 
     /**
@@ -23,7 +23,7 @@ class ContentBlock implements PartialSchemaUpdater
      */
     public static function updateSchema(Schema $schema): void
     {
-        $schema->addUnion(UnionType::create('ContentBlock', [
+        $schema->addUnion(UnionType::create('LayoutContentBlockItem', [
             'types' => [
                 'CodeContentBlock',
                 'HeadingContentBlock',
@@ -33,7 +33,6 @@ class ContentBlock implements PartialSchemaUpdater
                 'ImageContentBlock',
                 'ButtonContentBlock',
                 'LedeContentBlock',
-                'LayoutContentBlock',
             ],
             'typeResolver' => [ContentBlockResolver::class, 'resolveType'],
         ]));
