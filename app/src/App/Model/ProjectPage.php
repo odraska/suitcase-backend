@@ -4,9 +4,13 @@ namespace SLONline\App\Model;
 
 use Page;
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Model\List\ArrayList;
+use SilverStripe\ORM\HasManyList;
 use SilverStripe\ORM\ManyManyList;
 use SLONline\EditorJSField\Forms\EditorJSField;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
  * Project Page Data Object
@@ -19,6 +23,7 @@ use SLONline\EditorJSField\Forms\EditorJSField;
  * @property bool Spotlight
  * @property int CoverImageID
  * @method Image CoverImage()
+ * @method HasManyList|ProjectSpecification Specifications()
  * @method ManyManyList|Author Authors()
  */
 class ProjectPage extends Page
@@ -42,6 +47,10 @@ class ProjectPage extends Page
         'CoverImage' => Image::class,
     ];
 
+    private static array $has_many = [
+        'Specifications' => ProjectSpecification::class,
+    ];
+
     private static array $many_many = [
         'Authors' => Author::class,
     ];
@@ -55,10 +64,15 @@ class ProjectPage extends Page
         $fields = parent::getCMSFields();
 
         $fields->removeByName('Content');
+        $fields->removeByName('WebsiteBlocks');
         $fields->addFieldToTab('Root.Main',
             EditorJSField::create('ContentJS', $this->fieldLabel('Content'), $this->ContentJS)
         );
 
+        /** @var GridField $gridField */
+        $gridField = $fields->fieldByName('Root.Specifications.Specifications');
+        $gridField->setConfig(GridFieldConfig_RecordEditor::create()
+            ->addComponent(GridFieldSortableRows::create('SortOrder')));
         return $fields;
     }
 
