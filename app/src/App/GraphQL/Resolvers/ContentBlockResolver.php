@@ -77,4 +77,9 @@ class ContentBlockResolver
 
         return $list;
     }
+
+    public static function resolveLayoutContentBlockBackgroundField($object, array $args, array $context, ResolveInfo $info): bool
+    {
+        return $object->data?->layout?->withBackground ?? false;
+    }
 }

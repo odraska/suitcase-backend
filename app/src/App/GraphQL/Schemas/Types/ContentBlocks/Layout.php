@@ -26,6 +26,9 @@ class Layout implements PartialSchemaUpdater
                 'type' => '[[LayoutContentBlockItem!]!]!',
                 'resolver' => [ContentBlockResolver::class, 'resolveLayoutContentBlockColumnsField']
             ])
+            ->addField('withBackground', ['type' => 'Boolean',
+                'resolver' => [ContentBlockResolver::class, 'resolveLayoutContentBlockBackgroundField']
+            ])
             ->setFieldResolver([ContentBlockResolver::class, 'resolveField'])
         );
     }
