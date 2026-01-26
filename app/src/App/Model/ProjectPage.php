@@ -4,7 +4,9 @@ namespace SLONline\App\Model;
 
 use Page;
 use SilverStripe\Assets\Image;
+use SilverStripe\Model\List\ArrayList;
 use SilverStripe\ORM\ManyManyList;
+use SLONline\EditorJSField\Forms\EditorJSField;
 
 /**
  * Project Page Data Object
@@ -13,6 +15,7 @@ use SilverStripe\ORM\ManyManyList;
  * @copyright Copyright (c) 2025, SLONline, s.r.o.
  *
  * @property string Annotation
+ * @property string ContentJS
  * @property bool Spotlight
  * @property int CoverImageID
  * @method Image CoverImage()
@@ -31,6 +34,7 @@ class ProjectPage extends Page
 
     private static array $db = [
         'Annotation' => 'HTMLText',
+        'ContentJS' => 'Text',
         'Spotlight' => 'Boolean',
     ];
 
@@ -45,4 +49,21 @@ class ProjectPage extends Page
     private static array $owns = [
         'CoverImage',
     ];
+
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+
+        $fields->removeByName('Content');
+        $fields->addFieldToTab('Root.Main',
+            EditorJSField::create('ContentJS', $this->fieldLabel('Content'), $this->ContentJS)
+        );
+
+        return $fields;
+    }
+
+    public function contentBlocks(): ArrayList
+    {
+        return EditorJSField::decodeData($this->ContentJS ?? '');
+    }
 }

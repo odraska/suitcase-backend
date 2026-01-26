@@ -49,6 +49,10 @@ class ProjectPage implements PartialSchemaUpdater
                 ],
             ]);
 
+            $model->addField('contentBlocks', [
+                'type' => '[ContentBlock!]!',
+            ]);
+
             $model->addOperation('read', [
                 'plugins' => [
                     'readVersion' => false,
