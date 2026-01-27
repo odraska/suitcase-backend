@@ -20,3 +20,7 @@ SilverStripe\Security\Member:
 SLONline\Elefont\Model\FontFeature:
   extensions:
     - SLONline\App\Extensions\FontFeature
+
+SilverStripe\Assets\File:
+  extensions:
+    - SLONline\App\Extensions\File
