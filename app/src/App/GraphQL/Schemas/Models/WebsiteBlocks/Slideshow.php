@@ -7,12 +7,12 @@ use SilverStripe\GraphQL\Schema\Type\ModelType;
 use SLONline\App\GraphQL\PartialSchemaUpdater;
 
 /**
- * Images Website Block GraphQL Schema Updater
+ * Slideshow Website Block GraphQL Schema Updater
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
- * @copyright Copyright (c) 2025, SLONline, s.r.o.
+ * @copyright Copyright (c) 2026, SLONline, s.r.o.
  */
-class Images implements PartialSchemaUpdater
+class Slideshow implements PartialSchemaUpdater
 {
 
     /**
@@ -20,7 +20,7 @@ class Images implements PartialSchemaUpdater
      */
     public static function updateSchema(Schema $schema): void
     {
-        $schema->addModelbyClassName(\SLONline\App\Model\WebsiteBlocks\Images::class, function (ModelType $model) {
+        $schema->addModelbyClassName(\SLONline\App\Model\WebsiteBlocks\Slideshow::class, function (ModelType $model) {
 
             $model->addFields([
                 'id' => [
@@ -36,7 +36,6 @@ class Images implements PartialSchemaUpdater
                     ],
                 ],
             ]);
-            $model->removeField('title');
 
             $model->addOperation('readOne', [
                 'plugins' => [

@@ -20,11 +20,14 @@ use SLONline\Elefont\Model\FontFamilyPage;
  * @property string $Title
  * @property int $SortOrder
  * @property string $Link
- * @property int $HomePageID
+ * @property string $CropMethod
+ * @property int $PageID
  * @property int $ImageID
+ * @property int $MobileImageID
  * @property int $VideoID
  * @method  Page Page
  * @method  File Image
+ * @method  File MobileImage
  * @method  File Video
  */
 class Slide extends DataObject
@@ -37,11 +40,13 @@ class Slide extends DataObject
         'Title' => 'Varchar(255)',
         'SortOrder' => 'Int',
         'Link' => 'Varchar(255)',
+        'CropMethod' => "Enum('Cover,Contain', 'Cover')",
     ];
 
     private static array $has_one = [
         'Page' => Page::class,
         'Image' => Image::class,
+        'MobileImage' => Image::class,
         'Video' => File::class,
     ];
 
@@ -51,6 +56,7 @@ class Slide extends DataObject
 
     private static array $owns = [
         'Image',
+        'MobileImage',
         'Video'
     ];
 
@@ -93,6 +99,10 @@ class Slide extends DataObject
 
         if ($this->Page() instanceof FontFamilyPage) {
             $fields->removeByName('Video');
+        }
+
+        if ($this->Page() instanceof HomePage) {
+            $fields->removeByName('MobileImage');
         }
 
         return $fields;

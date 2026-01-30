@@ -63,6 +63,7 @@ SLONline\Elefont\Model\FontFamilyPage:
   allowedWebsiteBlocks:
     - SLONline\App\Model\WebsiteBlocks\Images
     - SLONline\App\Model\WebsiteBlocks\TypeTester
+    - SLONline\App\Model\WebsiteBlocks\Slideshow
 
 ---
 Name: frontend-domain

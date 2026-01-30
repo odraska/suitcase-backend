@@ -50,10 +50,10 @@ class TypeTester extends WebsiteBlock
             'Image',
             'LinkToPageID',
             'BackgroundImage',
-
+            'TypeTesters'
         ]);
 
-        $fields->addFieldToTab('Root.TypeTesters', GridField::create(
+        $fields->addFieldToTab('Root.Main', GridField::create(
             'TypeTesters',
             'Type testers',
             $this->TypeTesters(),
