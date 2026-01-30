@@ -50,6 +50,18 @@ class TypeTesterItem implements PartialSchemaUpdater
                         'requiredField' => true,
                     ],
                 ],
+                'lineHeight' => [
+                    'type' => 'Float!',
+                    'plugins' => [
+                        'requiredField' => true,
+                    ],
+                ],
+                'maxHeight' => [
+                    'type' => 'Int!',
+                    'plugins' => [
+                        'requiredField' => true,
+                    ],
+                ],
                 'defaultFont' => [
                     'type' => 'Font!',
                     'plugins' => [

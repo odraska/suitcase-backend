@@ -20,6 +20,8 @@ use SLONline\Elefont\Model\FontFamily;
  * @property int FontSize
  * @property int FontsSizeMobile
  * @property float Tracking
+ * @property float LineHeight
+ * @property int MaxHeight
  * @property string CustomText
  * @property int TypeTesterID
  * @property int DefaultFontID
@@ -43,6 +45,8 @@ class TypeTesterItem extends DataObject
         'FontSize' => 'Int',
         'FontsSizeMobile' => 'Int',
         'Tracking' => 'Decimal(6,4)',
+        'LineHeight' => 'Decimal(6,4)',
+        'MaxHeight' => 'Int',
         'CustomText' => 'Text',
         'SortOrder' => 'Int',
     ];
@@ -55,10 +59,22 @@ class TypeTesterItem extends DataObject
     private static array $summary_fields = [
         'ID',
         'Type',
-        'DefaultFont.Name',
+        'CustomText.Summary',
+        'DefaultFont.getFullName',
         'FontSize',
         'FontsSizeMobile',
         'Tracking',
+        'LineHeight',
+        'MaxHeight',
+        'getCMSPublishedStatus'
+    ];
+
+    private static array $field_labels = [
+        'CustomText' => 'Text',
+        'DefaultFont' => 'Font',
+        'CustomText.Summary' => 'Text',
+        'DefaultFont.getFullName' => 'Font',
+        'getCMSPublishedStatus' => 'Status',
     ];
 
     private static array $owned_by = [
@@ -82,6 +98,10 @@ class TypeTesterItem extends DataObject
         $fields = parent::getCMSFields();
         $fields->removeByName('TypeTesterID');
         $fields->removeByName('SortOrder');
+
+        if (!($this->Type == self::TYPE_THREE_COLUMNS || $this->Type == self::TYPE_TWO_COLUMNS)) {
+            $fields->removeByName('MaxHeight');
+        }
 
         $source = [];
         foreach (DataList::create(FontFamily::class) as $family) {

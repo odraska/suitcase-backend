@@ -5,6 +5,7 @@ namespace SLONline\App\Model\WebsiteBlocks;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Model\List\ArrayList;
 use SilverStripe\ORM\HasManyList;
 use SLONline\Elefont\Model\WebsiteBlocks\WebsiteBlock;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
@@ -73,5 +74,19 @@ class TypeTester extends WebsiteBlock
             TypeTesterItem::TYPE_THREE_COLUMNS => 'The quick brown fox jumps over the lazy dog. | Pack my box with five dozen liquor jugs. | How vexingly quick daft zebras jump!',
             default => '',
         };
+    }
+
+    public function getFontFamilies()
+    {
+        $list = ArrayList::create();
+        foreach ($this->TypeTesters() as $typeTester) {
+            if ($list->find('ID', $typeTester->DefaultFont()->FontFamilyID)) {
+                continue;
+            }
+
+            $list->add($typeTester->DefaultFont()->FontFamily());
+        }
+
+        return $list;
     }
 }

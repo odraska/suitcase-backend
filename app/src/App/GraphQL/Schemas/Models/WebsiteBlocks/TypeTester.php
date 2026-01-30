@@ -35,6 +35,14 @@ class TypeTester implements PartialSchemaUpdater
                         'sort' => false
                     ],
                 ],
+                'fontFamilies' => [
+                    'type' => '[FontFamily!]!',
+                    'plugins' => [
+                        'filter' => false,
+                        'paginateList' => false,
+                        'sort' => false
+                    ],
+                ],
             ]);
             $model->removeField('title');
 
