@@ -77,6 +77,15 @@ class Slide extends DataObject
         return null;
     }
 
+    public function mobileImageNull(): ?File
+    {
+        if ($this->MobileImage()->exists()) {
+            return $this->MobileImage();
+        }
+
+        return null;
+    }
+
     public function videoNull(): ?File
     {
         if ($this->Video()->exists()) {
