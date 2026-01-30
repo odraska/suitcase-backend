@@ -46,7 +46,7 @@ class ImagesItem extends DataObject
     ];
 
     private static array $summary_fields = [
-        'ID' => 'ID',
+        'Name' => 'ID',
         'Image.CMSThumbnail' => 'Image',
         'MobileImage.CMSThumbnail' => 'Mobile Image',
         'Link' => 'Link',
@@ -69,6 +69,11 @@ class ImagesItem extends DataObject
     private static string $default_sort = "SortOrder ASC";
 
     private static bool $versioned_gridfield_extensions = true;
+
+    public function getName()
+    {
+        return $this->ID;
+    }
 
     public function mobileImageNull(): ?File
     {

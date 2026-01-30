@@ -58,7 +58,7 @@ class TypeTesterItem extends DataObject
 
     private static array $summary_fields = [
         'ID',
-        'Type',
+        'Name',
         'CustomText.Summary',
         'DefaultFont.getFullName',
         'FontSize',
@@ -66,15 +66,14 @@ class TypeTesterItem extends DataObject
         'Tracking',
         'LineHeight',
         'MaxHeight',
-        'getCMSPublishedStatus'
     ];
 
     private static array $field_labels = [
+        'Name' => 'Type',
         'CustomText' => 'Text',
         'DefaultFont' => 'Font',
         'CustomText.Summary' => 'Text',
         'DefaultFont.getFullName' => 'Font',
-        'getCMSPublishedStatus' => 'Status',
     ];
 
     private static array $owned_by = [
@@ -92,6 +91,11 @@ class TypeTesterItem extends DataObject
     private static array $default_sort = ['SortOrder' => 'ASC'];
 
     private static bool $versioned_gridfield_extensions = true;
+
+    public function getName()
+    {
+        return $this->Type;
+    }
 
     public function getCMSFields(): FieldList
     {

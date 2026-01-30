@@ -76,7 +76,7 @@ class TypeTester extends WebsiteBlock
         };
     }
 
-    public function getFontFamilies()
+    public function getFontFamilies(): ArrayList
     {
         $list = ArrayList::create();
         foreach ($this->TypeTesters() as $typeTester) {

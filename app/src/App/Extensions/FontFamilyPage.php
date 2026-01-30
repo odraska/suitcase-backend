@@ -201,7 +201,7 @@ class FontFamilyPage extends Extension
             ->setResultsFormat('$getFullName')
             ->setResultsLimit(30);
 
-        $fields->removeFieldsFromTab('Root', ['StylesRow1', 'StylesRow2', 'StylesRow3', 'Authors']);
+        $fields->removeFieldsFromTab('Root', ['StylesRow1', 'StylesRow2', 'StylesRow3', 'Authors', 'FontCategories', 'FontFeatures']);
 
         $fields->addFieldToTab('Root.Main', SearchableMultiDropdownField::create(
             'Authors',
@@ -209,6 +209,13 @@ class FontFamilyPage extends Extension
             DataList::create(Author::class),
             $this->owner->Authors()
         ), 'Metadata');
+
+        $fields->addFieldToTab('Root.Main', SearchableMultiDropdownField::create(
+            'FontCategories',
+            $this->owner->fieldLabel('FontCategories'),
+            DataList::create(FontCategory::class),
+            $this->owner->FontCategories()
+        ), 'Authors');
 
         /** @var GridFieldConfig $featuresConfig */
         $fields->fieldByName('Root.FontFeatures.FontFeatures')?->setConfig(GridFieldConfig::create());
@@ -278,6 +285,13 @@ class FontFamilyPage extends Extension
                 ->addComponent($featuresGridFieldEditableColumns)
                 ->addComponent(GridFieldDeleteAction::create(true));
         }
+    }
+
+    public function updateFontFamilyPageCMSFields(FieldList $fields)
+    {
+        $fields->removeFieldsFromTab('Root', [
+            'ListText'
+        ]);
     }
 
     public function visualStyles()

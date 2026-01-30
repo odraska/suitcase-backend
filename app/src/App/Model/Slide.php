@@ -64,6 +64,14 @@ class Slide extends DataObject
         'Page',
     ];
 
+    private static array $summary_fields = [
+        'ID' => 'ID',
+        'Title' => 'Title',
+        'Image.CMSThumbnail' => 'Image',
+        'MobileImage.CMSThumbnail' => 'Mobile Image',
+        'CropMethod' => 'Crop Method',
+    ];
+
     private static string $default_sort = "SortOrder ASC";
 
     private static bool $versioned_gridfield_extensions = true;
