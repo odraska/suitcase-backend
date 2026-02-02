@@ -77,8 +77,8 @@ class ImagesItem extends DataObject
 
     public function mobileImageNull(): ?File
     {
-        if ($this->Image()->exists()) {
-            return $this->Image();
+        if ($this->MobileImage()->exists()) {
+            return $this->MobileImage();
         }
 
         return null;
