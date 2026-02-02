@@ -5503,7 +5503,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "478b768265e6b14b3924ebcf170d8d589dd54e0a"
+                "reference": "b2a4e6e55e784c1b429ae3351e3981aab2c25c86"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5541,7 +5541,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2026-02-02T11:26:57+00:00"
+            "time": "2026-02-02T11:46:36+00:00"
         },
         {
             "name": "slonline/email-templates",
