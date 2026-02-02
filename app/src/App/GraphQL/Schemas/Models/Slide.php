@@ -50,6 +50,12 @@ class Slide implements PartialSchemaUpdater
                         'requiredField' => true,
                     ],
                 ],
+                'cropMethod' => [
+                    'type' => 'CropMethod!',
+                    'plugins' => [
+                        'requiredField' => true,
+                    ],
+                ],
             ]);
         });
     }
