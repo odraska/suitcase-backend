@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc395adea86f32a6fbb7ce4e83090ee9",
+    "content-hash": "43ff7ccad19d8206d1e447e474004cec",
     "packages": [
         {
             "name": "async-aws/core",
@@ -197,16 +197,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.369.23",
+            "version": "3.369.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c45d13c95b188b6fc9f31c77083fad6e7dbc3efd"
+                "reference": "17f404a47879c1fb47175ac2b61881ab0dc2dc5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c45d13c95b188b6fc9f31c77083fad6e7dbc3efd",
-                "reference": "c45d13c95b188b6fc9f31c77083fad6e7dbc3efd",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/17f404a47879c1fb47175ac2b61881ab0dc2dc5c",
+                "reference": "17f404a47879c1fb47175ac2b61881ab0dc2dc5c",
                 "shasum": ""
             },
             "require": {
@@ -288,9 +288,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.23"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.24"
             },
-            "time": "2026-01-29T19:15:41+00:00"
+            "time": "2026-01-30T19:14:32+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -656,6 +656,67 @@
             "time": "2025-08-20T19:15:30+00:00"
         },
         {
+            "name": "contao/imagine-svg",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/contao/imagine-svg.git",
+                "reference": "3e8c7356951a94bc8ff6338296496a2a3cd23dc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/contao/imagine-svg/zipball/3e8c7356951a94bc8ff6338296496a2a3cd23dc4",
+                "reference": "3e8c7356951a94bc8ff6338296496a2a3cd23dc4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "imagine/imagine": "^1.1",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.8",
+                "composer/semver": "^3.3",
+                "contao/test-case": "^4.4",
+                "phpunit/phpunit": "^8.5.4",
+                "symfony/filesystem": "^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": false,
+                    "target-directory": "tools"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Contao\\ImagineSvg\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Auswöger",
+                    "homepage": "https://github.com/ausi"
+                }
+            ],
+            "description": "Contao Imagine SVG library",
+            "support": {
+                "issues": "https://github.com/contao/imagine-svg/issues",
+                "source": "https://github.com/contao/imagine-svg/tree/1.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https://to.contao.org/donate",
+                    "type": "custom"
+                }
+            ],
+            "time": "2024-10-02T10:47:33+00:00"
+        },
+        {
             "name": "doctrine/lexer",
             "version": "3.0.1",
             "source": {
@@ -1009,6 +1070,51 @@
                 }
             ],
             "time": "2025-05-13T12:42:29+00:00"
+        },
+        {
+            "name": "enshrined/svg-sanitize",
+            "version": "0.20.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/darylldoyle/svg-sanitizer.git",
+                "reference": "068d9fcf912c88a0471d101d95a2caa87c50aee7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/068d9fcf912c88a0471d101d95a2caa87c50aee7",
+                "reference": "068d9fcf912c88a0471d101d95a2caa87c50aee7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5 || ^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "enshrined\\svgSanitize\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daryll Doyle",
+                    "email": "daryll@enshrined.co.uk"
+                }
+            ],
+            "description": "An SVG sanitizer for PHP",
+            "support": {
+                "issues": "https://github.com/darylldoyle/svg-sanitizer/issues",
+                "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.20.0"
+            },
+            "time": "2024-09-05T10:18:12+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -1392,6 +1498,68 @@
                 }
             ],
             "time": "2025-08-23T21:21:41+00:00"
+        },
+        {
+            "name": "imagine/imagine",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-imagine/Imagine.git",
+                "reference": "f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-imagine/Imagine/zipball/f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c",
+                "reference": "f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.5 || ^8.4 || ^9.3"
+            },
+            "suggest": {
+                "ext-exif": "to read EXIF metadata",
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Imagine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "support": {
+                "issues": "https://github.com/php-imagine/Imagine/issues",
+                "source": "https://github.com/php-imagine/Imagine/tree/1.5.2"
+            },
+            "time": "2026-01-09T10:45:12+00:00"
         },
         {
             "name": "intervention/gif",
@@ -3327,6 +3495,57 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "restruct/silverstripe-svg-images",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/restruct/silverstripe-svg-images.git",
+                "reference": "d695177c8695694b4e5ad616142048afe236ce33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/restruct/silverstripe-svg-images/zipball/d695177c8695694b4e5ad616142048afe236ce33",
+                "reference": "d695177c8695694b4e5ad616142048afe236ce33",
+                "shasum": ""
+            },
+            "require": {
+                "contao/imagine-svg": "^1.0",
+                "enshrined/svg-sanitize": "^0.20",
+                "ext-dom": "*",
+                "silverstripe/assets": "^3"
+            },
+            "suggest": {
+                "ext-gd": "Required for generating PNG test images in /dev/svg-compare"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "Restruct\\Silverstripe\\SVG\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Restruct web & apps",
+                    "email": "dev@restruct.nl"
+                }
+            ],
+            "description": "SVG Image support for Silverstripe with real manipulation and sanitization",
+            "homepage": "https://github.com/restruct/silverstripe-svg-images",
+            "keywords": [
+                "silverstripe",
+                "svg"
+            ],
+            "support": {
+                "issues": "https://github.com/restruct/silverstripe-svg-images/issues",
+                "source": "https://github.com/restruct/silverstripe-svg-images/tree/2.1.0"
+            },
+            "time": "2026-01-24T11:30:16+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",
@@ -5648,43 +5867,6 @@
                 "silverstripe"
             ],
             "time": "2025-07-29T19:40:10+00:00"
-        },
-        {
-            "name": "slonline/silverstripe-svg-images",
-            "version": "6.x-dev",
-            "source": {
-                "type": "git",
-                "url": "git@bitbucket.org:slonline/silverstripe-svg-images.git",
-                "reference": "9e34927fb3bcb179854749db37894d45d420ef13"
-            },
-            "require": {
-                "ext-dom": "*",
-                "silverstripe/framework": "~6"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SLONline\\SVGImages\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Lubos Odraska",
-                    "email": "odraska@slonline.sk",
-                    "homepage": "https://www.slonline.sk"
-                }
-            ],
-            "description": "SilverStripe 6 SVG Images",
-            "keywords": [
-                "CMS",
-                "Images",
-                "SVG",
-                "silverstripe"
-            ],
-            "time": "2025-11-14T14:19:20+00:00"
         },
         {
             "name": "sminnee/callbacklist",
@@ -10238,7 +10420,6 @@
         "slonline/payment": 20,
         "slonline/payment-stripe": 20,
         "slonline/elefont": 20,
-        "slonline/silverstripe-svg-images": 20,
         "slonline/silverstripe-editorjs-field": 20
     },
     "prefer-stable": true,
