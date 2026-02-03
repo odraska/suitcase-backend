@@ -201,7 +201,7 @@ class FontFamilyPage extends Extension
             ->setResultsFormat('$getFullName')
             ->setResultsLimit(30);
 
-        $fields->removeFieldsFromTab('Root', ['StylesRow1', 'StylesRow2', 'StylesRow3', 'Authors', 'FontCategories', 'FontFeatures']);
+        $fields->removeFieldsFromTab('Root', ['StylesRow1', 'StylesRow2', 'StylesRow3', 'Authors', 'FontCategories']);
 
         $fields->addFieldToTab('Root.Main', SearchableMultiDropdownField::create(
             'Authors',
@@ -235,7 +235,7 @@ class FontFamilyPage extends Extension
                     'title' => 'Custom example',
                     'callback' => function ($record, $column, $grid) {
                         $field = HTMLEditorField::create($column);
-                        $field = $field->setRows(2)
+                        $field = $field->setRows(10)
                             ->setRightTitle('')
                             ->setLeftTitle('')
                             ->setTitle('')
@@ -247,6 +247,7 @@ class FontFamilyPage extends Extension
                                 'skin' => 'silverstripe',
                                 'contextmenu' => "",
                                 'use_native_selects' => false,
+                                'content_style' => 'body { font-size: 20px; }',
                             ])
                             ->setButtonsForLine(1, [
                                 'bold'
@@ -260,7 +261,7 @@ class FontFamilyPage extends Extension
                     'title' => 'Custom all glyphs',
                     'callback' => function ($record, $column, $grid) {
                         $field = HTMLEditorField::create($column);
-                        $field = $field->setRows(2)
+                        $field = $field->setRows(10)
                             ->setRightTitle('')
                             ->setLeftTitle('')
                             ->setTitle('')
