@@ -4,6 +4,7 @@ namespace SLONline\App\Model\WebsiteBlocks;
 
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GroupedDropdownField;
+use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
@@ -107,16 +108,27 @@ class TypeTesterItem extends DataObject
             $fields->removeByName('MaxHeight');
         }
 
-        $source = [];
-        foreach (DataList::create(FontFamily::class) as $family) {
-            $source[$family->Title] = $family->Fonts()->map('ID', 'Title')->toArray();
-        }
+        if ($this->TypeTester()->Page()->FontFamilies()->count() === 0) {
+            $fields->addFieldToTab(
+                'Root.Fonts',
+                LiteralField::create(
+                    'NoFonts',
+                    '<p class="message warning">No font families available.
+Please add them first in tab "Main content".</p>'
+                )
+            );
+        } else {
+            $source = [];
+            foreach ($this->TypeTester()->Page()->FontFamilies() as $family) {
+                $source[$family->Title] = $family->Fonts()->map('ID', 'Title')->toArray();
+            }
 
-        $fields->replaceField(
-            'DefaultFontID',
-            GroupedDropdownField::create('DefaultFontID', $this->fieldLabel('DefaultFont'), $source)
-                ->setEmptyString('-- Select Font --')
-        );
+            $fields->replaceField(
+                'DefaultFontID',
+                GroupedDropdownField::create('DefaultFontID', $this->fieldLabel('DefaultFont'), $source)
+                    ->setEmptyString('-- Select Font --')
+            );
+        }
 
         return $fields;
     }

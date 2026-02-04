@@ -14,6 +14,7 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldEditButton;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\SearchableMultiDropdownField;
@@ -152,6 +153,41 @@ class FontFamilyPage extends Extension
             ColorField::create('FooterButtonBackgroundColor', 'Background Color'),
         ]);
 
+        $this->updateCMSFieldsVisualStyles($fields);
+
+        $fields->removeFieldsFromTab('Root', ['StylesRow1', 'StylesRow2', 'StylesRow3', 'Authors', 'FontCategories']);
+
+        $fields->addFieldToTab('Root.Main', SearchableMultiDropdownField::create(
+            'Authors',
+            $this->owner->fieldLabel('Authors'),
+            DataList::create(Author::class),
+            $this->owner->Authors()
+        ), 'Metadata');
+
+        $fields->addFieldToTab('Root.Main', SearchableMultiDropdownField::create(
+            'FontCategories',
+            $this->owner->fieldLabel('FontCategories'),
+            DataList::create(FontCategory::class),
+            $this->owner->FontCategories()
+        ), 'Authors');
+
+        $this->updateCMSFieldsFontFeatures($fields);
+    }
+
+    private function updateCMSFieldsVisualStyles(FieldList $fields): void
+    {
+        if ($this->owner->FontFamilies()->count() == 0) {
+            $fields->removeFieldFromTab('Root.VisualStyles', 'VisualStyles');
+            $fields->addFieldToTab(
+                'Root.VisualStyles',
+                LiteralField::create(
+                    'NoFonts',
+                    '<p class="message warning">No font families available. Please add them first in tab "Main content".</p>'
+                )
+            );
+            return;
+        }
+
         $fields->addFieldsToTab('Root.VisualStyles', [
             $fields->fieldByName('Root.Main.StylesRow1FontSize'),
             $fields->fieldByName('Root.StylesRow1.StylesRow1'),
@@ -174,7 +210,6 @@ class FontFamilyPage extends Extension
             'Weight' => 'Weight',
             'Width' => 'Width',
         ]);
-
         $gridFieldConfig->getComponentByType(GridFieldAddExistingAutocompleter::class)
             ->setSearchFields([
                 'ID',
@@ -226,22 +261,21 @@ class FontFamilyPage extends Extension
             ])
             ->setResultsFormat('$getFullName')
             ->setResultsLimit(30);
+    }
 
-        $fields->removeFieldsFromTab('Root', ['StylesRow1', 'StylesRow2', 'StylesRow3', 'Authors', 'FontCategories']);
-
-        $fields->addFieldToTab('Root.Main', SearchableMultiDropdownField::create(
-            'Authors',
-            $this->owner->fieldLabel('Authors'),
-            DataList::create(Author::class),
-            $this->owner->Authors()
-        ), 'Metadata');
-
-        $fields->addFieldToTab('Root.Main', SearchableMultiDropdownField::create(
-            'FontCategories',
-            $this->owner->fieldLabel('FontCategories'),
-            DataList::create(FontCategory::class),
-            $this->owner->FontCategories()
-        ), 'Authors');
+    private function updateCMSFieldsFontFeatures(FieldList $fields): void
+    {
+        if (!$this->owner->ListDefaultFont()->exists()) {
+            $fields->removeFieldFromTab('Root.FontFeatures', 'FontFeatures');
+            $fields->addFieldToTab(
+                'Root.FontFeatures',
+                LiteralField::create(
+                    'NoFont',
+                    '<p class="message warning">No default font is set for this page. Please set it first in tab "Main content".</p>'
+                )
+            );
+            return;
+        }
 
         /** @var GridFieldConfig $featuresConfig */
         $fields->fieldByName('Root.FontFeatures.FontFeatures')?->setConfig(GridFieldConfig::create());
