@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43ff7ccad19d8206d1e447e474004cec",
+    "content-hash": "65ff563adbb2d0622c115a3f9d7aebd8",
     "packages": [
         {
             "name": "async-aws/core",
@@ -5503,7 +5503,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "35c5dc432f960ff082c51dab5a12184eb01a9aa0"
+                "reference": "86829b22b302ba86af6df6c2a3fd7a9dfa064c5c"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5541,7 +5541,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2026-02-03T13:28:48+00:00"
+            "time": "2026-02-04T15:39:02+00:00"
         },
         {
             "name": "slonline/email-templates",
@@ -5867,6 +5867,66 @@
                 "silverstripe"
             ],
             "time": "2025-07-29T19:40:10+00:00"
+        },
+        {
+            "name": "slonline/silverstripe-gridfieldextensions",
+            "version": "6.x-dev",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:SLONline/silverstripe-gridfieldextensions.git",
+                "reference": "3656f596ae4980d27b8640490bebb9a6b307a55d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SLONline/silverstripe-gridfieldextensions/zipball/3656f596ae4980d27b8640490bebb9a6b307a55d",
+                "reference": "3656f596ae4980d27b8640490bebb9a6b307a55d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3",
+                "silverstripe/framework": "^6"
+            },
+            "require-dev": {
+                "phpstan/extension-installer": "^1.3",
+                "phpunit/phpunit": "^11.3",
+                "silverstripe/standards": "^1",
+                "squizlabs/php_codesniffer": "^3.7"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "css",
+                    "javascript",
+                    "client/lang"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SLONline\\GridFieldExtensions\\": "src/",
+                    "SLONline\\GridFieldExtensions\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Lubos Odraska",
+                    "email": "odraska@slonline.sk",
+                    "homepage": "https://www.slonline.sk"
+                }
+            ],
+            "description": "A collection of useful grid field components",
+            "homepage": "http://github.com/slonline/silverstripe-gridfieldextensions",
+            "keywords": [
+                "gridfield",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "http://github.com/slonline/silverstripe-gridfieldextensions/issues",
+                "source": "https://github.com/SLONline/silverstripe-gridfieldextensions/tree/main"
+            },
+            "time": "2026-02-04T15:42:51+00:00"
         },
         {
             "name": "sminnee/callbacklist",
@@ -10432,7 +10492,8 @@
         "slonline/payment": 20,
         "slonline/payment-stripe": 20,
         "slonline/elefont": 20,
-        "slonline/silverstripe-editorjs-field": 20
+        "slonline/silverstripe-editorjs-field": 20,
+        "slonline/silverstripe-gridfieldextensions": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -28,6 +28,7 @@ use SLONline\App\Model\FontsInUse;
 use SLONline\App\Model\Slide;
 use SLONline\ColorField\Form\ColorField;
 use SLONline\ColorField\ORM\FieldType\DBColor;
+use SLONline\GridFieldExtensions\GridFieldAddExistingDropdown;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
@@ -305,11 +306,15 @@ class FontFamilyPage extends Extension
 
             $featuresConfig
                 ->addComponent(GridFieldButtonRow::create('before'))
-                ->addComponent(GridFieldAddExistingAutocompleter::create('buttons-before-right'))
                 ->addComponent(GridFieldToolbarHeader::create())
                 ->addComponent(GridFieldTitleHeader::create())
                 ->addComponent($featuresGridFieldEditableColumns)
                 ->addComponent(GridFieldDeleteAction::create(true));
+
+            $featuresConfig->addComponent(GridFieldAddExistingDropdown::create('buttons-before-right')
+                ->setSearchList($this->owner->ListDefaultFont()->FontFeatures())
+                ->setLabelField('NameInFont')
+            );
         }
     }
 
