@@ -57,7 +57,7 @@ class FontFamilyPage implements PartialSchemaUpdater
                 ]
             ])
             ->addField('visualStyles', [
-                'type' => '[[Font!]!]!',
+                'type' => '[FontFamilyPageVisualStyles!]!',
                 'plugins' => [
                     'paginateList' => false,
                     'sort' => false,

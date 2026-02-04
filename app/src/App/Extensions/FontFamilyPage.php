@@ -46,6 +46,9 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property int $FooterButtonBorderRadius
  * @property bool $ShowInBasicTrial
  * @property bool $ShowInFullTrial
+ * @property string $StylesRow1FontSize
+ * @property string $StylesRow2FontSize
+ * @property string $StylesRow3FontSize
  * @property int $PDFSpecimenID
  * @method File PDFSpecimen
  * @method HasManyList|Slide Slides
@@ -59,6 +62,10 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  */
 class FontFamilyPage extends Extension
 {
+    const string STYLES_ROW_FONT_SIZE_SMALL = 'Small';
+    const string STYLES_ROW_FONT_SIZE_MEDIUM = 'Medium';
+    const string STYLES_ROW_FONT_SIZE_LARGE = 'Large';
+
     private static array $db = [
         'FooterButtonBorderColor' => DBColor::class,
         'FooterButtonTextColor' => DBColor::class,
@@ -66,6 +73,21 @@ class FontFamilyPage extends Extension
         'FooterButtonBorderRadius' => 'Int',
         'ShowInBasicTrial' => 'Boolean',
         'ShowInFullTrial' => 'Boolean',
+        'StylesRow1FontSize' => 'Enum("' .
+            self::STYLES_ROW_FONT_SIZE_SMALL . ',' .
+            self::STYLES_ROW_FONT_SIZE_MEDIUM . ',' .
+            self::STYLES_ROW_FONT_SIZE_LARGE . '","' .
+            self::STYLES_ROW_FONT_SIZE_MEDIUM . '")',
+        'StylesRow2FontSize' => 'Enum("' .
+            self::STYLES_ROW_FONT_SIZE_SMALL . ',' .
+            self::STYLES_ROW_FONT_SIZE_MEDIUM . ',' .
+            self::STYLES_ROW_FONT_SIZE_LARGE . '","' .
+            self::STYLES_ROW_FONT_SIZE_MEDIUM . '")',
+        'StylesRow3FontSize' => 'Enum("' .
+            self::STYLES_ROW_FONT_SIZE_SMALL . ',' .
+            self::STYLES_ROW_FONT_SIZE_MEDIUM . ',' .
+            self::STYLES_ROW_FONT_SIZE_LARGE . '","' .
+            self::STYLES_ROW_FONT_SIZE_MEDIUM . '")',
     ];
 
     private static array $has_one = [
@@ -130,8 +152,11 @@ class FontFamilyPage extends Extension
         ]);
 
         $fields->addFieldsToTab('Root.VisualStyles', [
+            $fields->fieldByName('Root.Main.StylesRow1FontSize'),
             $fields->fieldByName('Root.StylesRow1.StylesRow1'),
+            $fields->fieldByName('Root.Main.StylesRow2FontSize'),
             $fields->fieldByName('Root.StylesRow2.StylesRow2'),
+            $fields->fieldByName('Root.Main.StylesRow3FontSize'),
             $fields->fieldByName('Root.StylesRow3.StylesRow3'),
         ]);
 
@@ -299,13 +324,22 @@ class FontFamilyPage extends Extension
     {
         $list = [];
         if ($this->owner->StylesRow1()->exists()) {
-            $list[] = $this->owner->StylesRow1()->sort('StylesRowSortOrder');
+            $list[] = [
+                'fontSize' => $this->owner->StylesRow1FontSize,
+                'styles' => $this->owner->StylesRow1()->sort('StylesRowSortOrder'),
+            ];
         }
         if ($this->owner->StylesRow2()->exists()) {
-            $list[] = $this->owner->StylesRow2()->sort('StylesRowSortOrder');
+            $list[] = [
+                'fontSize' => $this->owner->StylesRow2FontSize,
+                'styles' => $this->owner->StylesRow2()->sort('StylesRowSortOrder'),
+            ];
         }
         if ($this->owner->StylesRow3()->exists()) {
-            $list[] = $this->owner->StylesRow3()->sort('StylesRowSortOrder');
+            $list[] = [
+                'fontSize' => $this->owner->StylesRow3FontSize,
+                'styles' => $this->owner->StylesRow3()->sort('StylesRowSortOrder'),
+            ];
         }
         return $list;
     }
