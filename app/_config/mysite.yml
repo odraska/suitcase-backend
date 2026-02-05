@@ -16,6 +16,12 @@ SilverStripe\ORM\Connect\MySQLDatabase:
   collation: utf8mb4_unicode_ci
 
 ---
+Name: font-tools
+---
+SLONline\Elefont\Tools\FontTools:
+  custom_glyphs_categories_json_file: "app/_config/custom_glyphs_categories.json"
+
+---
 Name: app-tinymce-config
 ---
 SilverStripe\Forms\HTMLEditor\HTMLEditorConfig:
