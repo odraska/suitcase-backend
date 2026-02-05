@@ -146,6 +146,10 @@ class FontFamilyPage extends Extension
 
     public function updateCMSFields(FieldList $fields)
     {
+        $superFamilyField = $fields->fieldByName('Root.Main.SuperFamilyTitle');
+        $fields->removeByName('Root.Main.SuperFamilyTitle');
+        $fields->fieldByName('Root.Main')->insertAfter('MenuTitle', $superFamilyField);
+
         $fields->fieldByName('Root.Main.Content')->setEditorConfig('small');
 
         $fields->addFieldsToTab('Root.FooterButton', [
