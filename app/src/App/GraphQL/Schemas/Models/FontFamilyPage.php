@@ -23,6 +23,13 @@ class FontFamilyPage implements PartialSchemaUpdater
     public static function updateSchema(Schema $schema): void
     {
         $schema->getModel('FontFamilyPage')
+            ->addField(
+                'superFamilyTitle',
+                [
+                    'type' => 'String',
+                    'plugins' => ['requiredField' => false]
+                ]
+            )
             ->addField('content', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
             ->addField('footerButton', ['type' => 'FooterButton!', 'property' => 'footerButton'])
             ->addField('fontCategories', [

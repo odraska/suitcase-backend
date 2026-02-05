@@ -42,6 +42,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  *
  * @property \SLONline\Elefont\Model\FontFamilyPage $owner
  *
+ * @property string $SuperFamilyTitle
  * @property string $FooterButtonBorderColor
  * @property string $FooterButtonTextColor
  * @property string $FooterButtonBackgroundColor
@@ -69,6 +70,7 @@ class FontFamilyPage extends Extension
     const string STYLES_ROW_FONT_SIZE_LARGE = 'Large';
 
     private static array $db = [
+        'SuperFamilyTitle' => 'Varchar(255)',
         'FooterButtonBorderColor' => DBColor::class,
         'FooterButtonTextColor' => DBColor::class,
         'FooterButtonBackgroundColor' => DBColor::class,
