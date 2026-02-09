@@ -1,0 +1,2 @@
+Restruct\Silverstripe\SVG\SVGImage:
+  enable_svg_manipulation: false

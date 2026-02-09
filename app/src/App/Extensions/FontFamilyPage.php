@@ -23,6 +23,7 @@ use SilverStripe\Model\List\SS_List;
 use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\HasManyList;
 use SilverStripe\ORM\ManyManyList;
+use SLONline\App\Forms\GridField\GridFieldAddVisualStyleDropdown;
 use SLONline\App\Model\Author;
 use SLONline\App\Model\FontCategory;
 use SLONline\App\Model\FontsInUse;
@@ -206,9 +207,13 @@ class FontFamilyPage extends Extension
         /** @var GridFieldConfig $gridFieldConfig */
         $gridFieldConfig = $fields->fieldByName('Root.VisualStyles.StylesRow1')?->getConfig();
         $gridFieldConfig
+            ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
             ->removeComponentsByType(GridFieldAddNewButton::class)
             ->addComponent(GridFieldSortableRows::create('StylesRowSortOrder'))
-            ->removeComponentsByType(GridFieldEditButton::class);
+            ->removeComponentsByType(GridFieldEditButton::class)
+            ->addComponent(GridFieldAddVisualStyleDropdown::create('buttons-before-right')
+                ->setSearchList($this->owner->FontFamilies())
+                ->setLabelField('Title'));
         $gridFieldConfig->getComponentByType(GridFieldDataColumns::class)->setDisplayFields([
             'ID' => 'ID',
             'getFullName' => 'Title',
@@ -216,21 +221,16 @@ class FontFamilyPage extends Extension
             'Weight' => 'Weight',
             'Width' => 'Width',
         ]);
-        $gridFieldConfig->getComponentByType(GridFieldAddExistingAutocompleter::class)
-            ->setSearchFields([
-                'ID',
-                'FontFamily.FamilyName:PartialMatch',
-                'FontName:PartialMatch',
-            ])
-            ->setResultsFormat('$getFullName')
-            ->setResultsLimit(30);
-
 
         $gridFieldConfig = $fields->fieldByName('Root.VisualStyles.StylesRow2')?->getConfig();
         $gridFieldConfig
+            ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
             ->removeComponentsByType(GridFieldAddNewButton::class)
             ->addComponent(GridFieldSortableRows::create('StylesRowSortOrder'))
-            ->removeComponentsByType(GridFieldEditButton::class);
+            ->removeComponentsByType(GridFieldEditButton::class)
+            ->addComponent(GridFieldAddVisualStyleDropdown::create('buttons-before-right')
+                ->setSearchList($this->owner->FontFamilies())
+                ->setLabelField('Title'));
         $gridFieldConfig->getComponentByType(GridFieldDataColumns::class)->setDisplayFields([
             'ID' => 'ID',
             'getFullName' => 'Title',
@@ -238,20 +238,16 @@ class FontFamilyPage extends Extension
             'Weight' => 'Weight',
             'Width' => 'Width',
         ]);
-        $gridFieldConfig->getComponentByType(GridFieldAddExistingAutocompleter::class)
-            ->setSearchFields([
-                'ID',
-                'FontFamily.FamilyName:PartialMatch',
-                'FontName:PartialMatch',
-            ])
-            ->setResultsFormat('$getFullName')
-            ->setResultsLimit(30);
 
         $gridFieldConfig = $fields->fieldByName('Root.VisualStyles.StylesRow3')?->getConfig();
         $gridFieldConfig
+            ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
             ->removeComponentsByType(GridFieldAddNewButton::class)
             ->addComponent(GridFieldSortableRows::create('StylesRowSortOrder'))
-            ->removeComponentsByType(GridFieldEditButton::class);
+            ->removeComponentsByType(GridFieldEditButton::class)
+            ->addComponent(GridFieldAddVisualStyleDropdown::create('buttons-before-right')
+                ->setSearchList($this->owner->FontFamilies())
+                ->setLabelField('Title'));
         $gridFieldConfig->getComponentByType(GridFieldDataColumns::class)->setDisplayFields([
             'ID' => 'ID',
             'getFullName' => 'Title',
@@ -259,14 +255,6 @@ class FontFamilyPage extends Extension
             'Weight' => 'Weight',
             'Width' => 'Width',
         ]);
-        $gridFieldConfig->getComponentByType(GridFieldAddExistingAutocompleter::class)
-            ->setSearchFields([
-                'ID',
-                'FontFamily.FamilyName:PartialMatch',
-                'FontName:PartialMatch',
-            ])
-            ->setResultsFormat('$getFullName')
-            ->setResultsLimit(30);
     }
 
     private function updateCMSFieldsFontFeatures(FieldList $fields): void

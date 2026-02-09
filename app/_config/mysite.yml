@@ -88,6 +88,15 @@ SLONline\ExchangeRates\ExchangeRates:
     - USD
 
 ---
+Name: vat-rates
+---
+SLONline\Elefont\Model\FontFamily:
+  defaultVAT: 0
+
+SLONline\Commerce\Model\Config:
+  useMOSSVAT: false
+---
+
 SLONline\Payment\StripePayment:
   publicKey: "`STRIPE_PAYMENT_PUBLIC_KEY`"
   secretKey: "`STRIPE_PAYMENT_SECRET_KEY`"
