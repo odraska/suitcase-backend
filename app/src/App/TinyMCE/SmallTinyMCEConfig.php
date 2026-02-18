@@ -29,11 +29,11 @@ class SmallTinyMCEConfig extends TinyMCEConfig
      */
     protected $buttons = [
         1 => [
-            'bold', 'italic', 'underline', 'removeformat', '|',
+            'bold', 'underline', 'removeformat', '|',
             'alignleft', 'aligncenter', 'alignright', 'alignjustify', '|','pastetext',
-
+            'sslink', 'unlink', 'code', 'visualblocks'
         ],
-        2 => ['blocks','sslink', 'unlink', 'code', 'visualblocks'],
+        2 => [],
         3 => []
     ];
 

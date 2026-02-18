@@ -22,8 +22,6 @@ class SearchResolver
     const string SEARCH_RESULT_TYPE_FONT_FAMILY_PAGE = 'FontFamilyPage';
     const string SEARCH_RESULT_TYPE_AUTHOR = 'Author';
     const string SEARCH_RESULT_TYPE_PAGE = 'Page';
-    const string SEARCH_RESULT_TYPE_ARTICLE = 'ArticlePage';
-    const string SEARCH_RESULT_TYPE_PROJECT = 'ProjectPage';
 
     public static function resolve($obj, array $args, array $context, ResolveInfo $info): ArrayList
     {
@@ -54,26 +52,6 @@ class SearchResolver
             ])->sort('LastEdited', 'DESC')->limit(10),
         ]));
 
-        $results->push(ArrayData::create([
-            'category' => self::SEARCH_RESULT_TYPE_ARTICLE,
-            'results' => DataList::create(ArticlePage::class)->filterAny([
-                'Title:PartialMatch' => $args['term'],
-                'Content:PartialMatch' => $args['term'],
-                'Annotation:PartialMatch' => $args['term'],
-                'Authors.Name:PartialMatch' => $args['term'],
-            ])->sort('LastEdited', 'DESC')->limit(10),
-        ]));
-
-        $results->push(ArrayData::create([
-            'category' => self::SEARCH_RESULT_TYPE_PROJECT,
-            'results' => DataList::create(ProjectPage::class)->filterAny([
-                'Title:PartialMatch' => $args['term'],
-                'Content:PartialMatch' => $args['term'],
-                'Annotation:PartialMatch' => $args['term'],
-                'Authors.Name:PartialMatch' => $args['term'],
-            ])->sort('LastEdited', 'DESC')->limit(10),
-        ]));
-
         return $results;
     }
 
@@ -84,12 +62,6 @@ class SearchResolver
         }
         if ($object instanceof Author) {
             return self::SEARCH_RESULT_TYPE_AUTHOR;
-        }
-        if ($object instanceof ArticlePage) {
-            return self::SEARCH_RESULT_TYPE_ARTICLE;
-        }
-        if ($object instanceof ProjectPage) {
-            return self::SEARCH_RESULT_TYPE_PROJECT;
         }
 
         return self::SEARCH_RESULT_TYPE_PAGE;

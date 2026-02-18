@@ -23,6 +23,12 @@ class HomePage implements PartialSchemaUpdater
     {
         $schema->addModelbyClassName(\SLONline\App\Model\HomePage::class, function (ModelType $model) {
             $model->addFields([
+                'marqueeText' => [
+                    'type' => 'String',
+                ],
+                'marqueeLink' => [
+                    'type' => 'String',
+                ],
                 'featuredFontFamilyPages' => [
                     'type' => '[FontFamilyPage!]!',
                     'plugins' => [

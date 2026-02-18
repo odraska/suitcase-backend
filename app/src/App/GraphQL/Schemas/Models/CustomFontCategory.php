@@ -6,20 +6,19 @@ use SilverStripe\GraphQL\Schema\Schema;
 use SLONline\App\GraphQL\PartialSchemaUpdater;
 
 /**
- * Article Category Data Object GraphQL Schema Updater
+ * Custom Font Category Data Object GraphQL Schema Updater
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
- * @copyright Copyright (c) 2025, SLONline, s.r.o.
+ * @copyright Copyright (c) 2026, SLONline, s.r.o.
  */
-class ArticleCategory implements PartialSchemaUpdater
+class CustomFontCategory implements PartialSchemaUpdater
 {
-
     /**
      * @inheritDoc
      */
     public static function updateSchema(Schema $schema): void
     {
-        $schema->addModelbyClassName(\SLONline\App\Model\ArticleCategory::class, function ($model) {
+        $schema->addModelbyClassName(\SLONline\App\Model\CustomFontCategory::class, function ($model) {
             $model->addField('title', [
                 'type' => 'String!',
                 'plugins' => [
@@ -32,8 +31,8 @@ class ArticleCategory implements PartialSchemaUpdater
                     'requiredField' => true,
                 ],
             ]);
-            $model->addField('articles', [
-                'type' => '[ArticlePage!]!',
+            $model->addField('customFonts', [
+                'type' => '[CustomFontPage!]!',
                 'plugins' => [
                     'readVersion' => false,
                     'paginateList' => true,

@@ -8,14 +8,14 @@ use SilverStripe\GraphQL\Schema\Schema;
 use SilverStripe\Model\List\SS_List;
 
 /**
- * Project Page GraphQL Resolver
+ * Custom Font Page GraphQL Resolver
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
- * @copyright Copyright (c) 2025, SLONline, s.r.o.
+ * @copyright Copyright (c) 2026, SLONline, s.r.o.
  */
-class ProjectPageResolver
+class CustomFontPageResolver
 {
-    public static function resolveAuthorUrlSegmentFilter(SS_List $list, array $args, array $context)
+    public static function resolveCategoryUrlSegmentFilter(SS_List $list, array $args, array $context)
     {
         if ($list === null) {
             return null;
@@ -38,7 +38,7 @@ class ProjectPageResolver
         );
 
         if ($filter) {
-            $list = $filter->apply($list, 'Authors.UrlSegment', $context['filterValue']);
+            $list = $filter->apply($list, 'Category.UrlSegment', $context['filterValue']);
         }
 
         return $list;

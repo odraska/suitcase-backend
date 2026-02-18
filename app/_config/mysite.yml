@@ -72,6 +72,15 @@ SLONline\Elefont\Model\FontFamilyPage:
     - SLONline\App\Model\WebsiteBlocks\Slideshow
 
 ---
+Name: CustomFontPageWebsiteBlocks
+---
+SLONline\App\Model\CustomFontPage:
+  allowedWebsiteBlocks:
+    - SLONline\App\Model\WebsiteBlocks\RichText
+    - SLONline\App\Model\WebsiteBlocks\Images
+    - SLONline\App\Model\WebsiteBlocks\Slideshow
+
+---
 Name: frontend-domain
 ---
 SilverStripe\Control\Director:

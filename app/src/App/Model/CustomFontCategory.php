@@ -8,23 +8,23 @@ use SilverStripe\ORM\HasManyList;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
- * Article Category Data Object
+ * Custom Font Category Data Object
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
- * @copyright Copyright (c) 2025, SLONline, s.r.o.
+ * @copyright Copyright (c) 2026, SLONline, s.r.o.
  *
  * @property string Title
  * @property string $UrlSegment
- * @property int EditorialPageID
- * @method EditorialPage EditorialPage()
- * @method HasManyList|ArticlePage Articles()
+ * @property int CustomFontsPageID
+ * @method CustomFontsPage CustomFontsPage()
+ * @method HasManyList|CustomFontPage CustomFonts()
  */
-class ArticleCategory extends DataObject
+class CustomFontCategory extends DataObject
 {
-    private static string $table_name = 'ArticleCategories';
+    private static string $table_name = 'CustomFontCategories';
 
-    private static string $singular_name = 'Article Category';
-    private static string $plural_name = 'Articles Categories';
+    private static string $singular_name = 'Custom Font Category';
+    private static string $plural_name = 'Custom Font Categories';
 
     private static array $db = [
         'Title' => 'Varchar(255)',
@@ -32,18 +32,18 @@ class ArticleCategory extends DataObject
     ];
 
     private static array $has_one = [
-        'EditorialPage' => EditorialPage::class,
+        'CustomFontsPage' => CustomFontsPage::class,
     ];
 
     private static array $has_many = [
-        'Articles' => ArticlePage::class,
+        'CustomFonts' => CustomFontPage::class,
     ];
 
     public function getCMSFields(): FieldList
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName('EditorialPageID');
+        $fields->removeByName('CustomFontsPageID');
         return $fields;
     }
 

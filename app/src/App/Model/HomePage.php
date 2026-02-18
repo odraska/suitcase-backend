@@ -19,17 +19,24 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @author    Lubos Odraska <odraska@slonline.sk>
  * @copyright Copyright (c) 2025, SLONline, s.r.o.
  *
- * @property HasManyList|Slide Slides
+ * @property string AboutText
+ * @property string MarqueeText
+ * @property string MarqueeLink
+ * @property int AboutImageID
+ * @method Image AboutImage
+ * @method HasManyList|Slide Slides
  */
 class HomePage extends \Page
 {
     private static string $table_name = 'HomePage';
 
-    private static string $singluar_name = 'Home Page';
+    private static string $singular_name = 'Home Page';
     private static string $plural_name = 'Home Pages';
 
     private static array $db = [
         'AboutText' => 'Text',
+        'MarqueeText' => 'HTMLText',
+        'MarqueeLink' => 'Varchar(1000)',
     ];
 
     private static array $has_one = [
@@ -62,6 +69,8 @@ class HomePage extends \Page
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('Content');
+
+        $fields->fieldByName('Root.Main.MarqueeText')?->setEditorConfig('small');
 
         $config = GridFieldConfig_RecordEditor::create();;
         $config->addComponent(new GridFieldSortableRows('SortOrder'));

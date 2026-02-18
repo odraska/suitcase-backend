@@ -4,24 +4,23 @@ namespace SLONline\App\GraphQL\Schemas\Models;
 
 use SilverStripe\GraphQL\Schema\Schema;
 use SLONline\App\GraphQL\PartialSchemaUpdater;
-use SLONline\App\GraphQL\Resolvers\ProjectPageResolver;
+use SLONline\App\GraphQL\Resolvers\CustomFontPageResolver;
 
 /**
- * Project Page Data Object GraphQL Schema Updater
+ * Custom Font Page Data Object GraphQL Schema Updater
  *
  * @author    Lubos Odraska <odraska@slonline.sk>
- * @copyright Copyright (c) 2025, SLONline, s.r.o.
+ * @copyright Copyright (c) 2026, SLONline, s.r.o.
  */
-class ProjectPage implements PartialSchemaUpdater
+class CustomFontPage implements PartialSchemaUpdater
 {
-
     /**
      * @inheritDoc
      */
     public static function updateSchema(Schema $schema): void
     {
-        $schema->addModelbyClassName(\SLONline\App\Model\ProjectPage::class, function ($model) {
-            $model->addField('annotation', [
+        $schema->addModelbyClassName(\SLONline\App\Model\CustomFontPage::class, function ($model) {
+            $model->addField('shortText', [
                 'type' => 'String!',
                 'plugins' => [
                     'requiredField' => true,
@@ -30,31 +29,12 @@ class ProjectPage implements PartialSchemaUpdater
             $model->addField('coverImage', [
                 'type' => 'Image!',
             ]);
-            $model->addField(
-                'spotlight',
-                [
-                    'type' => 'Boolean!',
-                    'plugins' => [
-                        'requiredField' => true
-                    ],
-                ]
-            );
-            $model->addField('authors', [
-                'type' => '[Author!]!',
-                'plugins' => [
-                    'readVersion' => false,
-                    'paginateList' => false,
-                    'sort' => false,
-                    'filter' => false,
-                ],
+            $model->addField('category', [
+                'type' => 'CustomFontCategory!',
             ]);
 
-            $model->addField('contentBlocks', [
-                'type' => '[ContentBlock!]!',
-            ]);
-
-            $model->addField('specifications', [
-                'type' => '[ProjectSpecification!]!',
+            $model->addField('websiteBlocks', [
+                'type' => '[WebsiteBlock!]!',
             ]);
 
             $model->addOperation('read', [
@@ -65,17 +45,16 @@ class ProjectPage implements PartialSchemaUpdater
                     'filter' => [
                         'fields' => [
                             'id' => true,
-                            'title' => true,
                             'urlSegment' => true,
-                            'authorUrlSegment' => true,
+                            'categoryUrlSegment' => true,
                         ],
                         'resolve' => [
-                            'authorUrlSegment' => [
+                            'categoryUrlSegment' => [
                                 'type' => 'String',
-                                'description' => 'URL segments of the font family pages to filter by',
-                                'resolver' => [ProjectPageResolver::class, 'resolveAuthorUrlSegmentFilter'],
+                                'description' => 'URL segments of the categories to filter by',
+                                'resolver' => [CustomFontPageResolver::class, 'resolveCategoryUrlSegmentFilter'],
                             ],
-                        ]
+                        ],
                     ],
                 ],
             ]);
@@ -87,9 +66,15 @@ class ProjectPage implements PartialSchemaUpdater
                     'filter' => [
                         'fields' => [
                             'id' => true,
-                            'title' => true,
                             'urlSegment' => true,
-                            'authorUrlSegment' => true,
+                            'categoryUrlSegment' => true,
+                        ],
+                        'resolve' => [
+                            'categoryUrlSegment' => [
+                                'type' => 'String',
+                                'description' => 'URL segments of the categories to filter by',
+                                'resolver' => [CustomFontPageResolver::class, 'resolveCategoryUrlSegmentFilter'],
+                            ],
                         ],
                     ],
                 ],

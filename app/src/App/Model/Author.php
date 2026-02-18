@@ -29,8 +29,6 @@ use SLONline\Elefont\Model\FontFamilyPage;
  * @property int $PhotoID
  * @method Image $Photo
  * @method ManyManyList|FontFamilyPage FontFamilyPages
- * @method ManyManyList|ArticlePage ArticlePages
- * @method ManyManyList|ProjectPage ProjectPages
  */
 class Author extends DataObject
 {
@@ -55,11 +53,6 @@ class Author extends DataObject
 
     private static array $many_many = [
         'FontFamilyPages' => FontFamilyPage::class,
-    ];
-
-    private static array $belongs_many_many = [
-        'ArticlePages' => ArticlePage::class,
-        'ProjectPages' => ProjectPage::class,
     ];
 
     private static array $owns = [
