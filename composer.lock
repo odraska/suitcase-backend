@@ -8,21 +8,20 @@
     "packages": [
         {
             "name": "async-aws/core",
-            "version": "1.28.0",
+            "version": "1.28.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/async-aws/core.git",
-                "reference": "0d5f4d650b74a8366bca1fb400b6cfb694c3b217"
+                "reference": "e8b02ac30b17afaf1352cbd352dceb789d792d39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/async-aws/core/zipball/0d5f4d650b74a8366bca1fb400b6cfb694c3b217",
-                "reference": "0d5f4d650b74a8366bca1fb400b6cfb694c3b217",
+                "url": "https://api.github.com/repos/async-aws/core/zipball/e8b02ac30b17afaf1352cbd352dceb789d792d39",
+                "reference": "e8b02ac30b17afaf1352cbd352dceb789d792d39",
                 "shasum": ""
             },
             "require": {
                 "ext-hash": "*",
-                "ext-json": "*",
                 "ext-simplexml": "*",
                 "php": "^8.2",
                 "psr/cache": "^1.0 || ^2.0 || ^3.0",
@@ -65,7 +64,7 @@
                 "sts"
             ],
             "support": {
-                "source": "https://github.com/async-aws/core/tree/1.28.0"
+                "source": "https://github.com/async-aws/core/tree/1.28.1"
             },
             "funding": [
                 {
@@ -77,25 +76,24 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-16T22:28:05+00:00"
+            "time": "2026-02-16T10:24:54+00:00"
         },
         {
             "name": "async-aws/ses",
-            "version": "1.14.0",
+            "version": "1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/async-aws/ses.git",
-                "reference": "c5b1d6c0c8ba32ea4f961b40b9e411aeca783302"
+                "reference": "8ba4c7f5bbb4d1055f3ebedcf0ea1b8b79393e5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/async-aws/ses/zipball/c5b1d6c0c8ba32ea4f961b40b9e411aeca783302",
-                "reference": "c5b1d6c0c8ba32ea4f961b40b9e411aeca783302",
+                "url": "https://api.github.com/repos/async-aws/ses/zipball/8ba4c7f5bbb4d1055f3ebedcf0ea1b8b79393e5b",
+                "reference": "8ba4c7f5bbb4d1055f3ebedcf0ea1b8b79393e5b",
                 "shasum": ""
             },
             "require": {
                 "async-aws/core": "^1.9",
-                "ext-json": "*",
                 "php": "^8.2"
             },
             "require-dev": {
@@ -127,7 +125,7 @@
                 "ses"
             ],
             "support": {
-                "source": "https://github.com/async-aws/ses/tree/1.14.0"
+                "source": "https://github.com/async-aws/ses/tree/1.14.1"
             },
             "funding": [
                 {
@@ -139,7 +137,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-16T22:28:05+00:00"
+            "time": "2026-02-16T10:24:54+00:00"
         },
         {
             "name": "aws/aws-crt-php",
@@ -197,16 +195,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.369.30",
+            "version": "3.369.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "8a0fc0da51eff807f8978613a82df9871b236718"
+                "reference": "bc599ce989b101ee630d5e1a1aeda387632df47b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8a0fc0da51eff807f8978613a82df9871b236718",
-                "reference": "8a0fc0da51eff807f8978613a82df9871b236718",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bc599ce989b101ee630d5e1a1aeda387632df47b",
+                "reference": "bc599ce989b101ee630d5e1a1aeda387632df47b",
                 "shasum": ""
             },
             "require": {
@@ -288,9 +286,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.30"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.37"
             },
-            "time": "2026-02-09T19:19:31+00:00"
+            "time": "2026-02-18T19:16:34+00:00"
         },
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -5586,16 +5584,16 @@
         },
         {
             "name": "slonline/exchangerates",
-            "version": "6.0.4",
+            "version": "6.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SLONline/exchangerates.git",
-                "reference": "033185f2ad1274bbaa3939a4507de22ea5e0e46d"
+                "reference": "4b0332b3fd2d9a1fbd7b2294c00456e719bc9973"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SLONline/exchangerates/zipball/033185f2ad1274bbaa3939a4507de22ea5e0e46d",
-                "reference": "033185f2ad1274bbaa3939a4507de22ea5e0e46d",
+                "url": "https://api.github.com/repos/SLONline/exchangerates/zipball/4b0332b3fd2d9a1fbd7b2294c00456e719bc9973",
+                "reference": "4b0332b3fd2d9a1fbd7b2294c00456e719bc9973",
                 "shasum": ""
             },
             "require": {
@@ -5627,9 +5625,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SLONline/exchangerates/issues",
-                "source": "https://github.com/SLONline/exchangerates/tree/6.0.4"
+                "source": "https://github.com/SLONline/exchangerates/tree/6.0.5"
             },
-            "time": "2025-11-20T15:30:30+00:00"
+            "time": "2026-02-19T13:48:24+00:00"
         },
         {
             "name": "slonline/graphql",
@@ -6037,16 +6035,16 @@
         },
         {
             "name": "symbiote/silverstripe-gridfieldextensions",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-gridfieldextensions.git",
-                "reference": "d5055fae21e3ec8842d4ad9e54b9fb415b224ad9"
+                "reference": "a27842b1f308dd75fb437b05fa45e781de3da21f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-gridfieldextensions/zipball/d5055fae21e3ec8842d4ad9e54b9fb415b224ad9",
-                "reference": "d5055fae21e3ec8842d4ad9e54b9fb415b224ad9",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-gridfieldextensions/zipball/a27842b1f308dd75fb437b05fa45e781de3da21f",
+                "reference": "a27842b1f308dd75fb437b05fa45e781de3da21f",
                 "shasum": ""
             },
             "require": {
@@ -6109,9 +6107,9 @@
             ],
             "support": {
                 "issues": "http://github.com/symbiote/silverstripe-gridfieldextensions/issues",
-                "source": "https://github.com/silverstripe/silverstripe-gridfieldextensions/tree/5.1.0"
+                "source": "https://github.com/silverstripe/silverstripe-gridfieldextensions/tree/5.1.1"
             },
-            "time": "2025-08-28T05:10:09+00:00"
+            "time": "2026-02-10T20:25:12+00:00"
         },
         {
             "name": "symfony/amazon-mailer",
@@ -9301,16 +9299,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.5.53",
+            "version": "11.5.55",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a997a653a82845f1240d73ee73a8a4e97e4b0607"
+                "reference": "adc7262fccc12de2b30f12a8aa0b33775d814f00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a997a653a82845f1240d73ee73a8a4e97e4b0607",
-                "reference": "a997a653a82845f1240d73ee73a8a4e97e4b0607",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/adc7262fccc12de2b30f12a8aa0b33775d814f00",
+                "reference": "adc7262fccc12de2b30f12a8aa0b33775d814f00",
                 "shasum": ""
             },
             "require": {
@@ -9383,7 +9381,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.53"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.55"
             },
             "funding": [
                 {
@@ -9407,7 +9405,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-10T12:28:25+00:00"
+            "time": "2026-02-18T12:37:06+00:00"
         },
         {
             "name": "sebastian/cli-parser",
