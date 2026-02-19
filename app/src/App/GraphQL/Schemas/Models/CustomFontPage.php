@@ -33,10 +33,6 @@ class CustomFontPage implements PartialSchemaUpdater
                 'type' => 'CustomFontCategory!',
             ]);
 
-            $model->addField('websiteBlocks', [
-                'type' => '[WebsiteBlock!]!',
-            ]);
-
             $model->addOperation('read', [
                 'plugins' => [
                     'readVersion' => false,
