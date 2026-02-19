@@ -24,3 +24,7 @@ SLONline\Elefont\Model\FontFeature:
 SilverStripe\Assets\File:
   extensions:
     - SLONline\App\Extensions\File
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SLONline\App\Extensions\SiteConfig
