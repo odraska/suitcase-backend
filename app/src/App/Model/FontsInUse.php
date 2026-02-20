@@ -2,6 +2,7 @@
 
 namespace SLONline\App\Model;
 
+use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\Assets\Upload;
@@ -72,7 +73,7 @@ class FontsInUse extends DataObject
         $fields->removeByName('SortOrder');
         $fields->removeByName('Images');
 
-        $imagesField = UploadField::create('Images', 'Images')
+        $imagesField = SortableUploadField::create('Images', 'Images')
             ->setFolderName(static::folder())
             ->setAllowedFileCategories('image');
 

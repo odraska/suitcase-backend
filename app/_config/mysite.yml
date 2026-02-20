@@ -94,6 +94,12 @@ SLONline\App\Model\CustomFontPage:
     - SLONline\App\Model\WebsiteBlocks\Slideshow
 
 ---
+Name: FontsInUse
+---
+FontsInUse_Images:
+  default_sort: 'SortOrder ASC'
+
+---
 Name: frontend-domain
 ---
 SilverStripe\Control\Director:
