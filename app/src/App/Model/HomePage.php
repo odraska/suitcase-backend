@@ -22,9 +22,6 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property string AboutText
  * @property string MarqueeText
  * @property string MarqueeLink
- * @property int AboutImageID
- * @method Image AboutImage
- * @method HasManyList|Slide Slides
  */
 class HomePage extends \Page
 {
@@ -39,13 +36,9 @@ class HomePage extends \Page
         'MarqueeLink' => 'Varchar(1000)',
     ];
 
-    private static array $has_one = [
-        'AboutImage' => Image::class
-    ];
+    private static array $has_one = [];
 
-    private static array $has_many = [
-        'Slides' => Slide::class,
-    ];
+    private static array $has_many = [];
 
     private static array $owns = [
         'AboutImage',
@@ -71,12 +64,6 @@ class HomePage extends \Page
         $fields->removeByName('Content');
 
         $fields->fieldByName('Root.Main.MarqueeText')?->setEditorConfig('small');
-
-        $config = GridFieldConfig_RecordEditor::create();;
-        $config->addComponent(new GridFieldSortableRows('SortOrder'));
-
-        $fields->addFieldToTab('Root.Slides',
-            GridField::create('Slides', 'Slides', $this->Slides(), $config));
 
         return $fields;
     }

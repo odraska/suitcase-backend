@@ -37,19 +37,8 @@ class HomePage implements PartialSchemaUpdater
                         'sort' => false
                     ],
                 ],
-                'slides' => [
-                    'type' => '[Slide!]',
-                    'plugins' => [
-                        'filter' => false,
-                        'paginateList' => false,
-                        'sort' => false
-                    ],
-                ],
                 'aboutText' => [
                     'type' => 'String',
-                ],
-                'aboutImage' => [
-                    'type' => 'Image',
                 ],
             ]);
             $model->addOperation('readOne', [

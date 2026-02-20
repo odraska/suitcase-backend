@@ -44,10 +44,6 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property \SLONline\Elefont\Model\FontFamilyPage $owner
  *
  * @property string $SuperFamilyTitle
- * @property string $FooterButtonBorderColor
- * @property string $FooterButtonTextColor
- * @property string $FooterButtonBackgroundColor
- * @property int $FooterButtonBorderRadius
  * @property bool $ShowInBasicTrial
  * @property bool $ShowInFullTrial
  * @property string $StylesRow1FontSize
@@ -72,10 +68,6 @@ class FontFamilyPage extends Extension
 
     private static array $db = [
         'SuperFamilyTitle' => 'Varchar(255)',
-        'FooterButtonBorderColor' => DBColor::class,
-        'FooterButtonTextColor' => DBColor::class,
-        'FooterButtonBackgroundColor' => DBColor::class,
-        'FooterButtonBorderRadius' => 'Int',
         'ShowInBasicTrial' => 'Boolean',
         'ShowInFullTrial' => 'Boolean',
         'StylesRow1FontSize' => 'Enum("' .
@@ -135,16 +127,6 @@ class FontFamilyPage extends Extension
         'PDFSpecimen',
     ];
 
-    public function footerButton(): array
-    {
-        return [
-            'borderColor' => $this->owner->FooterButtonBorderColor,
-            'textColor' => $this->owner->FooterButtonTextColor,
-            'backgroundColor' => $this->owner->FooterButtonBackgroundColor,
-            'borderRadius' => $this->owner->FooterButtonBorderRadius
-        ];
-    }
-
     public function updateCMSFields(FieldList $fields)
     {
         $superFamilyField = $fields->fieldByName('Root.Main.SuperFamilyTitle');
@@ -152,13 +134,6 @@ class FontFamilyPage extends Extension
         $fields->fieldByName('Root.Main')->insertAfter('MenuTitle', $superFamilyField);
 
         $fields->fieldByName('Root.Main.Content')->setEditorConfig('small');
-
-        $fields->addFieldsToTab('Root.FooterButton', [
-            ColorField::create('FooterButtonBorderColor', 'Border Color'),
-            NumericField::create('FooterButtonBorderRadius', 'Border Radius'),
-            ColorField::create('FooterButtonTextColor', 'Text Color'),
-            ColorField::create('FooterButtonBackgroundColor', 'Background Color'),
-        ]);
 
         $this->updateCMSFieldsVisualStyles($fields);
 

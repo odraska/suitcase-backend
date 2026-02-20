@@ -2,7 +2,11 @@
 
 namespace SLONline\App\Model;
 
+use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
+use SilverStripe\Assets\Upload;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\SearchableMultiDropdownField;
 use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DataObject;
@@ -20,12 +24,12 @@ use SLONline\Elefont\Model\FontFamilyPage;
  * @property string $Author
  * @property int $SortOrder
  * @property bool $Spotlight
- * @property int $ImageID
- * @method Image Image
+ * @method ManyManyList|Image Images
  * @method ManyManyList|FontFamilyPage FontFamilyPages()
  */
 class FontsInUse extends DataObject
 {
+    public const string FOLDER = 'fontsinuse';
     private static string $table_name = 'FontsInUse';
     private static string $singular_name = 'Fonts In Use Item';
     private static string $plural_name = 'Fonts In Use Items';
@@ -37,16 +41,21 @@ class FontsInUse extends DataObject
         'Spotlight' => 'Boolean',
     ];
 
-    private static array $has_one = [
-        'Image' => Image::class,
-    ];
+    private static array $has_one = [];
 
     private static array $many_many = [
+        'Images' => Image::class,
         'FontFamilyPages' => FontFamilyPage::class,
     ];
 
+    private static array $many_many_extraFields = [
+        'Images' => [
+            'SortOrder' => 'Int'
+        ],
+    ];
+
     private static array $owns = [
-        'Image',
+        'Images',
     ];
 
     private static array $extensions = [
@@ -61,6 +70,13 @@ class FontsInUse extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('SortOrder');
+        $fields->removeByName('Images');
+
+        $imagesField = UploadField::create('Images', 'Images')
+            ->setFolderName(static::folder())
+            ->setAllowedFileCategories('image');
+
+        $fields->addFieldToTab('Root.Main', $imagesField);
 
         $fields->replaceField('FontFamilyPages', SearchableMultiDropdownField::create(
             'FontFamilyPages',
@@ -80,5 +96,10 @@ class FontsInUse extends DataObject
     public function getFontsInUseAuthor(): ?string
     {
         return $this->Author;
+    }
+
+    public static function folder(): string
+    {
+        return File::join_paths(Config::inst()->get(Upload::class, 'uploads_folder'), static::FOLDER);
     }
 }

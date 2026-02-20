@@ -27,7 +27,7 @@ class CustomFontPage extends Page
     private static array $allowed_children = ['none'];
 
     private static array $db = [
-        'ShorText' => 'HTMLText',
+        'ShortText' => 'HTMLText',
     ];
 
     private static array $has_one = [
@@ -45,7 +45,7 @@ class CustomFontPage extends Page
         $fields->removeByName('SortOrder');
         $fields->removeByName('Content');
 
-        $fields->fieldByName('Root.Main.ShorText')?->setEditorConfig('small');
+        $fields->fieldByName('Root.Main.ShortText')?->setEditorConfig('small');
 
         return $fields;
     }

@@ -61,8 +61,13 @@ class FontsInUse implements PartialSchemaUpdater
                     ],
                 ]
             );
-            $model->addField('image', [
-                'type' => 'Image',
+            $model->addField('images', [
+                'type' => '[Image!]!',
+                'plugins' => [
+                    'filter' => false,
+                    'paginateList' => false,
+                    'sort' => false
+                ],
             ]);
 
             $model->addField('fontFamilyPages', [

@@ -31,7 +31,6 @@ class FontFamilyPage implements PartialSchemaUpdater
                 ]
             )
             ->addField('content', ['type' => 'String!', 'plugins' => ['requiredField' => true]])
-            ->addField('footerButton', ['type' => 'FooterButton!', 'property' => 'footerButton'])
             ->addField('fontCategories', [
                 'type' => '[FontCategory!]!',
                 'property' => 'FontCategories',
