@@ -7,6 +7,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
+use SLONline\App\Model\WebsiteBlocks\Slideshow;
 use SLONline\Elefont\Model\FontFamilyPage;
 
 /**
@@ -25,10 +26,13 @@ use SLONline\Elefont\Model\FontFamilyPage;
  * @property int $ImageID
  * @property int $MobileImageID
  * @property int $VideoID
+ * @property int $SlideshowWebsiteBlockID
+ *
  * @method  Page Page
  * @method  File Image
  * @method  File MobileImage
  * @method  File Video
+ * @method  Slideshow SlideshowWebsiteBlock
  */
 class Slide extends DataObject
 {
@@ -48,6 +52,7 @@ class Slide extends DataObject
         'Image' => Image::class,
         'MobileImage' => Image::class,
         'Video' => File::class,
+        'SlideshowWebsiteBlock' => Slideshow::class,
     ];
 
     private static array $extensions = [
@@ -113,6 +118,7 @@ class Slide extends DataObject
         $fields = parent::getCMSFields();
         $fields->removeByName('PageID');
         $fields->removeByName('SortOrder');
+        $fields->removeByName('SlideshowWebsiteBlockID');
 
         if ($this->Page() instanceof FontFamilyPage) {
             $fields->removeByName('Video');

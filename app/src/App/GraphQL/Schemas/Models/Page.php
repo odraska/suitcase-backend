@@ -47,10 +47,6 @@ class Page implements PartialSchemaUpdater
                 'showInMenus' => [
                     'type' => 'Boolean!',
                 ],
-                'showInHeader' => [
-                    'type' => 'Boolean!',
-                    'plugins' => ['requiredField' => true],
-                ],
                 'content' => [
                     'type' => 'String!',
                     'plugins' => ['requiredField' => true],

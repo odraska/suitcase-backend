@@ -21,16 +21,13 @@ namespace {
      * @author    Lubos Odraska <odraska@slonline.sk>
      * @copyright Copyright (c) 2025, SLONline, s.r.o.
      *
-     * @property boolean $ShowInHeader
      * @method HasManyList|WebsiteBlock WebsiteBlocks
      */
     class Page extends SiteTree
     {
         const string DRAFT_MODE_SECRET_TOKEN = 'BhQ8VtaMumlcQma';
 
-        private static array $db = [
-            'ShowInHeader' => 'Boolean',
-        ];
+        private static array $db = [];
 
         private static array $has_one = [];
 

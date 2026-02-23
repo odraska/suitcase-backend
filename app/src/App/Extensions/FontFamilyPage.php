@@ -324,7 +324,8 @@ class FontFamilyPage extends Extension
     public function updateFontFamilyPageCMSFields(FieldList $fields)
     {
         $fields->removeFieldsFromTab('Root', [
-            'ListText'
+            'ListText',
+            'CoverImage'
         ]);
     }
 

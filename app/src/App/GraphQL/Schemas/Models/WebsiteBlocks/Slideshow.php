@@ -26,8 +26,8 @@ class Slideshow implements PartialSchemaUpdater
                 'id' => [
                     'type' => 'ID!',
                 ],
-                'images' => [
-                    'type' => '[ImagesItem!]!',
+                'slides' => [
+                    'type' => '[Slide!]!',
                     'plugins' => [
                         'requiredField' => true,
                         'filter' => false,
