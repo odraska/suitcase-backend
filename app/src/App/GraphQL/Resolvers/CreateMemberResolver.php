@@ -69,6 +69,9 @@ class CreateMemberResolver
         if (isset($args['vatID'])) {
             $member->VATID = $args['vatID'];
         }
+        if (isset($args['locale'])) {
+            $member->Locale = (string)$args['locale'];
+        }
 
         $member->write();
 
@@ -79,10 +82,6 @@ class CreateMemberResolver
                 } catch (\Exception $e) {
                 }
             }
-        }
-
-        if (isset($args['locale'])) {
-            $member->Locale = (string)$args['locale'];
         }
 
         foreach ($args['licenseAddresses'] ?? [] as $licenseAddressInput) {

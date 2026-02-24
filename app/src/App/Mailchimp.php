@@ -43,7 +43,7 @@ class Mailchimp
 
         if ($memberFound && $memberInfo && isset($memberInfo['status']) && $memberInfo['status'] == 'subscribed') {
             // The e-mail address has already subscribed, provide feedback
-            $returnData['success'] = false;
+            $returnData['success'] = true;
             $returnData['message'] = _t(
                 __CLASS__ . '.DUPLICATE',
                 'This email address is already subscribed.'

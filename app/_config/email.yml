@@ -18,5 +18,5 @@ SLONline\AmazonAWS\Controller\AmazonEmailRequest:
   aws_region: 'eu-central-1'
 
 SLONline\App\Mailchimp:
-  api_key: '`MAILCHIMP_API_KEY`'
-  list_id: '3a31617f09'
+  api_key: 'b6887cd45fcfe131d979bc40418f7383-us8'
+  list_id: 'c7fbea8c3e'
