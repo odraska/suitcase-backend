@@ -4,6 +4,7 @@ namespace SLONline\App;
 
 use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Core\Injector\Injectable;
+use SilverStripe\Core\Injector\Injector;
 
 /**
  * Mailchimp integration class
@@ -21,6 +22,17 @@ class Mailchimp
 
     private array $tmpMemberInfo = [];
 
+    private function getApiKey(): string
+    {
+        $key = Injector::inst()->convertServiceProperty($this->config()->get('api_key'));
+        if (empty($key)) {
+            user_error('Mailchimp API key is not set', E_USER_WARNING);
+        }
+
+        return (string)$key;
+
+    }
+
     /**
      * @throws \Exception
      */
@@ -31,7 +43,7 @@ class Mailchimp
             'message' => _t(__CLASS__ . '.ERROR', 'Connection error'),
         ];
 
-        $client = new \DrewM\MailChimp\MailChimp($this->config()->get('api_key'));
+        $client = new \DrewM\MailChimp\MailChimp($this->getApiKey());
         $subscriberHash = \DrewM\MailChimp\MailChimp::subscriberHash($email);
 
         $memberInfo = $client->get(sprintf(
@@ -106,7 +118,7 @@ class Mailchimp
 
     public function unsubscribe(string $email): bool
     {
-        $client = new \DrewM\MailChimp\MailChimp($this->config()->get('api_key'));
+        $client = new \DrewM\MailChimp\MailChimp($this->getApiKey());
         $subscriberHash = \DrewM\MailChimp\MailChimp::subscriberHash($email);
 
         $memberInfo = $this->getMemberInfo($email, true);
@@ -148,7 +160,7 @@ class Mailchimp
             return $this->tmpMemberInfo[$subscriberHash];
         }*/
 
-        $client = new \DrewM\MailChimp\MailChimp($this->config()->get('api_key'));
+        $client = new \DrewM\MailChimp\MailChimp($this->getApiKey());
 
         $memberInfo = $client->get(sprintf(
             'lists/%s/members/%s',
