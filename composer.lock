@@ -5813,7 +5813,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/payment-stripe.git",
-                "reference": "e76556500119ff5094c865143c86f580fba80a1e"
+                "reference": "5a8731842d7becaeee6c7503fee25a494a81f7fe"
             },
             "require": {
                 "slonline/payment": "^6",
@@ -5835,7 +5835,7 @@
                     "homepage": "https://www.slonline.sk"
                 }
             ],
-            "time": "2026-02-26T14:38:55+00:00"
+            "time": "2026-02-26T14:44:45+00:00"
         },
         {
             "name": "slonline/silverstripe-editorjs-field",
