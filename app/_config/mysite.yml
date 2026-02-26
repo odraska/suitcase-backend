@@ -123,8 +123,10 @@ SLONline\Elefont\Model\FontFamily:
 
 SLONline\Commerce\Model\Config:
   useMOSSVAT: false
----
 
+---
+Name: stripe
+---
 SLONline\Payment\StripePayment:
   publicKey: "`STRIPE_PAYMENT_PUBLIC_KEY`"
   secretKey: "`STRIPE_PAYMENT_SECRET_KEY`"
