@@ -195,16 +195,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.371.1",
+            "version": "3.371.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "26cd04f9f47ca0d66baa59303f70bff5a5d48706"
+                "reference": "d300ec1c861e52dc8f17ca3d75dc754da949f065"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/26cd04f9f47ca0d66baa59303f70bff5a5d48706",
-                "reference": "26cd04f9f47ca0d66baa59303f70bff5a5d48706",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d300ec1c861e52dc8f17ca3d75dc754da949f065",
+                "reference": "d300ec1c861e52dc8f17ca3d75dc754da949f065",
                 "shasum": ""
             },
             "require": {
@@ -268,11 +268,11 @@
             "authors": [
                 {
                     "name": "Amazon Web Services",
-                    "homepage": "http://aws.amazon.com"
+                    "homepage": "https://aws.amazon.com"
                 }
             ],
             "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
-            "homepage": "http://aws.amazon.com/sdkforphp",
+            "homepage": "https://aws.amazon.com/sdk-for-php",
             "keywords": [
                 "amazon",
                 "aws",
@@ -286,9 +286,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.371.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.371.3"
             },
-            "time": "2026-02-25T19:05:28+00:00"
+            "time": "2026-02-27T19:05:40+00:00"
         },
         {
             "name": "bummzack/sortablefile",
@@ -5519,7 +5519,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/commerce.git",
-                "reference": "ad0861c49fe31ad17e508447a86ccefc3855fa0d"
+                "reference": "d18022bce8da74ce3177e6200e1ccbc68cb53e94"
             },
             "require": {
                 "mpdf/mpdf": "^8.1",
@@ -5553,7 +5553,7 @@
                 "Commerce",
                 "silverstripe"
             ],
-            "time": "2026-01-27T10:54:29+00:00"
+            "time": "2026-02-27T21:50:30+00:00"
         },
         {
             "name": "slonline/elefont",
@@ -5561,7 +5561,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:slonline/elefont.git",
-                "reference": "bc6aa62ef221c24f73a3a6b4fd0c4f580c50e5e8"
+                "reference": "9a29f344b2949635c4bb2e6a2f8a65157a4dd472"
             },
             "require": {
                 "geoip2/geoip2": "~v3.2.0",
@@ -5599,7 +5599,7 @@
                 "Font management",
                 "silverstripe"
             ],
-            "time": "2026-02-20T14:48:23+00:00"
+            "time": "2026-02-27T22:28:48+00:00"
         },
         {
             "name": "slonline/email-templates",
@@ -5843,12 +5843,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:SLONline/silverstripe-editorjs-field.git",
-                "reference": "67a04733f90f6ed66c9e30d25c8adfcf8d71bcc5"
+                "reference": "dc532756451ae329d461b979f0035fa44d8803d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SLONline/silverstripe-editorjs-field/zipball/67a04733f90f6ed66c9e30d25c8adfcf8d71bcc5",
-                "reference": "67a04733f90f6ed66c9e30d25c8adfcf8d71bcc5",
+                "url": "https://api.github.com/repos/SLONline/silverstripe-editorjs-field/zipball/dc532756451ae329d461b979f0035fa44d8803d1",
+                "reference": "dc532756451ae329d461b979f0035fa44d8803d1",
                 "shasum": ""
             },
             "require": {
@@ -5886,7 +5886,7 @@
                 "source": "https://github.com/SLONline/silverstripe-editorjs-field/tree/6",
                 "issues": "https://github.com/SLONline/silverstripe-editorjs-field/issues"
             },
-            "time": "2026-01-27T09:00:15+00:00"
+            "time": "2026-02-26T19:44:59+00:00"
         },
         {
             "name": "slonline/silverstripe-features",
